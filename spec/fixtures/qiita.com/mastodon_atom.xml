@@ -1,0 +1,2411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xml:lang="ja-JP" xmlns="http://www.w3.org/2005/Atom">
+  <id>tag:qiita.com,2005:/tags/mastodon/feed</id>
+  <link rel="alternate" type="text/html" href="http://qiita.com"/>
+  <link rel="self" type="application/atom+xml" href="http://qiita.com/tags/mastodon/feed"/>
+  <title>mastodonタグが付けられた新着投稿 - Qiita</title>
+  <description>Qiitaでmastodonタグが付けられた新着投稿</description>
+  <updated>2017-06-25T16:32:08+09:00</updated>
+  <link>http://qiita.com/tags/mastodon</link>
+  <entry>
+    <id>tag:qiita.com,2005:PublicArticle/503913</id>
+    <published>2017-06-25T16:32:08+09:00</published>
+    <updated>2017-06-25T16:33:35+09:00</updated>
+    <link rel="alternate" type="text/html" href="http://qiita.com/magicpot73@github/items/c3069520050df9d27226"/>
+    <url>http://qiita.com/magicpot73@github/items/c3069520050df9d27226</url>
+    <title>(備忘録)マストドンで使えるタスク</title>
+    <content type="html">
+&lt;h1&gt;
+&lt;span id="備忘録マストドンで使えるタスク" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E5%82%99%E5%BF%98%E9%8C%B2%E3%83%9E%E3%82%B9%E3%83%88%E3%83%89%E3%83%B3%E3%81%A7%E4%BD%BF%E3%81%88%E3%82%8B%E3%82%BF%E3%82%B9%E3%82%AF"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;(備忘録)マストドンで使えるタスク&lt;/h1&gt;
+
+&lt;h2&gt;
+&lt;span id="docker-compose-run---rm-web--以下のタスク" class="fragment"&gt;&lt;/span&gt;&lt;a href="#docker-compose-run---rm-web--%E4%BB%A5%E4%B8%8B%E3%81%AE%E3%82%BF%E3%82%B9%E3%82%AF"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;docker-compose run --rm web + 以下のタスク&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;&lt;br&gt;
+rails about                                          # List versions of all Rails frameworks and the environment&lt;br&gt;
+rails app:template                                   # Applies the template supplied by LOCATION=(/path/to/template) or URL&lt;br&gt;
+rails app:update                                     # Update configs and some other initially generated files (or use just update:configs or update:bin)&lt;br&gt;
+rails assets:clean[keep]                             # Remove old compiled assets&lt;br&gt;
+rails assets:clobber                                 # Remove compiled assets&lt;br&gt;
+rails assets:environment                             # Load asset compile environment&lt;br&gt;
+rails assets:precompile                              # Compile all the assets named in config.assets.precompile&lt;br&gt;
+rails cache_digests:dependencies                     # Lookup first-level dependencies for TEMPLATE (like messages/show or comments/_comment.html)&lt;br&gt;
+rails cache_digests:nested_dependencies              # Lookup nested dependencies for TEMPLATE (like messages/show or comments/_comment.html)&lt;br&gt;
+rails db:create                                      # Creates the database from DATABASE_URL or config/database.yml for the current RAILS_ENV (use db:create:all to create all databas...&lt;br&gt;
+rails db:drop                                        # Drops the database from DATABASE_URL or config/database.yml for the current RAILS_ENV (use db:drop:all to drop all databases in ...&lt;br&gt;
+rails db:environment:set                             # Set the environment value for the database&lt;br&gt;
+rails db:fixtures:load                               # Loads fixtures into the current environment's database&lt;br&gt;
+rails db:migrate                                     # Migrate the database (options: VERSION=x, VERBOSE=false, SCOPE=blog)&lt;br&gt;
+rails db:migrate:setup                               # Setup the db or migrate depending on state of db&lt;br&gt;
+rails db:migrate:status                              # Display status of migrations&lt;br&gt;
+rails db:rollback                                    # Rolls the schema back to the previous version (specify steps w/ STEP=n)&lt;br&gt;
+rails db:schema:cache:clear                          # Clears a db/schema_cache.yml file&lt;br&gt;
+rails db:schema:cache:dump                           # Creates a db/schema_cache.yml file&lt;br&gt;
+rails db:schema:dump                                 # Creates a db/schema.rb file that is portable against any DB supported by Active Record&lt;br&gt;
+rails db:schema:load                                 # Loads a schema.rb file into the database&lt;br&gt;
+rails db:seed                                        # Loads the seed data from db/seeds.rb&lt;br&gt;
+rails db:setup                                       # Creates the database, loads the schema, and initializes with the seed data (use db:reset to also drop the database first)&lt;br&gt;
+rails db:structure:dump                              # Dumps the database structure to db/structure.sql&lt;br&gt;
+rails db:structure:load                              # Recreates the databases from the structure.sql file&lt;br&gt;
+rails db:version                                     # Retrieves the current schema version number&lt;br&gt;
+rails dev:cache                                      # Toggle development mode caching on/off&lt;br&gt;
+rails hamlit:erb2haml                                # Convert erb to haml in app/views&lt;br&gt;
+rails initializers                                   # Print out all defined initializers in the order they are invoked by Rails&lt;br&gt;
+rails log:clear                                      # Truncates all/specified *.log files in log/ to zero bytes (specify which logs with LOGS=test,development)&lt;br&gt;
+rails mastodon:confirm_email                         # Manually confirms a user with associated user email address stored in USER_EMAIL environment variable&lt;br&gt;
+rails mastodon:daily                                 # Execute daily tasks&lt;br&gt;
+rails mastodon:emails:digest                         # Send out digest e-mails&lt;br&gt;
+rails mastodon:feeds:clear                           # Clear timelines of inactive users&lt;br&gt;
+rails mastodon:feeds:clear_all                       # Clears all timelines&lt;br&gt;
+rails mastodon:maintenance:add_static_avatars        # Generate static versions of GIF avatars/headers&lt;br&gt;
+rails mastodon:maintenance:prepare_for_foreign_keys  # Ensure referencial integrity&lt;br&gt;
+rails mastodon:maintenance:update_counter_caches     # Update counter caches&lt;br&gt;
+rails mastodon:make_admin                            # Turn a user into an admin, identified by the USERNAME environment variable&lt;br&gt;
+rails mastodon:media:clear                           # Removes media attachments that have not been assigned to any status for longer than a day&lt;br&gt;
+rails mastodon:media:remove_remote                   # Remove cached remote media attachments that are older than a week&lt;br&gt;
+rails mastodon:media:remove_silenced                 # Remove media attachments attributed to silenced accounts&lt;br&gt;
+rails mastodon:media:set_unknown                     # Set unknown attachment type for remote-only attachments&lt;br&gt;
+rails mastodon:push:clear                            # Unsubscribes from PuSH updates of feeds nobody follows locally&lt;br&gt;
+rails mastodon:push:refresh                          # Re-subscribes to soon expiring PuSH subscriptions&lt;br&gt;
+rails mastodon:settings:close_registrations          # Close registrations on this instance&lt;br&gt;
+rails mastodon:settings:open_registrations           # Open registrations on this instance&lt;br&gt;
+rails mastodon:stats                                 # Report code statistics (KLOCs, etc)&lt;br&gt;
+rails mastodon:users:admins                          # List all admin users&lt;br&gt;
+rails mastodon:users:clear                           # Clear out unconfirmed users&lt;br&gt;
+rails middleware                                     # Prints out your Rack middleware stack&lt;br&gt;
+rails notes                                          # Enumerate all annotations (use notes:optimize, :fixme, :todo for focus)&lt;br&gt;
+rails notes:custom                                   # Enumerate a custom annotation, specify with ANNOTATION=CUSTOM&lt;br&gt;
+rails paperclip:clean                                # Cleans out invalid attachments&lt;br&gt;
+rails paperclip:find_broken_attachments              # find missing attachments&lt;br&gt;
+rails paperclip:refresh                              # Refreshes both metadata and thumbnails&lt;br&gt;
+rails paperclip:refresh:metadata                     # Regenerates content_type/size metadata for a given CLASS (and optional ATTACHMENT)&lt;br&gt;
+rails paperclip:refresh:missing_styles               # Regenerates missing thumbnail styles for all classes using Paperclip&lt;br&gt;
+rails paperclip:refresh:thumbnails                   # Regenerates thumbnails for a given CLASS (and optional ATTACHMENT and STYLES splitted by comma)&lt;br&gt;
+rails pghero:analyze                                 # analyze tables&lt;br&gt;
+rails pghero:autoindex                               # autoindex&lt;br&gt;
+rails pghero:capture_query_stats                     # capture query stats&lt;br&gt;
+rails pghero:capture_space_stats                     # capture space stats&lt;br&gt;
+rails restart                                        # Restart app by touching tmp/restart.txt&lt;br&gt;
+rails routes                                         # Print out all defined routes in match order, with names&lt;br&gt;
+rails secret                                         # Generate a cryptographically secure secret key (this is typically used to generate a secret for cookie sessions)&lt;br&gt;
+rails stats                                          # Report code statistics (KLOCs, etc) from the application or engine&lt;br&gt;
+rails test                                           # Runs all tests in test folder except system ones&lt;br&gt;
+rails test:db                                        # Run tests quickly, but also reset db&lt;br&gt;
+rails time:zones[country_or_offset]                  # List all time zones, list by two-letter country code (&lt;/code&gt;rails time:zones[US]&lt;code&gt;), or list by UTC offset (&lt;/code&gt;rails time:zones[-8]&lt;code&gt;)&lt;br&gt;
+rails tmp:clear                                      # Clear cache and socket files from tmp/ (narrow w/ tmp:cache:clear, tmp:sockets:clear)&lt;br&gt;
+rails tmp:create                                     # Creates tmp directories for cache, sockets, and pids&lt;br&gt;
+rails webpacker                                      # Lists all available tasks in webpacker&lt;br&gt;
+rails webpacker:check_node                           # Verifies if Node.js is installed&lt;br&gt;
+rails webpacker:check_yarn                           # Verifies if yarn is installed&lt;br&gt;
+rails webpacker:clobber                              # Remove the webpack compiled output directory&lt;br&gt;
+rails webpacker:compile                              # Compile javascript packs using webpack for production with digests&lt;br&gt;
+rails webpacker:compile_before_test                  # Compile javascript packs using webpack for test with digests&lt;br&gt;
+rails webpacker:install                              # Install webpacker in this application&lt;br&gt;
+rails webpacker:install:angular                      # Install everything needed for Angular&lt;br&gt;
+rails webpacker:install:react                        # Install everything needed for React&lt;br&gt;
+rails webpacker:install:vue                          # Install everything needed for Vue&lt;br&gt;
+rails webpacker:verify_install                       # Verifies if webpacker is installed&lt;br&gt;
+rails webpacker:yarn_install                         # Support for older Rails versions.Install all JavaScript dependencies as specified via Yarn&lt;br&gt;
+rails yarn:install                                   # Install all JavaScript dependencies as specified via Yarn&lt;br&gt;
+&lt;/code&gt;&lt;/p&gt;
+</content>
+    <author>
+      <name>magicpot73@github</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:qiita.com,2005:PublicArticle/503895</id>
+    <published>2017-06-25T14:49:37+09:00</published>
+    <updated>2017-06-25T14:53:18+09:00</updated>
+    <link rel="alternate" type="text/html" href="http://qiita.com/magicpot73@github/items/9ae01dd1bce47863235c"/>
+    <url>http://qiita.com/magicpot73@github/items/9ae01dd1bce47863235c</url>
+    <title>mastodonでv1.4系にアップデートするときにassets:precompileでコケる問題に対処する</title>
+    <content type="html">
+&lt;h1&gt;
+&lt;span id="docker-compose-run---rm-web-rails-assetsprecompileでerrorが起きる問題があったのでメモしておきます" class="fragment"&gt;&lt;/span&gt;&lt;a href="#docker-compose-run---rm-web-rails-assetsprecompile%E3%81%A7error%E3%81%8C%E8%B5%B7%E3%81%8D%E3%82%8B%E5%95%8F%E9%A1%8C%E3%81%8C%E3%81%82%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%83%A1%E3%83%A2%E3%81%97%E3%81%A6%E3%81%8A%E3%81%8D%E3%81%BE%E3%81%99"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;docker-compose run --rm web rails assets:precompileでerrorが起きる問題があったのでメモしておきます。&lt;/h1&gt;
+
+&lt;p&gt;主にさくらのVPSにて、標準インストール/CentOS7を選択しているときに高確率で出くわすと思います。&lt;br&gt;
+原因は、さくらのVPSが悪いんじゃなくて、dockerの設定とファイルフォーマットの問題でした。&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;span id="以下のようなエラーが出てプリコンパイルできない" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E4%BB%A5%E4%B8%8B%E3%81%AE%E3%82%88%E3%81%86%E3%81%AA%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%8C%E5%87%BA%E3%81%A6%E3%83%97%E3%83%AA%E3%82%B3%E3%83%B3%E3%83%91%E3%82%A4%E3%83%AB%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;以下のようなエラーが出て、プリコンパイルできない&lt;/h2&gt;
+
+&lt;p&gt;An unexpected error occurred: "ENOTEMPTY: directory not empty, rmdir 'hoge'&lt;br&gt;
+ファイルが消せないのか?&lt;br&gt;
+はい、消せません。&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="なぜか" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%81%AA%E3%81%9C%E3%81%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;なぜか?&lt;/h3&gt;
+
+&lt;p&gt;Centos7のファイルシステムがxfsだ!!&lt;br&gt;
+&lt;code&gt;&lt;br&gt;
+df -hT&lt;br&gt;
+Filesystem     Type      Size  Used Avail Use% Mounted on&lt;br&gt;
+/dev/vda3      xfs      193G  6.2G  177G   4% /&lt;br&gt;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="根本的な原因はこちらですありがとうございます" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E6%A0%B9%E6%9C%AC%E7%9A%84%E3%81%AA%E5%8E%9F%E5%9B%A0%E3%81%AF%E3%81%93%E3%81%A1%E3%82%89%E3%81%A7%E3%81%99%E3%81%82%E3%82%8A%E3%81%8C%E3%81%A8%E3%81%86%E3%81%94%E3%81%96%E3%81%84%E3%81%BE%E3%81%99"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;根本的な原因はこちらです(ありがとうございます!)&lt;/h3&gt;
+
+&lt;p&gt;[引用]&lt;br&gt;
+OverlayFSは上側に重ねるファイルシステムがファイルタイプを返すd_typeをサポートしていないと使えません。d_typeをサポートしないファイルシステムでOverlayするとwhiteoutファイルをDT_CHRと判定できないため、消したはずのファイル(やディレクトリ)が中途半端に見えてしまいます。&lt;br&gt;
+&lt;a href="http://qiita.com/amatsus/items/aa2a58b0d5800312b6fa" class="autolink" id="reference-4c00272c9c9892f223ae"&gt;http://qiita.com/amatsus/items/aa2a58b0d5800312b6fa&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;span id="つまりoverlayxfsデフォルトの設定の組み合わせはトラブル起こすのでやめましょう" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%81%A4%E3%81%BE%E3%82%8Aoverlayxfs%E3%83%87%E3%83%95%E3%82%A9%E3%83%AB%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%81%AE%E7%B5%84%E3%81%BF%E5%90%88%E3%82%8F%E3%81%9B%E3%81%AF%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E8%B5%B7%E3%81%93%E3%81%99%E3%81%AE%E3%81%A7%E3%82%84%E3%82%81%E3%81%BE%E3%81%97%E3%82%87%E3%81%86"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;つまり、overlay+xfs(デフォルトの設定)の組み合わせはトラブル起こすのでやめましょう。&lt;/h2&gt;
+
+&lt;p&gt;dockerインストール時にdockerのデバイスドライバを「devicemapper」にする設定をすること、&lt;br&gt;
+"production systems, you must use direct-lvm mode"プロダクションモードではdirect-lvmを使ってね、とコメントありますんで、こことても重要です!!&lt;br&gt;
+&lt;a href="https://docs.docker.com/engine/installation/linux/centos/#install-from-a-package" class="autolink" rel="nofollow noopener" target="_blank"&gt;https://docs.docker.com/engine/installation/linux/centos/#install-from-a-package&lt;/a&gt;&lt;br&gt;
+&lt;a href="http://docs.docker.jp/engine/userguide/storagedriver/selectadriver.html" class="autolink" rel="nofollow noopener" target="_blank"&gt;http://docs.docker.jp/engine/userguide/storagedriver/selectadriver.html&lt;/a&gt;&lt;br&gt;
+&lt;a href="https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/#configure-direct-lvm-mode-for-production" class="autolink" rel="nofollow noopener" target="_blank"&gt;https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/#configure-direct-lvm-mode-for-production&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;今回は、手っ取り早く立ち上げるために、標準OSインストールしてフォーマットの確認を忘れていたのと、/etc/docker/daemon.jsonの設定を忘れてたことが原因です。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="対処方法" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E5%AF%BE%E5%87%A6%E6%96%B9%E6%B3%95"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;対処方法&lt;/h1&gt;
+
+&lt;p&gt;で、どうしたかというと、ごにょごにょするのめんどくさかったので、マストドンのディレクトリごと別サーバに退避して、サーバを上記の点に注意しながら再構築して、アップデートしました。&lt;/p&gt;
+</content>
+    <author>
+      <name>magicpot73@github</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:qiita.com,2005:PublicArticle/503127</id>
+    <published>2017-06-22T00:06:43+09:00</published>
+    <updated>2017-06-23T23:48:19+09:00</updated>
+    <link rel="alternate" type="text/html" href="http://qiita.com/KEINOS/items/c258b0e058631e77fefb"/>
+    <url>http://qiita.com/KEINOS/items/c258b0e058631e77fefb</url>
+    <title>MastodonインスタンスをKUSANAGIにワンライナーで建てる（Docker不使用、CentOS7.x@さくらVPS）</title>
+    <content type="html">&lt;p&gt;&lt;a href="https://qiita-image-store.s3.amazonaws.com/0/78776/a0330a0d-e23e-3129-62ae-10c5910d6e50.png" target="_blank" rel="nofollow noopener"&gt;&lt;img width="500px" alt="20170621_2349_KusanagiMastodon.png" src="https://qiita-image-store.s3.amazonaws.com/0/78776/a0330a0d-e23e-3129-62ae-10c5910d6e50.png"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="インスタンスをコマンド一発で建てたい" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%82%92%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E4%B8%80%E7%99%BA%E3%81%A7%E5%BB%BA%E3%81%A6%E3%81%9F%E3%81%84"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;インスタンスをコマンド一発で建てたい&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href="http://qiita.com/KEINOS/items/2f29779836c2d2989854" id="reference-cdd457a655187a84010f"&gt;先日のQiita記事&lt;/a&gt;に続き、「さくらのVPS」の「標準OSインストール」で選択できる「&lt;strong&gt;KUSANAGI&lt;/strong&gt;（CentOS7 x86_64）」でも、マストドンのサーバー（インスタンス）を一発で建てるスクリプトを&lt;a href="https://gist.github.com/KEINOS/044296632e363fad065ff9a17b01d143" rel="nofollow noopener" target="_blank"&gt;Gistに公開&lt;/a&gt;しました。&lt;br&gt;
+インスタンス立ち上げ後も、KUSANAGIは従来通り使えるので別途Wordpressのプロビジョニング（LAMP環境）も作成できます。（KUSANAGIは初期化済みとなるので、改めて初期化をしたい場合は注意ください。）&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="一発インストールのコマンドkusanagiバージョン" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E4%B8%80%E7%99%BA%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%AE%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89kusanagi%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;一発インストールのコマンド（KUSANAGIバージョン）&lt;/h1&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd ~/ &amp;amp;&amp;amp; curl https://gist.githubusercontent.com/KEINOS/044296632e363fad065ff9a17b01d143/raw &amp;gt; install_mastodon.sh &amp;amp;&amp;amp; chmod 0755 install_mastodon.sh &amp;amp;&amp;amp; ./install_mastodon.sh
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;「KUSANAGI（CentOS7 x86_64）」をインストールした直後に&lt;code&gt;root&lt;/code&gt;で&lt;code&gt;SSH&lt;/code&gt;接続して、上記コマンドを実行すると、Mastodonにアクセスできる状態まで20分弱程度でセットアップしてくれます。&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;span id="大まかな動作" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E5%A4%A7%E3%81%BE%E3%81%8B%E3%81%AA%E5%8B%95%E4%BD%9C"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;大まかな動作&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;yum update&lt;/code&gt;を行った後、&lt;code&gt;kusanagi&lt;/code&gt;の初期化・LEMP環境の構築（プロビジョニングの実行）・Let'sEncryptのSSL証明書の取得を実行してから、&lt;code&gt;kusanagi&lt;/code&gt;ユーザーで&lt;code&gt;ruby&lt;/code&gt;,&lt;code&gt;rails&lt;/code&gt;などの依存プログラムを導入して、Mastodonのインストールを行います。さらに詳しい流れは&lt;a href="https://gist.github.com/KEINOS/044296632e363fad065ff9a17b01d143" rel="nofollow noopener" target="_blank"&gt;実際のbashスクリプト&lt;/a&gt;をご覧いただくのがベストだと思います。&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;span id="注意点" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E6%B3%A8%E6%84%8F%E7%82%B9"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;注意点&lt;/h2&gt;
+
+&lt;p&gt;上でも簡単に述べましたが、従来のインストールと一番違うのは&lt;strong&gt;&lt;code&gt;mastodon&lt;/code&gt;アカウントを作成せず&lt;code&gt;kusanagi&lt;/code&gt;アカウントでMastodonをインストールしている&lt;/strong&gt;点です。&lt;/p&gt;
+
+&lt;p&gt;これは従来の導入方法だと&lt;code&gt;mastodon&lt;/code&gt;アカウントで&lt;code&gt;nginx&lt;/code&gt;の&lt;code&gt;conf&lt;/code&gt;を上書きしてしまうため、Mastodonは動きはするものの「kusanagiコマンド」でプロビジョニング（新規のWordpress環境を設置）した際に表示されなかったり、「&lt;code&gt;yum update&lt;/code&gt;後に再起動すると&lt;code&gt;nginx&lt;/code&gt;が起動しない」といった細かい不都合が発生しました。&lt;/p&gt;
+
+&lt;p&gt;そこで、色々試した結果（疲れたので）Web関連の挙動は&lt;code&gt;kusanagi&lt;/code&gt;アカウントで行うように統一したところ一番安定した動作を得られたため、&lt;strong&gt;このスクリプトでは管理用に&lt;code&gt;mastodon&lt;/code&gt;アカウントは作成しない仕様&lt;/strong&gt;になっています。&lt;/p&gt;
+
+&lt;p&gt;そのため、コマンド・ラインでMastodonのユーザーの認証を行いたい場合なども&lt;code&gt;kusanagi&lt;/code&gt;ユーザーでの操作になります。また、操作も&lt;code&gt;kusanagi&lt;/code&gt;のホームディレクトリ内にある&lt;code&gt;live&lt;/code&gt;ディレクトリに移動してから実行してください。&lt;/p&gt;
+
+&lt;p&gt;なお、&lt;a href="http://qiita.com/search?q=mastodon+%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3"&gt;マストドンのセキュリティ&lt;/a&gt;の観点からも、まずは下記の設定をすぐに変更することをおすすめします。&lt;br&gt;
+1. &lt;code&gt;root&lt;/code&gt;ユーザーと&lt;code&gt;kusanagi&lt;/code&gt;ユーザーの&lt;code&gt;ssh&lt;/code&gt;接続禁止&lt;br&gt;
+2. &lt;code&gt;ssh&lt;/code&gt;のパスワード認証によるログイン認証禁止&lt;br&gt;
+3. &lt;code&gt;ssh&lt;/code&gt;の接続ポート番号の変更&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="手動認証コマンドで認証を通す例" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E6%89%8B%E5%8B%95%E8%AA%8D%E8%A8%BC%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%A7%E8%AA%8D%E8%A8%BC%E3%82%92%E9%80%9A%E3%81%99%E4%BE%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;手動認証（コマンドで認証を通す）例&lt;/h3&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;su - kusanagi
+cd live
+RAILS_ENV=production bundle exec rails mastodon:confirm_email USER_EMAIL=your@mail.com
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3&gt;
+&lt;span id="ユーザーkeinosを管理者に昇格する例" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BCkeinos%E3%82%92%E7%AE%A1%E7%90%86%E8%80%85%E3%81%AB%E6%98%87%E6%A0%BC%E3%81%99%E3%82%8B%E4%BE%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;ユーザー"KEINOS"を管理者に昇格する例&lt;/h3&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;su - kusanagi
+cd live
+RAILS_ENV=production bundle exec rails mastodon:make_admin USERNAME=KEINOS
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3&gt;
+&lt;span id="関連qiita記事" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E9%96%A2%E9%80%A3qiita%E8%A8%98%E4%BA%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;関連Qiita記事&lt;/h3&gt;
+
+&lt;p&gt;「さくらのVPS」でKUSANAGIの入っていないVPSインスタンス（CentOS7 x86_64のイメージ）にマストドンのインスタンスをインストールしたい場合は、下記の&lt;a href="http://qiita.com/KEINOS/items/2f29779836c2d2989854"&gt;前回の記事&lt;/a&gt;をご覧ください。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td&gt;
+      &lt;a href="http://qiita.com/KEINOS/items/2f29779836c2d2989854"&gt;&lt;strong&gt;Mastodonインスタンスをワンライナーで建てる（Docker不使用、CentOS7.x@さくらVPS）&lt;/strong&gt;&lt;/a&gt;
+      &lt;a href="http://b.hatena.ne.jp/entry/http://qiita.com/KEINOS/items/2f29779836c2d2989854" rel="nofollow noopener" target="_blank"&gt;
+      &lt;img src="http://b.hatena.ne.jp/entry/image/http://qiita.com/KEINOS/items/2f29779836c2d2989854" alt=""&gt;&lt;/a&gt;
+      &lt;br&gt;
+      分散型ミニブログ「マストドン」のサーバー（インスタンス）を`yum install mastodn`くらいに「もっと手軽に建てられればいいのになぁ」と思い、ほぼ全自動でマストドンをインストールしてくれるbashスクリプトをGistに公開しました。
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</content>
+    <author>
+      <name>KEINOS</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:qiita.com,2005:PublicArticle/502909</id>
+    <published>2017-06-21T12:22:23+09:00</published>
+    <updated>2017-06-22T19:43:24+09:00</updated>
+    <link rel="alternate" type="text/html" href="http://qiita.com/tumujin/items/c0c9d39f05af4f52bfc7"/>
+    <url>http://qiita.com/tumujin/items/c0c9d39f05af4f52bfc7</url>
+    <title>mastodon のテーマカラーの変更は簡単だよ</title>
+    <content type="html">
+&lt;h1&gt;
+&lt;span id="やりたいこと" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%82%84%E3%82%8A%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;やりたいこと&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;mastodon のデザイン（配色）を変えてみたい&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1&gt;
+&lt;span id="手順" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E6%89%8B%E9%A0%86"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;手順&lt;/h1&gt;
+
+&lt;div class="code-frame" data-lang="sass"&gt;
+&lt;div class="code-lang"&gt;&lt;span class="bold"&gt;app/javascript/styles/variables.scss&lt;/span&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="na"&gt;$classic-base-color&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mh"&gt;#282c37&lt;/span&gt;&lt;span class="err"&gt;;&lt;/span&gt;         &lt;span class="c1"&gt;// Midnight Express&lt;/span&gt;
+&lt;span class="na"&gt;$classic-primary-color&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mh"&gt;#9baec8&lt;/span&gt;&lt;span class="err"&gt;;&lt;/span&gt;      &lt;span class="c1"&gt;// Echo Blue&lt;/span&gt;
+&lt;span class="na"&gt;$classic-secondary-color&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mh"&gt;#d9e1e8&lt;/span&gt;&lt;span class="err"&gt;;&lt;/span&gt;    &lt;span class="c1"&gt;// Pattens Blue&lt;/span&gt;
+&lt;span class="na"&gt;$classic-highlight-color&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mh"&gt;#2b90d9&lt;/span&gt;&lt;span class="err"&gt;;&lt;/span&gt;    &lt;span class="c1"&gt;// Summer Sky&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;mastodon ではここで指定した4色をベースにしているようです。&lt;br&gt;
+他の色はベースを元に明度を変更して色を作っているようです。（マウスオーバーで明るさ20％あげる等）&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;span id="変更のサンプル" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E5%A4%89%E6%9B%B4%E3%81%AE%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;変更のサンプル&lt;/h2&gt;
+
+&lt;h3&gt;
+&lt;span id="緑系" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E7%B7%91%E7%B3%BB"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;緑系&lt;/h3&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$classic-base-color: #223322;
+$classic-primary-color: #aaaa77;
+$classic-secondary-color: #d9e1e8;
+$classic-highlight-color: #aa77aa;
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href="https://qiita-image-store.s3.amazonaws.com/0/124341/3f830fbc-7450-65a6-324f-26ab9dae88c7.png" target="_blank" rel="nofollow noopener"&gt;&lt;img src="https://qiita-image-store.s3.amazonaws.com/0/124341/3f830fbc-7450-65a6-324f-26ab9dae88c7.png" alt="Screen Shot 2017-06-21 at 11.43.46.png"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="某白いロボット風カラー" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E6%9F%90%E7%99%BD%E3%81%84%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E9%A2%A8%E3%82%AB%E3%83%A9%E3%83%BC"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;某白いロボット風カラー&lt;/h3&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$classic-base-color: #ccc;
+$classic-primary-color: #d33;
+$classic-secondary-color: #d9e1e8;
+$classic-highlight-color: #6667dd;
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href="https://qiita-image-store.s3.amazonaws.com/0/124341/8d3389af-f02a-2217-cbc5-776783460682.png" target="_blank" rel="nofollow noopener"&gt;&lt;img src="https://qiita-image-store.s3.amazonaws.com/0/124341/8d3389af-f02a-2217-cbc5-776783460682.png" alt="Screen Shot 2017-06-21 at 11.32.42.png"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;白背景黒字にするときはテキストカラーの変更を忘れずに&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$primary-text-color: $black !default;
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;自分が立ち上げた、おもちゃ系マストドンでは某黒いロボット風のカラーにして見ました。&lt;br&gt;
+&lt;a href="https://plasticmodels.tokyo/about" class="autolink" rel="nofollow noopener" target="_blank"&gt;https://plasticmodels.tokyo/about&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;個性的なインスタンスが増えますように。&lt;/p&gt;
+</content>
+    <author>
+      <name>tumujin</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:qiita.com,2005:PublicArticle/502734</id>
+    <published>2017-06-20T17:44:01+09:00</published>
+    <updated>2017-06-20T17:44:01+09:00</updated>
+    <link rel="alternate" type="text/html" href="http://qiita.com/tumujin/items/49261a0d9a0e05691b93"/>
+    <url>http://qiita.com/tumujin/items/49261a0d9a0e05691b93</url>
+    <title>Conoha の Mastodon テンプレート 1.2 -&gt; 1.4.3 にバージョンアップ(non Docker)</title>
+    <content type="html">
+&lt;h2&gt;
+&lt;span id="背景" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E8%83%8C%E6%99%AF"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;背景&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Conoha のテンプレートで Mastodon を立ち上げる&lt;/li&gt;
+&lt;li&gt;バージョンが古い（1.2系）なので 1.4.3 にあげるも precompile で止まる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;
+&lt;span id="目指すところ" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E7%9B%AE%E6%8C%87%E3%81%99%E3%81%A8%E3%81%93%E3%82%8D"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;目指すところ&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;問題を回避して 1.4.3 にアップデートする&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;
+&lt;span id="原因" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E5%8E%9F%E5%9B%A0"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;原因&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;mastodon ユーザーで yarn が実行できなかった（nodejs のインストールの仕方が悪かったかも？）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;
+&lt;span id="結果手順" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E7%B5%90%E6%9E%9C%E6%89%8B%E9%A0%86"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;結果(手順)&lt;/h2&gt;
+
+&lt;p&gt;必要なパッケージのインストールを以下の手順で行うことでエラーを回避できました。&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="各種アップデート" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E5%90%84%E7%A8%AE%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;各種アップデート&lt;/h3&gt;
+
+&lt;p&gt;root で実行&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;npm install -g npm@3
+npm install -g yarn@0.18.2
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+apt-get install nodejs
+apt-get install -y pkg-config libprotobuf-dev protobuf-compiler
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;nom と yarn は最新すぎると動かない報告があったのでバージョンを指定してインストール&lt;br&gt;
+node の更新に n を入れる方法もあったのですが、それだと mastodon ユーザーの時に動かなかったのでこちらの方法で入れる。&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="rails-の更新" class="fragment"&gt;&lt;/span&gt;&lt;a href="#rails-%E3%81%AE%E6%9B%B4%E6%96%B0"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;rails の更新&lt;/h3&gt;
+
+&lt;p&gt;mastodon ユーザーに切り替えて作業&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;su mastodon
+
+cd /home/mastodon/live
+git fetch
+git checkout v1.4.3
+bundle install
+yarn isntall
+
+RAILS_ENV=production bundle exec rails mastodon:maintenance:prepare_for_foreign_keys
+RAILS_ENV=production bundle exec rails assets:precompile
+RAILS_ENV=production bundle exec rails db:migrate
+conoha
+RAILS_ENV=production bundle exec rails r Rails.cache.clear
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;もし過去に root で git の操作をしてしまっていたらファイルの権限を見直してください。&lt;br&gt;
+問題なければここの precompile は通る！&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="mastodon-の再起動" class="fragment"&gt;&lt;/span&gt;&lt;a href="#mastodon-%E3%81%AE%E5%86%8D%E8%B5%B7%E5%8B%95"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;mastodon の再起動&lt;/h3&gt;
+
+&lt;p&gt;root に戻って作業&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;exit
+
+systemctl restart mastodon-sidekiq
+systemctl restart mastodon-streaming
+systemctl restart mastodon-web
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;以上で 1.4.3 にあげることができました。&lt;/p&gt;
+
+&lt;p&gt;参考&lt;br&gt;
+リリースノート &lt;a href="https://github.com/tootsuite/mastodon/releases" class="autolink" rel="nofollow noopener" target="_blank"&gt;https://github.com/tootsuite/mastodon/releases&lt;/a&gt;&lt;br&gt;
+Conoha 公式 &lt;a href="https://www.conoha.jp/guide/mastodon.php?btn_id=news_mastodon&amp;amp;_ga=2.167012218.536184911.1497860060-674940405.1444268309" class="autolink" rel="nofollow noopener" target="_blank"&gt;https://www.conoha.jp/guide/mastodon.php?btn_id=news_mastodon&amp;amp;_ga=2.167012218.536184911.1497860060-674940405.1444268309&lt;/a&gt;&lt;br&gt;
+1.4.1 のエラーについて &lt;a href="https://github.com/tootsuite/mastodon/issues/3251" class="autolink" rel="nofollow noopener" target="_blank"&gt;https://github.com/tootsuite/mastodon/issues/3251&lt;/a&gt;&lt;/p&gt;
+</content>
+    <author>
+      <name>tumujin</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:qiita.com,2005:PublicArticle/502290</id>
+    <published>2017-06-18T22:24:34+09:00</published>
+    <updated>2017-06-20T20:01:44+09:00</updated>
+    <link rel="alternate" type="text/html" href="http://qiita.com/chanken/items/ac43e609139aa6329f1a"/>
+    <url>http://qiita.com/chanken/items/ac43e609139aa6329f1a</url>
+    <title>DockerでMastodonのインスタンスを立てる。とりあえずメールサーバーはホストOSで。</title>
+    <content type="html">&lt;p&gt;VPSでMastodonのインスタンスを立ち上げてみました。&lt;br&gt;
+Qiitaの記事を参考に構築したのですが一部想定どおりに動作しなかったので他のサイトを参考に変更しました。&lt;br&gt;
+メールの配信は、とりあえずホストOS上にPostfixを構築してSMTP認証なしで行っています。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="ネットワークを作成する" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;ネットワークを作成する&lt;/h1&gt;
+
+&lt;p&gt;メールの配信はホストOS上のPostfixで行い、かつ、Postfixの構築を簡単にするためにSMTP認証なしにします。&lt;br&gt;
+ホストOSのPostfixから見るとコンテナ上で動作するMastodonは他サーバーで動作しているように見えるので、サブネットを指定してDockerのネットワークを作成してPostfixのmynetworksに設定します。&lt;br&gt;
+リバースプロキシとWebサーバー間のネットワークを172.20.0.0/16、Mastodon内のネットワークを172.21.0.0/16とします。&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;docker network create --driver bridge --subnet 172.20.0.0/16 front
+docker network create --driver bridge --subnet 172.21.0.0/16 mstdn
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1&gt;
+&lt;span id="リバースプロキシのdocker-composeymlを作成する" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%83%AA%E3%83%90%E3%83%BC%E3%82%B9%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7%E3%81%AEdocker-composeyml%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;リバースプロキシのdocker-compose.ymlを作成する&lt;/h1&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;version: '2'
+services:
+  proxy:
+    image: jwilder/nginx-proxy:alpine
+    container_name: proxy-nginx
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
+    tty: false
+    privileged: true
+    volumes:
+      - ./certs:/etc/nginx/certs:ro
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - /etc/nginx/vhost.d
+      - /usr/share/nginx/html
+    networks:
+      - front
+
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    container_name: proxy-letsencrypt
+    restart: always
+    tty: false
+    privileged: true
+    volumes:
+      - ./certs:/etc/nginx/certs:rw
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    volumes_from:
+      - proxy
+    networks:
+      - front
+
+networks:
+  front:
+    external: true
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;letsencrypt-nginx-proxy-companionがLet's Encryptを使ったSSL証明書の発行や更新してくれます。&lt;br&gt;
+発行されたSSL証明書などは、docker-compose.ymlと同じ階層のcertsディレクトリ以下に保存されます。&lt;/p&gt;
+
+&lt;p&gt;proxyのdocker-compose.ymlのあるディレクトリで&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;docker-compose build
+docker-compose up -d
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;で、proxyの各コンテナをビルドして起動します。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="mastodonのdocker-composeymlを編集" class="fragment"&gt;&lt;/span&gt;&lt;a href="#mastodon%E3%81%AEdocker-composeyml%E3%82%92%E7%B7%A8%E9%9B%86"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;Mastodonのdocker-compose.ymlを編集&lt;/h1&gt;
+
+&lt;p&gt;Mastodonのリポジトリをcloneして、docker-compose.ymlを編集します。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Nginxコンテナを追加する&lt;/li&gt;
+&lt;li&gt;画像等をNginxで返すようにするためNginxのコンテナでassets,packs,systemをマウントする&lt;/li&gt;
+&lt;li&gt;Nginxのポート番号は9091とする&lt;/li&gt;
+&lt;li&gt;各コンテナをmstdnネットワークで繋ぐ&lt;/li&gt;
+&lt;li&gt;Nginxはリバースプロキシとやり取りするので、frontとmstdnの両方のネットワークに繋ぐ&lt;/li&gt;
+&lt;li&gt;データを永続化するために、dbとredisのvolumesのコメントアウトを解除&lt;/li&gt;
+&lt;li&gt;コンテナのTimeZoneをAsia/Tokyoにするために/etc/localtimeをマウントする&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;version: '2'
+services:
+
+  nginx:
+    image: nginx:1.11.10-alpine
+    container_name: mstdn-nginx
+    ports:
+      - 9091:9091
+    restart: always
+    tty: false
+    env_file: .env.production
+    links:
+      - web
+      - streaming
+    volumes:
+      - ./setting/nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./setting/nginx/conf:/etc/nginx/conf/:ro
+      - ./public/assets:/mastodon/public/assets
+      - ./public/packs:/maastodon/public/packs
+      - ./public/system:/mastodon/public/system
+      - /etc/localtime:/etc/localtime:ro
+
+    volumes_from:
+      - container:proxy-nginx
+    networks:
+      - front
+      - mstdn
+
+  db:
+    restart: always
+    image: postgres:alpine
+    container_name: mstdn-db
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+      - /etc/localtime:/etc/localtime:ro
+
+    networks:
+      - mstdn
+
+  redis:
+    restart: always
+    image: redis:alpine
+    container_name: mstdn-redis
+    volumes:
+      - ./redis:/data
+      -/etc/localtime:/etc/localtime:ro
+
+    networks:
+      - mstdn
+
+  app:
+    build: .
+    image: gargron/mastodon
+    container_name: mstdn-app
+    restart: always
+    env_file: .env.production
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - mstdn
+
+  web:
+    extends:
+      service: app
+    container_name: mstdn-web
+    restart: always
+    env_file: .env.production
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - ./public/assets:/mastodon/public/assets
+      - ./public/packs:/mastodon/public/packs
+      - ./public/system:/mastodon/public/system
+    networks:
+      - mstdn
+
+  streaming:
+    extends:
+      service: app
+    container_name: mstdn-streaming
+    restart: always
+    env_file: .env.production
+    command: npm run start
+    depends_on:
+      - db
+      - redis
+    networks:
+      - mstdn
+
+  sidekiq:
+    extends:
+      service: app
+    container_name: mstdn-sidekiq
+    restart: always
+    env_file: .env.production
+    command: bundle exec sidekiq -q default -q mailers -q pull -q push
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - ./public/system:/mastodon/public/system
+    networks:
+      - mstdn
+
+networks:
+  front:
+    external: true
+  mstdn:
+    external: true
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1&gt;
+&lt;span id="mstdn-nginxコンテナのnginxの設定ファイルを追加" class="fragment"&gt;&lt;/span&gt;&lt;a href="#mstdn-nginx%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E3%81%AEnginx%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E8%BF%BD%E5%8A%A0"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;mstdn-nginxコンテナのNginxの設定ファイルを追加&lt;/h1&gt;
+
+&lt;p&gt;mastodonのdocker-compose.ymlがあるディレクトリにsetting/nginx/conf.d/default.confを作成します。&lt;br&gt;
+※sample.localは実際のサイトのドメインに置き換えてください。&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;map $http_upgrade $connection_upgrade {
+  default upgrade;
+  ''      close;
+}
+
+server {
+  listen 9091 ssl;
+  server_name mastodon.sample.local;
+
+  ssl_protocols TLSv1.2;
+  ssl_ciphers EECDH+AESGCM:EECDH+AES;
+  ssl_ecdh_curve prime256v1;
+  ssl_prefer_server_ciphers on;
+  ssl_session_cache shared:SSL:10m;
+
+  ssl_certificate     /etc/nginx/certs/mastodon.sample.local/fullchain.pem;
+  ssl_certificate_key /etc/nginx/certs/mastodon.sample.local/key.pem;
+
+  keepalive_timeout    70;
+  sendfile             on;
+  client_max_body_size 0;
+
+　root /mastodon/public;
+
+  gzip on;
+  gzip_disable "msie6";
+  gzip_vary on;
+  gzip_proxied any;
+  gzip_comp_level 6;
+  gzip_buffers 16 8k;
+  gzip_http_version 1.1;
+  gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+
+  location / {
+    try_files $uri @proxy;
+  }
+
+  location ~ ^/(assets|system/media_attachments/files|system/accounts/avatars) {
+    add_header Cache-Control "public, max-age=31536000, immutable";
+  }
+
+  location @proxy {
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto https;
+    proxy_set_header Proxy "";
+    proxy_pass_header Server;
+
+    proxy_pass http://web:3000;
+    proxy_buffering off;
+    proxy_redirect off;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection $connection_upgrade;
+
+    tcp_nodelay on;
+  }
+
+  location /api/v1/streaming {
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto https;
+    proxy_set_header Proxy "";
+
+    proxy_pass http://streaming:4000;
+    proxy_buffering off;
+    proxy_redirect off;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection $connection_upgrade;
+
+    tcp_nodelay on;
+  }
+
+  error_page 500 501 502 503 504 /500.html;
+}
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1&gt;
+&lt;span id="envproductionを編集" class="fragment"&gt;&lt;/span&gt;&lt;a href="#envproduction%E3%82%92%E7%B7%A8%E9%9B%86"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;.env.productionを編集&lt;/h1&gt;
+
+&lt;p&gt;.env.production.sampleをコピー&amp;amp;リネームした、.env.productionを編集していきます。Mastodonの設定とリバースプロキシ用の環境変数も追記します。&lt;br&gt;
+smtpサーバーはホストOS上に構築したpostfixを使用するのでMastodon内のネットワークに指定したサブネット172.21.0.0/16の172.21.0.1を設定します。また、smtp認証はしないのでユーザー名とパスワードは設定しません。&lt;br&gt;
+編集するところを抜粋します。&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# リバースプロキシ用の設定
+VIRTUAL_HOST=mastodon.sample.local
+VIRTUAL_PORT=9091
+VIRTUAL_PROTO=https
+LETSENCRYPT_HOST=mastodon.sample.local
+LETSENCRYPT_EMAIL=mail@sample.local
+LETSENCRYPT_TEST=false
+
+# Service dependencies
+# You may set REDIS_URL instead for more advanced options
+REDIS_HOST=redis
+REDIS_PORT=6379
+# You may set DATABASE_URL instead for more advanced options
+DB_HOST=db
+DB_USER=postgres
+DB_NAME=postgres
+DB_PASS=
+DB_PORT=5432
+# Federation
+LOCAL_DOMAIN=mastodon.sample.local
+LOCAL_HTTPS=true
+
+# Use this only if you need to run mastodon on a different domain than the one u
+sed for federation.
+# You can read more about this option on https://github.com/tootsuite/documentat
+ion/blob/master/Running-Mastodon/Serving_a_different_domain.md
+# DO *NOT* USE THIS UNLESS YOU KNOW *EXACTLY* WHAT YOU ARE DOING.
+# WEB_DOMAIN=mastodon.example.com
+
+# Application secrets
+# Generate each with the `rake secret` task (`docker-compose run --rm web rake s
+ecret` if you use docker compose)
+PAPERCLIP_SECRET=`docker-compose run --rm web rake secret`を実行して出力された文字列を設定する
+SECRET_KEY_BASE=`docker-compose run --rm web rake secret`を実行して出力された文字列を設定する
+OTP_SECRET=`docker-compose run --rm web rake secret`を実行して出力された文字列を設定する
+                        ・
+                        ・
+# Leaving them blank is not enough for authentication method 'none'.
+SMTP_SERVER=172.21.0.1
+SMTP_PORT=25
+SMTP_LOGIN=
+SMTP_PASSWORD=
+SMTP_FROM_ADDRESS=mstdn@sample.local
+#SMTP_DOMAIN= # defaults to LOCAL_DOMAIN
+#SMTP_DELIVERY_METHOD=smtp # delivery method can also be sendmail
+SMTP_AUTH_METHOD=plain
+#SMTP_CA_FILE=/etc/ssl/certs/ca-certificates.crt
+SMTP_OPENSSL_VERIFY_MODE=none
+SMTP_ENABLE_STARTTLS_AUTO=false
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1&gt;
+&lt;span id="configenvironmentsproductionrbの修正" class="fragment"&gt;&lt;/span&gt;&lt;a href="#configenvironmentsproductionrb%E3%81%AE%E4%BF%AE%E6%AD%A3"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;config/environments/production.rbの修正&lt;/h1&gt;
+
+&lt;p&gt;.env.productionにSMTP_LOGINとSMTP_PASSWORDを設定していなくてもSMTPサーバーにuser_nameとpasswordを送信してエラーになるのでuser_nameとpasswordをコメントアウトします。&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;　　　　　　　　　　 ・
+　　　　　　　　　　 ・
+  # E-mails
+  config.action_mailer.smtp_settings = {
+    :port           =&amp;gt; ENV['SMTP_PORT'],
+    :address        =&amp;gt; ENV['SMTP_SERVER'],
+#    :user_name      =&amp;gt; ENV['SMTP_LOGIN'],
+#    :password       =&amp;gt; ENV['SMTP_PASSWORD'],
+    :domain         =&amp;gt; ENV['SMTP_DOMAIN'] || config.x.local_domain,
+    :authentication =&amp;gt; :plain,
+  }
+　　　　　　　　　　 ・
+　　　　　　　　　　 ・
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1&gt;
+&lt;span id="google-analyticsを導入します" class="fragment"&gt;&lt;/span&gt;&lt;a href="#google-analytics%E3%82%92%E5%B0%8E%E5%85%A5%E3%81%97%E3%81%BE%E3%81%99"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;Google Analyticsを導入します&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href="http://qiita.com/gorillab/items/79b0d64d86e10a02085a,%22Google%20Analytics%E3%82%92%E5%B0%8E%E5%85%A5%E3%81%97%E3%81%BE%E3%81%99%22"&gt;Google Analyticsを導入します&lt;/a&gt;を参照してGoogle Analyticsを導入します。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="postfixの設定" class="fragment"&gt;&lt;/span&gt;&lt;a href="#postfix%E3%81%AE%E8%A8%AD%E5%AE%9A"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;Postfixの設定&lt;/h1&gt;
+
+&lt;p&gt;main.cfを変更します。&lt;br&gt;
+1. mynetworksに172.21.0.0/16を追加します。&lt;br&gt;
+2. 受信先で迷惑メールに振り分けられないようにsmtpd_use_tlsとsmtp_use_tlsをyesにします。&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;                 ・
+                 ・
+
+# TLS parameters
+smtpd_tls_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
+smtpd_tls_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
+smtpd_use_tls=yes
+smtpd_tls_session_cache_database = btree:${data_directory}/smtpd_scache
+smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
+smtp_use_tls=yes
+                 ・
+                 ・
+mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128 172.0.0.0/8 172.21.0.0/16
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1&gt;
+&lt;span id="spfレコードの設定" class="fragment"&gt;&lt;/span&gt;&lt;a href="#spf%E3%83%AC%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E8%A8%AD%E5%AE%9A"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;SPFレコードの設定&lt;/h1&gt;
+
+&lt;p&gt;受信先で迷惑メールに振り分けられないようにDNSにSPFレコードを設定します。&lt;br&gt;
+※xxx.xxx.xxx.xxxはホストOSのip4アドレス,yyyy:yyyy:yyyy:yyyy::yyyy:yyyyはホストOSのip6アドレスです。&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sample.local.      IN TXT "v=spf1 +a:sample.local +ip4:xxx.xxx.xxx.xxx ip6:yyyy:yyyy:yyyy:yyyy::yyyy:yyyy +mx -all"
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;以上で設定は終了です。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="mastodonをビルドしてデータベースを初期設定する" class="fragment"&gt;&lt;/span&gt;&lt;a href="#mastodon%E3%82%92%E3%83%93%E3%83%AB%E3%83%89%E3%81%97%E3%81%A6%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%82%92%E5%88%9D%E6%9C%9F%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;mastodonをビルドしてデータベースを初期設定する&lt;/h1&gt;
+
+&lt;p&gt;mastodonのdocker-compose.ymlのあるディレクトリで&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;docker-compose build
+docker-compose run --rm web rails db:migrate
+docker-compose run --rm web rails assets:precompile
+docker-compose up -d
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;を実行することで、&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;mastodonの各コンテナをビルド&lt;/li&gt;
+&lt;li&gt;データベースを初期化&lt;/li&gt;
+&lt;li&gt;アセットをプリコンパイル&lt;/li&gt;
+&lt;li&gt;mastodonの各コンテナを起動&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;起動まで時間がかかりますので、ログを参照します。画面のスクロールが止まるまで待ちます。&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;docker-compose logs -f
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;ctrl-fで中断できます。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="管理者ユーザーを設定する" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E7%AE%A1%E7%90%86%E8%80%85%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;管理者ユーザーを設定する&lt;/h1&gt;
+
+&lt;p&gt;管理者ユーザーとして使うユーザーを登録して、ログインした後に、管理者権限を設定する。&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;docker-compose run --rm web rails mastodon:make_admin USERNAME=管理者ユーザーとするユーザーID
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;ログインしてサイトの設定をします。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="参考にした情報" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E5%8F%82%E8%80%83%E3%81%AB%E3%81%97%E3%81%9F%E6%83%85%E5%A0%B1"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;参考にした情報&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://qiita.com/ryo_dg/items/e0cc93e6a8688e5116c8,%22Docker%F0%9F%90%B3%E3%81%A7Mastodon%F0%9F%90%98%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%82%92%E7%AB%8B%E3%81%A6%E3%82%8B%E3%83%89%E3%83%B3%20(%E3%83%AA%E3%83%90%E3%83%BC%E3%82%B9%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7%E3%81%ABnginx-proxy%20+%20letsencrypt-nginx-proxy-companion%E3%82%92%E4%BD%BF%E3%81%86)%22"&gt;Docker🐳でMastodon🐘のインスタンスを立てるドン (リバースプロキシにnginx-proxy + letsencrypt-nginx-proxy-companionを使う)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Production-guide.md,%22GitHub%22" rel="nofollow noopener" target="_blank"&gt;GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://scriptlife.hacca.jp/contents/programming/2017/04/26/post-2278/,%22Mastodon(%E3%83%9E%E3%82%B9%E3%83%88%E3%83%89%E3%83%B3)%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%83%A1%E3%83%BC%E3%83%AB%E3%82%92%E8%87%AA%E5%89%8D%E3%83%A1%E3%83%BC%E3%83%AB%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC(postfix)%E3%81%A7%E9%80%81%E4%BF%A1%E3%81%99%E3%82%8B%22" rel="nofollow noopener" target="_blank"&gt;Mastodon(マストドン)の確認メールを自前メールサーバー(postfix)で送信する&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://qiita.com/ganta/items/a0f34866c994ebaeef69,%22Docker%E3%81%A7%E3%83%9B%E3%82%B9%E3%83%88%E3%81%A8%E5%90%8C%E3%81%98%E3%82%BF%E3%82%A4%E3%83%A0%E3%82%BE%E3%83%BC%E3%83%B3%E3%82%92%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E8%B5%B7%E5%8B%95%E6%99%82%E3%81%AB%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B%22"&gt;Dockerでホストと同じタイムゾーンをコンテナ起動時に設定する&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://qiita.com/rerofumi/items/025f458089d462846a5f,%22Mastodon%20%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E4%BD%9C%E6%88%90%E6%99%82%E3%81%AB%E3%81%A4%E3%81%BE%E3%81%A5%E3%81%84%E3%81%9F%E3%81%A8%E3%81%93%E3%82%8D%E3%83%A1%E3%83%A2%22"&gt;Mastodon のインスタンス作成時につまづいたところメモ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    <author>
+      <name>chanken</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:qiita.com,2005:PublicArticle/502281</id>
+    <published>2017-06-18T21:50:48+09:00</published>
+    <updated>2017-06-22T01:13:10+09:00</updated>
+    <link rel="alternate" type="text/html" href="http://qiita.com/KEINOS/items/2f29779836c2d2989854"/>
+    <url>http://qiita.com/KEINOS/items/2f29779836c2d2989854</url>
+    <title>Mastodonインスタンスをワンライナーで建てる（Docker不使用、CentOS7.x@さくらVPS）</title>
+    <content type="html">
+&lt;h1&gt;
+&lt;span id="インスタンスをコマンド一発で建てたい" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%82%92%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E4%B8%80%E7%99%BA%E3%81%A7%E5%BB%BA%E3%81%A6%E3%81%9F%E3%81%84"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;インスタンスをコマンド一発で建てたい&lt;/h1&gt;
+
+&lt;p&gt;分散型ミニブログ「マストドン」のサーバー（インスタンス）を&lt;code&gt;yum install mastodn&lt;/code&gt;くらいに「もっと手軽に建てられればいいのになぁ」と思い、ほぼ全自動でマストドンをインストールしてくれるbashスクリプトを&lt;a href="https://gist.github.com/KEINOS/fb59b95020f0a06fb6448565d84e23cf" rel="nofollow noopener" target="_blank"&gt;Gistに公開しました&lt;/a&gt;。（「さくらのVPS」限定ですが、、、）&lt;/p&gt;
+
+&lt;p&gt;スクリプトをダウンロード・実行してから放置しっぱなしで20分弱程度でSSL対応のマストドンが立ち上がります。&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;サーバー&lt;/th&gt;
+&lt;th style="text-align: center"&gt;OS&lt;/th&gt;
+&lt;th style="text-align: center"&gt;条件&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;さくらのVPS&lt;/td&gt;
+&lt;td style="text-align: center"&gt;CentOS 7.2.1511 ※1&lt;/td&gt;
+&lt;td style="text-align: center"&gt;OSのインストール直後の状態 ※3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;※1 インストール後は 7.&lt;strong&gt;3&lt;/strong&gt;.1611にバージョンアップされます。(2017/06/20現在）&lt;br&gt;
+※2 管理用の&lt;code&gt;mastodon&lt;/code&gt;ユーザーも同時に作成されます。&lt;code&gt;su - mastodon&lt;/code&gt;で切り替えて管理ください。&lt;br&gt;
+※3 2017/06/20追記：KUSANAGI環境下では動きません。「OSインストール」のイメージは「標準OSインストール」にある「CentOS7 x86_64」を選択してください。（2017/06/22追記：&lt;a href="http://qiita.com/KEINOS/items/c258b0e058631e77fefb" id="reference-fff0d77a284cee58d3ad"&gt;KUSANAGI環境用の記事を書きました&lt;/a&gt;)&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;span id="コマンド" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;コマンド&lt;/h2&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd ~/ &amp;amp;&amp;amp; curl https://gist.githubusercontent.com/KEINOS/fb59b95020f0a06fb6448565d84e23cf/raw &amp;gt; install_mastodon.sh &amp;amp;&amp;amp; chmod 0755 install_mastodon.sh &amp;amp;&amp;amp; ./install_mastodon.sh
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;OS入れ立てホヤホヤのVPSにSSHでアクセスして、"root"で上記のワンライナーを実行すると、スクリプトのダウンロード・実行・インストールまで行ってくれます。&lt;/p&gt;
+
+&lt;p&gt;インストールが始まると「ドメイン」と「メールアドレス」を聞かれます。ドメインはマストドンを稼働させたいドメイン。メールアドレスはSSL認証の証明書（Let's Encrypt）の更新通知用のメールアドレスになります。&lt;/p&gt;
+
+&lt;p&gt;実行の確認で"y"を選択すると、あとは20分程度放置してSSL(https://)付きでドメインにアクセスしてみてください。&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="注意" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E6%B3%A8%E6%84%8F"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;注意&lt;/h3&gt;
+
+&lt;p&gt;インストール後、&lt;code&gt;root&lt;/code&gt;およびパスワードでのSSH接続ができないように設定して、SSHのポート番号変更をすることをおすすめします。&lt;br&gt;
+というのも、サーバを直接狙われた場合は効果は無いと思いますが、インスタンスを立ち上げてしばらくいじっていると22番ポートに&lt;code&gt;root&lt;/code&gt;でのボットらしきアクセスが発生していたので「やっぱり、あるんだなぁ」と再実感しました。&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;span id="所感" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E6%89%80%E6%84%9F"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;所感&lt;/h2&gt;
+
+&lt;p&gt;現在「さくらのVPS」のサーバーでCentOS7とお付き合いしているのですが「マストドン」はイカガと打診したところ、先日友達の子供のために勝手にMinecraftサーバーを建てて、やたら大きなワールドを入れたものの誰も来ないから一人でさまよってるだけの容量食いのせいで狭くなったばかりなのに、マストドンのメディア・ファイルでさらに狭くなったらどうするのよ、と嫌がられました。&lt;/p&gt;
+
+&lt;p&gt;ションボリしていたところ、Dockerを使わないマストドンならカロリー少なめかもしれないし試してもいいかも、とOKがでたので色々チャレンジしていました。&lt;/p&gt;
+
+&lt;p&gt;ところが、「Cld3が足りない」だの「Annotateがない」だの「rake secretできない」とダダをこねたり「deviceの鍵がない」だのと怒られたりして、&lt;strong&gt;インスタンスを建てるどころか腹が立って立って付き合うのを断念しそうでした&lt;/strong&gt;。（心の声：「Ubuntuに乗り換えたろか！Ubuntuに！」）&lt;/p&gt;
+
+&lt;p&gt;お互いマストドンは初めての体験です。まずは稼働するところまで行けば「何が原因か」考える余裕も出来て&lt;strong&gt;先へ進めると思った&lt;/strong&gt;ので、「さくらのクラウド」であればセットメニューの&lt;a href="http://knowledge.sakura.ad.jp/knowledge/8591/" rel="nofollow noopener" target="_blank"&gt;公式のスタートアップスクリプトがある&lt;/a&gt;との情報を得て、お試しで頼んでみたところ確かに簡単に導入できました。&lt;/p&gt;
+
+&lt;p&gt;しかし、KEINOSは貧乏人なので&lt;strong&gt;コスト的に維持出来そうにない&lt;/strong&gt;のもわかりました。&lt;/p&gt;
+
+&lt;p&gt;ユーザーが増えてスケールアップのしやすさを考えると「さくらのVPS」より「さくらのクラウド」の方がいいかもしれません。しかし、現在お付き合いしている相手は人見知りで基本的に「お一人様用マストドン」を考えています。つまり、「さくらのクラウド」に移行したとしても月々のコストが高くなるだけということになります。&lt;/p&gt;
+
+&lt;p&gt;ただでさえ、お仕事時代に知り合ったロリポップちゃんやバリューちゃんとのお付き合いもあり、ひひり出しながら維持している現在の関係に、さらにコストがかかるとなると破滅してしまうこと必至です。&lt;/p&gt;
+
+&lt;p&gt;何とか現在のVPSサーバーに入れようと「さくらのクラウド」のスタートアップスクリプトを読んでみたところ、いけそうだったので同じジャジャ馬に悩んでいる方の参考になれば幸いです。&lt;/p&gt;
+
+&lt;p&gt;ちなみに、現在のVPSサーバーでは、KusanagiのWordpress環境を利用しているので、サブドメインにもインストールできるスクリプトも出来たらいいなと考えています。（&lt;del&gt;誰か作って&lt;/del&gt; → &lt;a href="http://qiita.com/KEINOS/items/c258b0e058631e77fefb"&gt;KUSANAGI環境にも一発でマストドンをインストールするスクリプトを公開&lt;/a&gt;しました）&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="gist" class="fragment"&gt;&lt;/span&gt;&lt;a href="#gist"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;Gist&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href="https://gist.github.com/KEINOS/fb59b95020f0a06fb6448565d84e23cf" class="autolink" rel="nofollow noopener" target="_blank"&gt;https://gist.github.com/KEINOS/fb59b95020f0a06fb6448565d84e23cf&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;span id="その他の関連情報" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%81%9D%E3%81%AE%E4%BB%96%E3%81%AE%E9%96%A2%E9%80%A3%E6%83%85%E5%A0%B1"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;その他の関連情報&lt;/h2&gt;
+
+&lt;h3&gt;
+&lt;span id="ユーザーを管理者に昇格する" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%92%E7%AE%A1%E7%90%86%E8%80%85%E3%81%AB%E6%98%87%E6%A0%BC%E3%81%99%E3%82%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;ユーザーを管理者に昇格する&lt;/h3&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# ユーザー'KEINOS'を管理者に昇格する場合
+su - mastodon
+cd live
+RAILS_ENV=production bundle exec rails mastodon:make_admin USERNAME=KEINOS
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3&gt;
+&lt;span id="手動認証コマンドで認証を通す" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E6%89%8B%E5%8B%95%E8%AA%8D%E8%A8%BC%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%A7%E8%AA%8D%E8%A8%BC%E3%82%92%E9%80%9A%E3%81%99"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;手動認証（コマンドで認証を通す）&lt;/h3&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# 'someone@email.com'のメール認証を管理者が代行する場合。
+su - mastodon
+cd live
+RAILS_ENV=production bundle exec rails mastodon:confirm_email USER_EMAIL=someone@email.com
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3&gt;
+&lt;span id="未認証ユーザーの手動削除" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E6%9C%AA%E8%AA%8D%E8%A8%BC%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E6%89%8B%E5%8B%95%E5%89%8A%E9%99%A4"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;未認証ユーザーの手動削除&lt;/h3&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# ユーザー申請のみで認証の済んでいないユーザーの削除を手動で行う場合
+su - mastodon
+cd live
+RAILS_ENV=production rake mastodon:users:clear
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3&gt;
+&lt;span id="mastodonコマンド詳細" class="fragment"&gt;&lt;/span&gt;&lt;a href="#mastodon%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E8%A9%B3%E7%B4%B0"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;Mastodonコマンド詳細&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Administration-guide.md" class="autolink" rel="nofollow noopener" target="_blank"&gt;https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Administration-guide.md&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="動作実績" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E5%8B%95%E4%BD%9C%E5%AE%9F%E7%B8%BE"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;動作実績&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;サーバー   ： &lt;a href="http://vps.sakura.ad.jp/" rel="nofollow noopener" target="_blank"&gt;さくらのVPS&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;OS            ： CentOS 7.2.1511&lt;/li&gt;
+&lt;li&gt;ゾーン       ： 石狩第1ゾーン&lt;/li&gt;
+&lt;li&gt;メモリ       ： 2GB&lt;/li&gt;
+&lt;li&gt;ストレージ： SSD 50GB&lt;/li&gt;
+&lt;li&gt;CPU          ： 3コア&lt;/li&gt;
+&lt;li&gt;オプション： なし&lt;/li&gt;
+&lt;li&gt;さくらのVPS バージョン： v4&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;
+&lt;span id="参考文献" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;参考文献&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://cloud-news.sakura.ad.jp/startup-script/" rel="nofollow noopener" target="_blank"&gt;スタートアップスクリプト – @さくらのクラウドニュース&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://cloud-news.sakura.ad.jp/startup-script/mastodon/information/" rel="nofollow noopener" target="_blank"&gt;スクリプト動作詳細 – @さくらのクラウドニュース&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://knowledge.sakura.ad.jp/knowledge/8591/" rel="nofollow noopener" target="_blank"&gt;ゼロからはじめるMastodon – @さくらのナレッジ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    <author>
+      <name>KEINOS</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:qiita.com,2005:PublicArticle/502153</id>
+    <published>2017-06-18T07:46:35+09:00</published>
+    <updated>2017-06-20T17:26:21+09:00</updated>
+    <link rel="alternate" type="text/html" href="http://qiita.com/chanken/items/4df165ae855ff664c4cc"/>
+    <url>http://qiita.com/chanken/items/4df165ae855ff664c4cc</url>
+    <title>Dockerを使ったMastodonを1.3.2から1.4.3にバージョンアップした</title>
+    <content type="html">&lt;p&gt;Dockerを使ったMastodonを1.3.2から1.4.3にバージョンアップしました。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="念のためにディレクトリを退避" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E5%BF%B5%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AB%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E3%82%92%E9%80%80%E9%81%BF"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;念のためにディレクトリを退避&lt;/h1&gt;
+
+&lt;p&gt;※/opt/mastodonにdocker-compose.yml以下を配置しているとします。&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd /opt
+cp -R mastodon mastodon_bak
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1&gt;
+&lt;span id="143をgitで取得する" class="fragment"&gt;&lt;/span&gt;&lt;a href="#143%E3%82%92git%E3%81%A7%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;1.4.3をgitで取得する&lt;/h1&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git stash
+git fetch --tags
+latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
+git checkout $latestTag
+git stash pop
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;ここで、 Google アナリティクス用のスクリプトを設定しているので、app/views/home/index.html.hamlでコンフリクトが発生したので手動で修正しました。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="buildしてupする" class="fragment"&gt;&lt;/span&gt;&lt;a href="#build%E3%81%97%E3%81%A6up%E3%81%99%E3%82%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;buildしてupする&lt;/h1&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;docker-compose build
+docker-compose up -d
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1&gt;
+&lt;span id="プリコンパイルする" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%83%97%E3%83%AA%E3%82%B3%E3%83%B3%E3%83%91%E3%82%A4%E3%83%AB%E3%81%99%E3%82%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;プリコンパイルする&lt;/h1&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;docker-compose run --rm web rails assets:precompile
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1&gt;
+&lt;span id="マイグレーションする" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%83%9E%E3%82%A4%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%99%E3%82%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;マイグレーションする&lt;/h1&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;docker-compose run --rm web rails db:migrate
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;ここで、外部キーに関するエラーがでたので下記を実行しました。&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;docker-compose run --rm web rails mastodon:maintenance:prepare_for_foreign_keys
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;再度、マイグレーションを実行します。&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;docker-compose run --rm web rails db:migrate
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;以上でバージョンアップは終了です。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="参考にした情報" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E5%8F%82%E8%80%83%E3%81%AB%E3%81%97%E3%81%9F%E6%83%85%E5%A0%B1"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;参考にした情報&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/tootsuite/mastodon/pull/2396/files" rel="nofollow noopener" target="_blank"&gt;Create a script for easy updates on docker-compose&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/tootsuite/mastodon/issues/3788" rel="nofollow noopener" target="_blank"&gt;Upgrade to 1.4.3 failed (docker)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    <author>
+      <name>chanken</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:qiita.com,2005:PublicArticle/501474</id>
+    <published>2017-06-15T12:45:48+09:00</published>
+    <updated>2017-06-15T12:45:48+09:00</updated>
+    <link rel="alternate" type="text/html" href="http://qiita.com/fk_2000/items/44fabb962681ff3048a0"/>
+    <url>http://qiita.com/fk_2000/items/44fabb962681ff3048a0</url>
+    <title>文具丼のMastodnを更新(1.4.1 -&gt; 1.4.2 -&gt; 1.4.3)</title>
+    <content type="html">&lt;p&gt;&lt;a href="http://qiita.com/fk_2000/items/1cece04d4075cee99519" id="reference-58d66f45673a330613f0"&gt;文具丼のMastodnを更新(1.3.3 -&amp;gt; 1.4.1)&lt;/a&gt; のつづき&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="やったこと" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%82%84%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;やったこと&lt;/h1&gt;
+
+&lt;p&gt;文具丼 - &lt;a href="https://co-mastdn.ga" class="autolink" rel="nofollow noopener" target="_blank"&gt;https://co-mastdn.ga&lt;/a&gt; - v1.4.1をv1.4.2、v1.4.3と連続でアップデートを行いました。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="環境" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E7%92%B0%E5%A2%83"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;環境&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;AWS EC2&lt;/li&gt;
+&lt;li&gt;Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-72-generic x86_64)&lt;/li&gt;
+&lt;li&gt;ドメインはfreenom.com&lt;/li&gt;
+&lt;li&gt;メール送信はSendgrid&lt;/li&gt;
+&lt;li&gt;Non-Docker Mastodon&lt;/li&gt;
+&lt;li&gt;作業前のバージョンは$ v1.4.1&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1&gt;
+&lt;span id="アップグレードノートを読む" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%82%A2%E3%83%83%E3%83%97%E3%82%B0%E3%83%AC%E3%83%BC%E3%83%89%E3%83%8E%E3%83%BC%E3%83%88%E3%82%92%E8%AA%AD%E3%82%80"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;アップグレードノートを読む&lt;/h1&gt;
+
+&lt;p&gt;例によってアップグレードノートを読みます。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/tootsuite/mastodon/releases/tag/v1.4.2" class="autolink" rel="nofollow noopener" target="_blank"&gt;https://github.com/tootsuite/mastodon/releases/tag/v1.4.2&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;このリリースでは、相互参照整合性を確保するためのデータベースレベルの制約が追加されています。以前は、競合状態とRubyコードベースの要求タイムアウトのために、間違ったレコードが残っていた可能性がありました。制約の違反が既に存在する場合、Postgresは制約を作成できないため、マイグレーションの前に実行する必要のある不正なレコードをデータベースでクリーンアップするためのレーキタスクを作成しました。&lt;/p&gt;
+
+&lt;p&gt;何らかの理由で、プロセスでデータベース移行を実行せずにコードを最初にデプロイできない場合（例：Capistranoデプロイメント）、rakeタスクのコードをRailsコンソールに単純にコピーして実行できます。&lt;/p&gt;
+
+&lt;p&gt;Postgresが外部キーの作成をどのように実行するかによって、マストドン活動が同時に起こっていると、移行は「デッドロック」で失敗する可能性があります。このような場合は、移行中にMastodonへのユーザーアクセスを無効にすることをお勧めします。これは1分以上かかることはありません。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;「移行中にMastodonへのユーザーアクセスを無効にすることをお勧めします。これは1分以上かかることはありません。」&lt;/p&gt;
+
+&lt;p&gt;うちのサーバは53ユーザですので、それほど更新頻度が高くないと判断して特に通知せずにアップグレードしました。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="作業" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E4%BD%9C%E6%A5%AD"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;作業&lt;/h1&gt;
+
+&lt;p&gt;sshログインすると、ubuntuパッケージのお知らせが来てたので、pt-get のアップグレード。&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ssh co-mastdn.ga
+:
+50 packages can be updated.
+0 updates are security updates.
+:
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;apt-get update &amp;amp;&amp;amp; apt-get upgrade&lt;br&gt;
+&lt;code&gt;&lt;br&gt;
+$ sudo apt-get update -y&lt;br&gt;
+$ sudo apt-get upgrade -y&lt;br&gt;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;マストドンユーザに切り替えて、最新コードを落としてきます。&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo su - mastodon
+$ cd live
+$ git branch
+* (HEAD detached at v1.4.1)
+  master
+  production
+
+$ git fetch
+remote: Counting objects: 233, done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 233 (delta 181), reused 184 (delta 181), pack-reused 46
+Receiving objects: 100% (233/233), 99.16 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (190/190), completed with 105 local objects.
+From https://github.com/tootsuite/mastodon
+   0d23c81..947887f  master     -&amp;gt; origin/master
+   2cf7e64..ccdb1ff  skylight   -&amp;gt; origin/skylight
+ * [new tag]         v1.4.3     -&amp;gt; v1.4.3
+ * [new tag]         v1.4.2     -&amp;gt; v1.4.2
+
+$ git checkout v1.4.2
+M       public/favicon.ico
+Previous HEAD position was 8963f8c... Bump version to 1.4.1
+HEAD is now at bb91104... Fix regression from #3748 - properly set defaultColumns (#3750)
+mastodon@co-mastdn:~/live$ git branch
+* (HEAD detached at v1.4.2)
+  master
+  production
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;アップグレードのノートに書いてあるコマンドを打っていきます。&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;bundle install --path=vendor/bundle
+yarn install
+RAILS_ENV=production bundle exec rails mastodon:maintenance:prepare_for_foreign_keys
+RAILS_ENV=production bundle exec rails db:migrate
+RAILS_ENV=production bundle exec rails assets:precompile
+RAILS_ENV=production bundle exec rails r Rails.cache.clear
+
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;各サービスを再起動して、アクセスしてみると&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo systemctl restart mastodon-*.service
+$ sudo systemctl restart nginx
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;バージョンアップされました。&lt;br&gt;
+&lt;a href="https://qiita-image-store.s3.amazonaws.com/0/2567/517e9e3e-43f8-aad3-b17c-77b2167f1b7a.png" target="_blank" rel="nofollow noopener"&gt;&lt;img src="https://qiita-image-store.s3.amazonaws.com/0/2567/517e9e3e-43f8-aad3-b17c-77b2167f1b7a.png" alt="mastodon_v1.4.2.png"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;span id="ところが" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%81%A8%E3%81%93%E3%82%8D%E3%81%8C"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;ところが！&lt;/h2&gt;
+
+&lt;p&gt;ログインはできるのですが、ローカルタイムラインと連合タイムラインが500 internal errorを吐いて表示してくれませんでした。&lt;/p&gt;
+
+&lt;p&gt;あわててアップグレードノートを見返しましたが、特に何もかいてありません。&lt;/p&gt;
+
+&lt;p&gt;そこでv1.4.3を見てみると、&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;これは修正プログラムのリリースです&lt;/p&gt;
+
+&lt;p&gt;残念なことにv1.4.2の直後に、プルリクエストの1つから回帰が通知されました。これは、マストドン・ソーシャルとグリッチ・ソーシャルで1週間テストしていたにもかかわらず、早期に気付かなかった。これは、通知された直後に修正された重要なプライバシーバグ（＃3752）です。&lt;/p&gt;
+
+&lt;p&gt;特別なアップグレード手順は必要ありません。このリリースは、v1.4.2と同じです。コードのみを更新する必要があります。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;これか！と思い、v1.4.3にcheckoutして再起動してみました。&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git checkout v1.4.3
+M       public/favicon.ico
+Previous HEAD position was bb91104... Fix regression from #3748 - properly set defaultColumns (#3750)
+HEAD is now at 947887f... Bump version to 1.4.3
+mastodon@co-mastdn:~/live$ git branch
+* (HEAD detached at v1.4.3)
+  master
+  production
+mastodon@co-mastdn:~/live$
+mastodon@co-mastdn:~/live$
+mastodon@co-mastdn:~/live$ sudo systemctl restart mastodon-*.service
+mastodon@co-mastdn:~/live$ sudo systemctl restart nginx
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;バージョン表示もかわりました。&lt;br&gt;
+&lt;a href="https://qiita-image-store.s3.amazonaws.com/0/2567/85f90296-3892-c10f-0e3a-2402c223e986.png" target="_blank" rel="nofollow noopener"&gt;&lt;img src="https://qiita-image-store.s3.amazonaws.com/0/2567/85f90296-3892-c10f-0e3a-2402c223e986.png" alt="mastodon_v1.4.3.png"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;因果関係までは調べてませんが、ローカルタイムラインも連合タイムラインも表示されるようになりました。&lt;/p&gt;
+</content>
+    <author>
+      <name>fk_2000</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:qiita.com,2005:PublicArticle/501449</id>
+    <published>2017-06-15T11:24:31+09:00</published>
+    <updated>2017-06-15T11:24:31+09:00</updated>
+    <link rel="alternate" type="text/html" href="http://qiita.com/inoshika/items/06cafeaff5d3e38593b9"/>
+    <url>http://qiita.com/inoshika/items/06cafeaff5d3e38593b9</url>
+    <title>Mastodonインスタンス構築（鯖：AWS EC2、ドメイン：お名前.com、SSL：Let's Encrypt）</title>
+    <content type="html">
+&lt;h1&gt;
+&lt;span id="まずは" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%81%BE%E3%81%9A%E3%81%AF"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;まずは&lt;/h1&gt;
+
+&lt;p&gt;QiitaはROM専（死語？）だったので初投稿。&lt;br&gt;
+こちらの記事に勇気付けられた。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;「僕が書いたことはみんな書いている、ハマっていることは共有しなくてもいい」という考えも浮かぶと思うが...&lt;br&gt;
+・情報鮮度の観点で出す価値あり&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="http://qiita.com/hinom77/items/dfa9e0c734e47271edb7" class="autolink" id="reference-d6c0d252537d6ea10f8a"&gt;http://qiita.com/hinom77/items/dfa9e0c734e47271edb7&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;たしかにググって記事がたくさん出てくると学んでて損はない技術なんだろうと思えてくる。&lt;br&gt;
+ビッグウェーブに乗りたいというのもある。&lt;br&gt;
+というわけで何番煎じかわからないがマストドンのインスタンス構築記録を書く。&lt;br&gt;
+見せ方、引用の仕方など作法があればご容赦。&lt;br&gt;
+Qiitaのマークダウンすらままならず...。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="基本的な軸" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E8%BB%B8"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;基本的な軸&lt;/h1&gt;
+
+&lt;p&gt;基本的には↓↓を参考にさせていただきました。&lt;br&gt;
+私の環境で違ったところだけ横道に反れたりしながら追記してます。&lt;br&gt;
+基本は参考URLを見ていただき、たまにこっちに戻ってくるという感じがよいかと。&lt;br&gt;
+※以降【】でかこっている中項目は下記参考先の中項目タイトルに準じています。&lt;/p&gt;
+
+&lt;p&gt;■マストドンAWS構築チュートリアル完全版|初心者から大規模運用まで　5.お手軽な手順&lt;br&gt;
+&lt;a href="http://webfood.info/mastodon-aws-tutorial/#section-5" class="autolink" rel="nofollow noopener" target="_blank"&gt;http://webfood.info/mastodon-aws-tutorial/#section-5&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;span id="ec2インスタンスの作成" class="fragment"&gt;&lt;/span&gt;&lt;a href="#ec2%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%81%AE%E4%BD%9C%E6%88%90"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;【EC2インスタンスの作成】&lt;/h2&gt;
+
+&lt;p&gt;インスタンススペックはt2.microを選択。&lt;br&gt;
+無料枠で選択できたので。&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;span id="route53でhosted-zoneを作る" class="fragment"&gt;&lt;/span&gt;&lt;a href="#route53%E3%81%A7hosted-zone%E3%82%92%E4%BD%9C%E3%82%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;【Route53でHosted Zoneを作る】&lt;/h2&gt;
+
+&lt;p&gt;丸々飛ばし。&lt;br&gt;
+DNSはお名前.comに任せる。&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="aws-ec2のインスタンスに固定グローバルipを付与" class="fragment"&gt;&lt;/span&gt;&lt;a href="#aws-ec2%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%81%AB%E5%9B%BA%E5%AE%9A%E3%82%B0%E3%83%AD%E3%83%BC%E3%83%90%E3%83%ABip%E3%82%92%E4%BB%98%E4%B8%8E"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;AWS EC2のインスタンスに固定グローバルIPを付与&lt;/h3&gt;
+
+&lt;p&gt;AWSでは固定グローバルIP＝Elastic IPと呼ばれている。&lt;br&gt;
+↓↓に書かれている通りに沿って進める。&lt;/p&gt;
+
+&lt;p&gt;■AWS EC2インスタンスにElastic IP(固定グローバルIPアドレス)を割り当てる&lt;br&gt;
+&lt;a href="https://ac-5.net/aws/aws_elasticip_allocation" class="autolink" rel="nofollow noopener" target="_blank"&gt;https://ac-5.net/aws/aws_elasticip_allocation&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="awsのelastic-ipを独自ドメインと関連付ける" class="fragment"&gt;&lt;/span&gt;&lt;a href="#aws%E3%81%AEelastic-ip%E3%82%92%E7%8B%AC%E8%87%AA%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E3%81%A8%E9%96%A2%E9%80%A3%E4%BB%98%E3%81%91%E3%82%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;AWSのElastic IPを独自ドメインと関連付ける&lt;/h3&gt;
+
+&lt;p&gt;DNSの設定。関連付ける、という言葉が正しいのかどうか。&lt;/p&gt;
+
+&lt;p&gt;■(お名前.com)ネームサーバーのAレコード設定&lt;br&gt;
+&lt;a href="http://rensrv.com/domain/onamae-com/a_record-setting-onamae-com/" class="autolink" rel="nofollow noopener" target="_blank"&gt;http://rensrv.com/domain/onamae-com/a_record-setting-onamae-com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;span id="sshでログインする" class="fragment"&gt;&lt;/span&gt;&lt;a href="#ssh%E3%81%A7%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%99%E3%82%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;【SSHでログインする】&lt;/h2&gt;
+
+&lt;p&gt;そのまま。&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;span id="lets-encryptでssl証明書を取得する" class="fragment"&gt;&lt;/span&gt;&lt;a href="#lets-encrypt%E3%81%A7ssl%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;【Let’s EncryptでSSL証明書を取得する】&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;$ ./certbot-auto&lt;/code&gt;の箇所で途中、エラーで正常終了しなかった。&lt;br&gt;
+&lt;code&gt;&lt;br&gt;
+Requesting root privileges to run certbot...&lt;br&gt;
+  /home/ubuntu/.local/share/letsencrypt/bin/letsencrypt&lt;br&gt;
+Saving debug log to /var/log/letsencrypt/letsencrypt.log&lt;br&gt;
+Failed to find executable apache2ctl in PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin&lt;br&gt;
+Certbot doesn't know how to automatically configure the web server on this system. However, it can still get a certificate for you. Please run "certbot-auto certonly" to do so. You'll need to manually configure your web server to use the resulting certificate.&lt;br&gt;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;apache2の起動コマンド（？）が見つからないようだ。&lt;br&gt;
+そもそもデフォルトでインストールされていないぽい。&lt;br&gt;
+↓↓&lt;br&gt;
+●対応：apache2インストール→再度実行&lt;br&gt;
+&lt;code&gt;&lt;br&gt;
+$ sudo apt-get update&lt;br&gt;
+$ sudo apt-get install apache2&lt;br&gt;
+$ ./certbot-auto&lt;br&gt;
+&lt;/code&gt;&lt;br&gt;
+結果としてこれで成功したが、完了までにいろいろ聞かれたので参考までに記載。&lt;/p&gt;
+
+&lt;p&gt;●ドメイン名を入力してくれー&lt;br&gt;
+No names were found in your configuration files. Please enter in your domain&lt;br&gt;
+name(s) (comma and/or space separated)  (Enter 'c' to cancel):&lt;/p&gt;
+
+&lt;p&gt;自前のドメイン名を入力して、エンター。&lt;/p&gt;
+
+&lt;p&gt;●HTTPSのみの接続にする？&lt;br&gt;
+Please choose whether HTTPS access is required or optional.&lt;br&gt;
+-------------------------------------------------------------------------------&lt;br&gt;
+1: Easy - Allow both HTTP and HTTPS access to these sites&lt;br&gt;
+2: Secure - Make all requests redirect to secure HTTPS access&lt;br&gt;
+-------------------------------------------------------------------------------&lt;br&gt;
+Select the appropriate number [1-2] then &lt;a href="press%20'c'%20to%20cancel"&gt;enter&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;2の方が無難かと考え、2を入力してエンター。&lt;/p&gt;
+
+&lt;p&gt;●成功の確認&lt;br&gt;
+-------------------------------------------------------------------------------&lt;br&gt;
+Congratulations! You have successfully enabled https://(設定したドメイン)&lt;/p&gt;
+
+&lt;p&gt;You should test your configuration at:&lt;br&gt;
+&lt;a href="https://www.ssllabs.com/ssltest/analyze.html?d=(%E8%A8%AD%E5%AE%9A%E3%81%97%E3%81%9F%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3)" class="autolink" rel="nofollow noopener" target="_blank"&gt;https://www.ssllabs.com/ssltest/analyze.html?d=(設定したドメイン)&lt;/a&gt;&lt;br&gt;
+-------------------------------------------------------------------------------&lt;/p&gt;
+
+&lt;p&gt;一応言われている通りにアクセスしたら、A評価（多少時間かかる）。&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;span id="ミドルウェアの設定" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%83%9F%E3%83%89%E3%83%AB%E3%82%A6%E3%82%A7%E3%82%A2%E3%81%AE%E8%A8%AD%E5%AE%9A"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;【ミドルウェアの設定】&lt;/h2&gt;
+
+&lt;p&gt;t2.microなのでスワップ設定は飛ばし。&lt;/p&gt;
+
+&lt;p&gt;と思ったら後ほど出てくるdocker-composeでひっかかった。&lt;br&gt;
+処理が途中で止まってしまうのだが、どうやらメモリ不足が原因らしい...。&lt;br&gt;
+&lt;code&gt;&lt;br&gt;
+$docker-compose run --rm web rails assets:precompile&lt;br&gt;
+&lt;/code&gt;&lt;br&gt;
+&lt;a href="http://uyamazak.hatenablog.com/entry/2017/05/22/151210" class="autolink" rel="nofollow noopener" target="_blank"&gt;http://uyamazak.hatenablog.com/entry/2017/05/22/151210&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;たしかにスワップの設定後、再トライしたら処理が完了できた。&lt;/p&gt;
+
+&lt;p&gt;あと、念のためnginxの編集前の設定ファイルをコピーして残しておく。&lt;br&gt;
+&lt;code&gt;&lt;br&gt;
+ cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.ort&lt;br&gt;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;span id="マストドンのセットアップ" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%83%9E%E3%82%B9%E3%83%88%E3%83%89%E3%83%B3%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;【マストドンのセットアップ】&lt;/h2&gt;
+
+&lt;p&gt;ここでだいぶ時間を食った...。&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="docker動いてない" class="fragment"&gt;&lt;/span&gt;&lt;a href="#docker%E5%8B%95%E3%81%84%E3%81%A6%E3%81%AA%E3%81%84"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;Docker動いてない？&lt;/h3&gt;
+
+&lt;p&gt;ERROR: Couldn't connect to Docker daemon at http+docker://localunixsocket - is it running?&lt;/p&gt;
+
+&lt;p&gt;●いろいろ対応：&lt;br&gt;
+・鯖再起動←たぶん関係ない。&lt;br&gt;
+・pip3のupgrade←アップグレードは成功したがたぶん関係ない。&lt;br&gt;
+　ただ、一応やったことなので残しておく。&lt;br&gt;
+&lt;code&gt;&lt;br&gt;
+$sudo pip3 install --upgrade pip&lt;br&gt;
+&lt;/code&gt;&lt;br&gt;
+・インストール済かの確認&lt;br&gt;
+&lt;code&gt;&lt;br&gt;
+$pip3 list&lt;br&gt;
+docker-compose (1.13.0)&lt;br&gt;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;結局よくわからず↓↓を参考に入れ直す。&lt;/p&gt;
+
+&lt;p&gt;■今何かと話題のマストドン(mastodon)鯖を自分用に無料で立てる方法&lt;br&gt;
+【必要なものをインストールする】のセクション&lt;br&gt;
+&lt;a href="http://jtwp470.hatenablog.jp/entry/2017/04/15/174036" class="autolink" rel="nofollow noopener" target="_blank"&gt;http://jtwp470.hatenablog.jp/entry/2017/04/15/174036&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;その後、再度実行→成功！&lt;br&gt;
+&lt;code&gt;&lt;br&gt;
+$ sudo docker-compose build&lt;br&gt;
+&lt;/code&gt;&lt;br&gt;
+以降、&lt;br&gt;
+&lt;code&gt;&lt;br&gt;
+$ sudo docker-compose run --rm web rake secret&lt;br&gt;
+&lt;/code&gt;&lt;br&gt;
+から続行。&lt;br&gt;
+以降、assetsのdocker-composeで躓くも何とかAbout画面表示までこぎ着けた...。&lt;br&gt;
+まずは一旦の達成感。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="メールの設定" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%83%A1%E3%83%BC%E3%83%AB%E3%81%AE%E8%A8%AD%E5%AE%9A"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;【メールの設定】&lt;/h1&gt;
+
+&lt;p&gt;今回はとりあえず自分のテスト用鯖なのでSESの制限は解除しない。&lt;br&gt;
+他はそのまま。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="cronの設定" class="fragment"&gt;&lt;/span&gt;&lt;a href="#cron%E3%81%AE%E8%A8%AD%E5%AE%9A"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;【cronの設定】&lt;/h1&gt;
+
+&lt;p&gt;今回参照させていただいているところはマストドンのインストールディレクトリを指定しているのでcron内のパスを修正。&lt;br&gt;
+/home/ubuntu/mastodon→/home/ubuntu/live&lt;br&gt;
+他はそのまま。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="ログインと管理画面" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%A8%E7%AE%A1%E7%90%86%E7%94%BB%E9%9D%A2"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;ログインと管理画面&lt;/h1&gt;
+
+&lt;p&gt;最後に、今回はとりあえず個人用インスタンスということにしているのでユーザ認証は手動で実行。&lt;br&gt;
+ということで↓↓を参考にさせていただきました。&lt;/p&gt;
+
+&lt;p&gt;■今何かと話題のマストドン(mastodon)鯖を自分用に無料で立てる方法&lt;br&gt;
+【初期登録と管理画面をだす方法】【管理画面の出し方】&lt;br&gt;
+&lt;a href="http://jtwp470.hatenablog.jp/entry/2017/04/15/174036" class="autolink" rel="nofollow noopener" target="_blank"&gt;http://jtwp470.hatenablog.jp/entry/2017/04/15/174036&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;なぜか手動認証のコマンドを打っても自前のgmailアカウントが見つからないと言われたので、適当な捨てアドを作り、登録し、管理画面から認証するという手順を踏みました。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="さいごに" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%81%95%E3%81%84%E3%81%94%E3%81%AB"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;さいごに&lt;/h1&gt;
+
+&lt;p&gt;最初は探り探りだったので時間としては朝から晩までかかりました。&lt;br&gt;
+2回目はこの手順を残しておいたので2時間強くらいでできました。&lt;br&gt;
+1回目構築終わったあと、疲れなのか何なのかAWSのインスタンを消去してしまい、朝起きたときは絶望しましたが逆にこの手順が間違ってなかったことを自分で証明できてよかったよかった（？）&lt;br&gt;
+インスタンス構築にあたり最近の技術も勉強できたのでそれもよかった。&lt;br&gt;
+Dockerのことがまだはっきりと理解しきれていないので引き続き勉強ですね。&lt;/p&gt;
+
+&lt;p&gt;最後になりましたが、参考にさせていただいた先人たちには多大なる感謝を。&lt;br&gt;
+またこの記事がこれからの誰かの役に立てれば幸いです。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="参考サイトまとめ" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E5%8F%82%E8%80%83%E3%82%B5%E3%82%A4%E3%83%88%E3%81%BE%E3%81%A8%E3%82%81"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;参考サイトまとめ&lt;/h1&gt;
+
+&lt;p&gt;■マストドンAWS構築チュートリアル完全版|初心者から大規模運用まで&lt;br&gt;
+&lt;a href="http://webfood.info/mastodon-aws-tutorial/" class="autolink" rel="nofollow noopener" target="_blank"&gt;http://webfood.info/mastodon-aws-tutorial/&lt;/a&gt;&lt;br&gt;
+■AWS EC2インスタンスにElastic IP(固定グローバルIPアドレス)を割り当てる&lt;br&gt;
+&lt;a href="https://ac-5.net/aws/aws_elasticip_allocation" class="autolink" rel="nofollow noopener" target="_blank"&gt;https://ac-5.net/aws/aws_elasticip_allocation&lt;/a&gt;&lt;br&gt;
+■(お名前.com)ネームサーバーのAレコード設定&lt;br&gt;
+&lt;a href="http://rensrv.com/domain/onamae-com/a_record-setting-onamae-com/" class="autolink" rel="nofollow noopener" target="_blank"&gt;http://rensrv.com/domain/onamae-com/a_record-setting-onamae-com/&lt;/a&gt;&lt;br&gt;
+■今何かと話題のマストドン(mastodon)鯖を自分用に無料で立てる方法&lt;br&gt;
+&lt;a href="http://jtwp470.hatenablog.jp/entry/2017/04/15/174036" class="autolink" rel="nofollow noopener" target="_blank"&gt;http://jtwp470.hatenablog.jp/entry/2017/04/15/174036&lt;/a&gt;&lt;/p&gt;
+</content>
+    <author>
+      <name>inoshika</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:qiita.com,2005:PublicArticle/500904</id>
+    <published>2017-06-13T15:24:45+09:00</published>
+    <updated>2017-06-13T15:24:45+09:00</updated>
+    <link rel="alternate" type="text/html" href="http://qiita.com/matyapiro31/items/59859f1abe579aecfb76"/>
+    <url>http://qiita.com/matyapiro31/items/59859f1abe579aecfb76</url>
+    <title>mastodonの本来の使い方</title>
+    <content type="html">
+&lt;h1&gt;
+&lt;span id="wwwで使うのは間違い" class="fragment"&gt;&lt;/span&gt;&lt;a href="#www%E3%81%A7%E4%BD%BF%E3%81%86%E3%81%AE%E3%81%AF%E9%96%93%E9%81%95%E3%81%84"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;WWWで使うのは間違い&lt;/h1&gt;
+
+&lt;p&gt;マストドンは独立したインスタンスを持ち、独立したアカウントで管理できる。一見これは不便に思える。だが見方を変えてみたらどうだろうか。独立しているというのはつながっていなくてもいいということだ。つまり最も活躍する可能性があるのは閉鎖されたイントラネットである。&lt;br&gt;
+大学や企業などの内部イントラネットでマストドンを活用するのは他のビジネス用SNSよりもメリットが大きいはずだ。&lt;/p&gt;
+
+&lt;p&gt;自前のサーバで完結できるということは外部ネットワークとの接続が不要になってデータを盗まれる可能性が減るということでもある。&lt;br&gt;
+OSSということは社内開発で足りない機能の追加ができるということだ。まあAGPLなのが多少突っ込まれるだろうがメリットの方が大きい。&lt;br&gt;
+また管理するのも身内なので正確に接続制限を設定できるはずだ。外出先用VPNがあればそれに最適化させることもできる。&lt;br&gt;
+元より完全https前提なので安全な通信以外は行わない。盗聴もされないはずだ。&lt;/p&gt;
+
+&lt;p&gt;まあ他にも色々と用途はあるが、今の使い方は完全になってない。公開されるのは一つで十分だ。&lt;br&gt;
+インスタンスが乱立すればインスタンス間の通信もそれに伴い増大する。他のインスタンスとユーザーが直接通信することも難しいし現実的ではない。&lt;br&gt;
+そもそもインスタンス名はユーザーからすれば少々大げさなトゥート毎に付きまとうハッシュタグにすぎない。これを解決しなければユーザーの心に響くものにはならないだろう。&lt;/p&gt;
+</content>
+    <author>
+      <name>matyapiro31</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:qiita.com,2005:PublicArticle/500881</id>
+    <published>2017-06-13T13:50:19+09:00</published>
+    <updated>2017-06-18T19:05:14+09:00</updated>
+    <link rel="alternate" type="text/html" href="http://qiita.com/syumari/items/9d4d2866d3b45c2b6c5a"/>
+    <url>http://qiita.com/syumari/items/9d4d2866d3b45c2b6c5a</url>
+    <title>Mastodonセットアップ時にErrorがでた場合の対処法云々</title>
+    <content type="html">&lt;p&gt;mastdonをインストールしていますがエラーがでます。&lt;br&gt;
+cld3がbundle installでコケた時&lt;br&gt;
+&lt;a href="https://teratail.com/questions/78220" class="autolink" rel="nofollow noopener" target="_blank"&gt;https://teratail.com/questions/78220&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;rails s が失敗して`raise_no_secret_key': Devise.secret_key was not setと言われました。&lt;br&gt;
+&lt;a href="http://qiita.com/pugiemonn/items/c8fd89a8ea5cb3c7877b" class="autolink" id="reference-7f283549e74e5cf66555"&gt;http://qiita.com/pugiemonn/items/c8fd89a8ea5cb3c7877b&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Mastodonインストール時に"rake secret"でエラーが発生する&lt;br&gt;
+&lt;a href="https://teratail.com/questions/77058" class="autolink" rel="nofollow noopener" target="_blank"&gt;https://teratail.com/questions/77058&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;CentOSにrbenvをインストールする方法&lt;br&gt;
+&lt;a href="http://www.task-notes.com/entry/20150624/1435114800" class="autolink" rel="nofollow noopener" target="_blank"&gt;http://www.task-notes.com/entry/20150624/1435114800&lt;/a&gt;&lt;/p&gt;
+</content>
+    <author>
+      <name>syumari</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:qiita.com,2005:PublicArticle/500848</id>
+    <published>2017-06-13T11:35:26+09:00</published>
+    <updated>2017-06-13T11:36:55+09:00</updated>
+    <link rel="alternate" type="text/html" href="http://qiita.com/ABK28/items/2128f15840223349b024"/>
+    <url>http://qiita.com/ABK28/items/2128f15840223349b024</url>
+    <title>さくらクラウドのスクリプトで作ったmastodonのバックアップとDocker環境へのリストア</title>
+    <content type="html">&lt;p&gt;さくらクラウドのスクリプトで作ったマストドンのデータをバックアップしたかったのと、それを別の環境にロードしたかったので、その試行錯誤をご紹介。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="１さくらクラウドのvmでの作業" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%EF%BC%91%E3%81%95%E3%81%8F%E3%82%89%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%81%AEvm%E3%81%A7%E3%81%AE%E4%BD%9C%E6%A5%AD"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;１．さくらクラウドのVMでの作業&lt;/h1&gt;
+
+&lt;p&gt;#su - mastodon&lt;br&gt;
+ポスグレバックアップ&lt;br&gt;
+$cd /home/mastodon/live&lt;br&gt;
+$pg_dump &amp;gt; backup_postgres-db.sql&lt;br&gt;
+画像などのバックアップ&lt;br&gt;
+$cd /home/mastodon/live/public&lt;br&gt;
+$tar zcf backup_public-system.tar.gz system&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="２移行先での作業" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%EF%BC%92%E7%A7%BB%E8%A1%8C%E5%85%88%E3%81%A7%E3%81%AE%E4%BD%9C%E6%A5%AD"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;２．移行先での作業&lt;/h1&gt;
+
+&lt;p&gt;一般的なDockerで動くmastodon環境にロード（リストア）しました。自分はGCPにubuntuのVMを作って、そこにDockerを入れたものを、別URLで動くようにしておきました。&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="nginxを止めておく" class="fragment"&gt;&lt;/span&gt;&lt;a href="#nginx%E3%82%92%E6%AD%A2%E3%82%81%E3%81%A6%E3%81%8A%E3%81%8F"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;nginxを止めておく&lt;/h3&gt;
+
+&lt;p&gt;#nginx -s stop&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="docker確認-コンテナidをメモる" class="fragment"&gt;&lt;/span&gt;&lt;a href="#docker%E7%A2%BA%E8%AA%8D-%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8Aid%E3%82%92%E3%83%A1%E3%83%A2%E3%82%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;docker確認 コンテナIDをメモる。&lt;/h3&gt;
+
+&lt;p&gt;#docker ps&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="dockerコンテナにバックアップしたdbファイルをコピーする" class="fragment"&gt;&lt;/span&gt;&lt;a href="#docker%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E3%81%AB%E3%83%90%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97%E3%81%97%E3%81%9Fdb%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%82%B3%E3%83%94%E3%83%BC%E3%81%99%E3%82%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;dockerコンテナにバックアップしたDBファイルをコピーする。&lt;/h3&gt;
+
+&lt;p&gt;バックアップしたbackup_postgres-db.sqlはVMにコピっておく。&lt;br&gt;
+#docker cp backup_postgres-db.sql {コンテナID}:/home/db_backup.sql&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="dockerコンテナに入る" class="fragment"&gt;&lt;/span&gt;&lt;a href="#docker%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E3%81%AB%E5%85%A5%E3%82%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;dockerコンテナに入る&lt;/h3&gt;
+
+&lt;p&gt;#docker exec -it mastodon_db_1 bash&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="ポスグレに入る" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%83%9D%E3%82%B9%E3%82%B0%E3%83%AC%E3%81%AB%E5%85%A5%E3%82%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;ポスグレに入る&lt;/h3&gt;
+
+&lt;p&gt;bash-4.3# psql -U postgres&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="mastodonユーザーロールを作る" class="fragment"&gt;&lt;/span&gt;&lt;a href="#mastodon%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%83%AD%E3%83%BC%E3%83%AB%E3%82%92%E4%BD%9C%E3%82%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;mastodonユーザー（ロール）を作る。&lt;/h3&gt;
+
+&lt;p&gt;さくらスクリプトで作られたポスグレがmastodonっていうユーザで動いていたので、ロールを作りました。&lt;br&gt;
+postgres=# create role mastodon with login superuser;&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="テーブルを全部消す" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E5%85%A8%E9%83%A8%E6%B6%88%E3%81%99"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;テーブルを全部消す&lt;/h3&gt;
+
+&lt;p&gt;postgres=# drop schema public cascade;&lt;br&gt;
+postgres=# create schema public;&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="確認" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E7%A2%BA%E8%AA%8D"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;確認&lt;/h3&gt;
+
+&lt;p&gt;postgres=# \l&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="データベースのオーナーをmastodonにする" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E3%82%AA%E3%83%BC%E3%83%8A%E3%83%BC%E3%82%92mastodon%E3%81%AB%E3%81%99%E3%82%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;データベースのオーナーをmastodonにする&lt;/h3&gt;
+
+&lt;p&gt;postgres=# alter database postgres owner to mastodon;&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="確認-1" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E7%A2%BA%E8%AA%8D-1"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;確認&lt;/h3&gt;
+
+&lt;p&gt;postgres=# \l&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="ポスグレから抜ける" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%83%9D%E3%82%B9%E3%82%B0%E3%83%AC%E3%81%8B%E3%82%89%E6%8A%9C%E3%81%91%E3%82%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;ポスグレから抜ける&lt;/h3&gt;
+
+&lt;p&gt;postgres=# \q&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="バックアップしたデータを読み込み" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%83%90%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97%E3%81%97%E3%81%9F%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;バックアップしたデータを読み込み&lt;/h3&gt;
+
+&lt;p&gt;bash-4.3# cd /home&lt;br&gt;
+bash-4.3# psql -U mastodon -d postgres &amp;lt; db_backup.sql &lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="ポスグレに入る-1" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%83%9D%E3%82%B9%E3%82%B0%E3%83%AC%E3%81%AB%E5%85%A5%E3%82%8B-1"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;ポスグレに入る&lt;/h3&gt;
+
+&lt;p&gt;bash-4.3# psql -U postgres&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="データベースのオーナーをpostgresに戻す" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E3%82%AA%E3%83%BC%E3%83%8A%E3%83%BC%E3%82%92postgres%E3%81%AB%E6%88%BB%E3%81%99"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;データベースのオーナーをpostgresに戻す&lt;/h3&gt;
+
+&lt;p&gt;postgres=# alter database postgres owner to postgres;&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="確認-2" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E7%A2%BA%E8%AA%8D-2"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;確認&lt;/h3&gt;
+
+&lt;p&gt;postgres=# \l&lt;br&gt;
+postgres=# \d&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="ポスグレから抜ける-1" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%83%9D%E3%82%B9%E3%82%B0%E3%83%AC%E3%81%8B%E3%82%89%E6%8A%9C%E3%81%91%E3%82%8B-1"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;ポスグレから抜ける&lt;/h3&gt;
+
+&lt;p&gt;postgres=# \q&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="dockerコンテナから抜ける" class="fragment"&gt;&lt;/span&gt;&lt;a href="#docker%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E3%81%8B%E3%82%89%E6%8A%9C%E3%81%91%E3%82%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;dockerコンテナから抜ける&lt;/h3&gt;
+
+&lt;p&gt;bash-4.3# exit&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="画像などをリストア" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E7%94%BB%E5%83%8F%E3%81%AA%E3%81%A9%E3%82%92%E3%83%AA%E3%82%B9%E3%83%88%E3%82%A2"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;画像などをリストア&lt;/h3&gt;
+
+&lt;p&gt;バックアップしたbackup_public-system.tar.gzはVMにコピっておく。&lt;br&gt;
+#cd public&lt;br&gt;
+#tar xvzf backup_public-system.tar.gz &lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="nginx起動" class="fragment"&gt;&lt;/span&gt;&lt;a href="#nginx%E8%B5%B7%E5%8B%95"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;nginx起動&lt;/h3&gt;
+
+&lt;p&gt;#nginx&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;span id="おしまい" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%81%8A%E3%81%97%E3%81%BE%E3%81%84"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;おしまい。&lt;/h3&gt;
+</content>
+    <author>
+      <name>ABK28</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:qiita.com,2005:PublicArticle/500747</id>
+    <published>2017-06-12T22:46:40+09:00</published>
+    <updated>2017-06-13T12:32:38+09:00</updated>
+    <link rel="alternate" type="text/html" href="http://qiita.com/matyapiro31/items/0c7b0ac5da2bf2665689"/>
+    <url>http://qiita.com/matyapiro31/items/0c7b0ac5da2bf2665689</url>
+    <title>mastodonに起こりうる悲劇</title>
+    <content type="html">
+&lt;h1&gt;
+&lt;span id="今現在の問題点" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E4%BB%8A%E7%8F%BE%E5%9C%A8%E3%81%AE%E5%95%8F%E9%A1%8C%E7%82%B9"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;&lt;font color="#559"&gt;今現在の問題点&lt;/font&gt;
+&lt;/h1&gt;
+
+&lt;p&gt;単純なことから複雑なことまで。&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;span id="1-非常に重くストレスに弱い" class="fragment"&gt;&lt;/span&gt;&lt;a href="#1-%E9%9D%9E%E5%B8%B8%E3%81%AB%E9%87%8D%E3%81%8F%E3%82%B9%E3%83%88%E3%83%AC%E3%82%B9%E3%81%AB%E5%BC%B1%E3%81%84"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;&lt;font color="#55d"&gt;1. 非常に重く、ストレスに弱い&lt;/font&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;見れば分かるがすぐにダウンする。これについてはmstdn.jpがさくらのクラウドに移行した経緯などを見て欲しい。&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;span id="2-脆弱性に弱い" class="fragment"&gt;&lt;/span&gt;&lt;a href="#2-%E8%84%86%E5%BC%B1%E6%80%A7%E3%81%AB%E5%BC%B1%E3%81%84"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;&lt;font color="#55d"&gt;2. 脆弱性に弱い&lt;/font&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;インスタンスごとに更新しなければならないので弱い。バイナリ配布もないので自動更新も難しい。&lt;br&gt;
+これについては今自分で頑張ってます。&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;span id="3-カスタマイズに専門知識が不可欠" class="fragment"&gt;&lt;/span&gt;&lt;a href="#3-%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA%E3%81%AB%E5%B0%82%E9%96%80%E7%9F%A5%E8%AD%98%E3%81%8C%E4%B8%8D%E5%8F%AF%E6%AC%A0"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;&lt;font color="#55d"&gt;3. カスタマイズに専門知識が不可欠&lt;/font&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;現状、node.js,ECMAScript6,CSS,Ruby,PostgreSQLなどの知識が不可欠。&lt;br&gt;
+出来なくても運営できるが、「そんなやつ信用できるか!」となりかねない。&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;span id="4-サーバが必要不可欠" class="fragment"&gt;&lt;/span&gt;&lt;a href="#4-%E3%82%B5%E3%83%BC%E3%83%90%E3%81%8C%E5%BF%85%E8%A6%81%E4%B8%8D%E5%8F%AF%E6%AC%A0"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;&lt;font color="#55d"&gt;4. サーバが必要不可欠&lt;/font&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;サーバ代金を賄える手段は少ない。&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;span id="5-使う意味" class="fragment"&gt;&lt;/span&gt;&lt;a href="#5-%E4%BD%BF%E3%81%86%E6%84%8F%E5%91%B3"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;&lt;font color="#55d"&gt;5. 使う意味&lt;/font&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;重たすぎるIRCみたいなものを使う必然性はどこにあるのか?&lt;br&gt;
+簡単にやりたければ簡単なオープンチャットはIRC、画像はImgur、動画はYoutube、音楽はSoundCloudでいい。&lt;br&gt;
+そいつらでできないこともある?きっと何かで無料でできる。&lt;br&gt;
+要するにどこにも"魔法"が無くなってしまった。今までのITは「こんなことが無料でできるなんて信じられない!どうなってるんだ!?」という驚きと共に発展してきた。mastodonは全体はともかく部分で見ればどこにも"魔法"がない。&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;span id="6-邪魔すぎる企業" class="fragment"&gt;&lt;/span&gt;&lt;a href="#6-%E9%82%AA%E9%AD%94%E3%81%99%E3%81%8E%E3%82%8B%E4%BC%81%E6%A5%AD"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;&lt;font color="#55d"&gt;6. 邪魔すぎる企業&lt;/font&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;Pixivとドワンゴが、自分達のグレーな商売を邪魔するTwitterから逃げて元からいた"インディアン"を追い出して開拓した"フロンティア"になっている。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="これからの変化の予測" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%81%93%E3%82%8C%E3%81%8B%E3%82%89%E3%81%AE%E5%A4%89%E5%8C%96%E3%81%AE%E4%BA%88%E6%B8%AC"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;&lt;font color="#e22"&gt;これからの変化の予測&lt;/font&gt;
+&lt;/h1&gt;
+
+&lt;h2&gt;
+&lt;span id="一部のインスタンスの共産化" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E4%B8%80%E9%83%A8%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%81%AE%E5%85%B1%E7%94%A3%E5%8C%96"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;&lt;font color="#c00"&gt;一部のインスタンスの"共産化"&lt;/font&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;一部のインスタンスは必ず運営に失敗し&lt;font color="#c00"&gt;ゴルスタ&lt;/font&gt;みたいになるだろう。その後色々ありそう。&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;span id="脆弱性の蔓延" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E8%84%86%E5%BC%B1%E6%80%A7%E3%81%AE%E8%94%93%E5%BB%B6"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;&lt;font color="#c00"&gt;脆弱性の蔓延&lt;/font&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;更新されないインスタンスの脆弱性放置が深刻化する。&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;span id="過疎化による慢性的な死" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E9%81%8E%E7%96%8E%E5%8C%96%E3%81%AB%E3%82%88%E3%82%8B%E6%85%A2%E6%80%A7%E7%9A%84%E3%81%AA%E6%AD%BB"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;&lt;font color="#c00"&gt;過疎化による慢性的な死&lt;/font&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;過疎化していくインスタンスは消えていき、やがて死に絶える。&lt;/p&gt;
+</content>
+    <author>
+      <name>matyapiro31</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:qiita.com,2005:PublicArticle/499734</id>
+    <published>2017-06-08T20:58:47+09:00</published>
+    <updated>2017-06-08T21:21:14+09:00</updated>
+    <link rel="alternate" type="text/html" href="http://qiita.com/gc373/items/23851b7ef7ffe3effcce"/>
+    <url>http://qiita.com/gc373/items/23851b7ef7ffe3effcce</url>
+    <title>Arukas.ioでMastodonのWebクライアント「Naumanni(ナウマン)」を建てた話</title>
+    <content type="html">&lt;p&gt;こんにちはこんにちは！&lt;br&gt;&lt;br&gt;
+MastodonのWebクライアントであるNaumanniを&lt;a href="https://arukas.io" rel="nofollow noopener" target="_blank"&gt;Arukas.io&lt;/a&gt;で建ててみましたので、紹介します。&lt;br&gt;
+URLはこちらです。&lt;br&gt;
+&lt;strong&gt;&lt;a href="https://naumanni.arukascloud.io" class="autolink" rel="nofollow noopener" target="_blank"&gt;https://naumanni.arukascloud.io&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4&gt;
+&lt;span id="naumanniって" class="fragment"&gt;&lt;/span&gt;&lt;a href="#naumanni%E3%81%A3%E3%81%A6"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;Naumanniって？&lt;/h4&gt;
+
+&lt;p&gt;OSSとしてGitHub上で公開されているMastodonのWebクライアントです。&lt;br&gt;
+APIを叩いて、Mastodonのいろんなことができる、いわばガワですね。&lt;br&gt;
+(間違っていたりご指摘あればお願いします。)&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://github.com/naumanni/naumanni/blob/master/README.ja.md" rel="nofollow noopener" target="_blank"&gt;Naummanniは(株)UEIと(株)glucoseの共同開発プロジェクトです&lt;/a&gt;&lt;br&gt;&lt;br&gt;
+&lt;a href="https://qiita-image-store.s3.amazonaws.com/0/135022/f334cd04-b31c-7568-0161-a72eef05d1f8.png" target="_blank" rel="nofollow noopener"&gt;&lt;img src="https://qiita-image-store.s3.amazonaws.com/0/135022/f334cd04-b31c-7568-0161-a72eef05d1f8.png" alt="SnapCrab_NoName_2017-6-8_20-13-23_No-00.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4&gt;
+&lt;span id="arukasioって" class="fragment"&gt;&lt;/span&gt;&lt;a href="#arukasio%E3%81%A3%E3%81%A6"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;Arukas.ioって？&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href="https://arukas.io" rel="nofollow noopener" target="_blank"&gt;Arukas.io&lt;/a&gt;はdockerコンテナをVM上につくることのできるさくらインターネットのサービスです。&lt;br&gt;&lt;br&gt;
+複数のdockerの連携はできませんが、1つのコンテナで完結するものであれば設定するだけで立ち上がります。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;ARUKAS CLOUD is DOCKER HOSTING&lt;br&gt;
+&lt;a href="https://qiita-image-store.s3.amazonaws.com/0/135022/371a4791-3504-044d-c186-a43cdb914d26.png" target="_blank" rel="nofollow noopener"&gt;&lt;img src="https://qiita-image-store.s3.amazonaws.com/0/135022/371a4791-3504-044d-c186-a43cdb914d26.png" alt="SnapCrab_Arukas｜Dockerホスティング_2017-6-8_19-59-21_No-00.png"&gt;&lt;/a&gt;  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;どのイメージを使うか&lt;/li&gt;
+&lt;li&gt;外部のポートはなにをつかうか&lt;/li&gt;
+&lt;li&gt;環境変数になにを設定するか&lt;/li&gt;
+&lt;li&gt;CMD で指定するコマンドはなにか
+などなどを設定すると、簡単にdockerが立ち上がってサービスを公開することができます。
+(ちなみに現在は有料プランがなく、10コンテナまでは無料ですが、今すぐ登録しても案内は4週間ほどかかるそうです。)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;
+&lt;span id="早く建てろ" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E6%97%A9%E3%81%8F%E5%BB%BA%E3%81%A6%E3%82%8D"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;早く建てろ&lt;/h4&gt;
+
+&lt;p&gt;建てます。&lt;br&gt;&lt;br&gt;
+&lt;a href="https://qiita-image-store.s3.amazonaws.com/0/135022/d057d315-bbbe-d1b1-57db-46897cd1ecb5.png" target="_blank" rel="nofollow noopener"&gt;&lt;img src="https://qiita-image-store.s3.amazonaws.com/0/135022/d057d315-bbbe-d1b1-57db-46897cd1ecb5.png" alt="SnapCrab_make a new app - Arukas Control Panel_2017-6-8_20-25-42_No-00.png"&gt;&lt;/a&gt;&lt;br&gt;
+画像の赤枠内をそれぞれ入力します。&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;項目&lt;/th&gt;
+&lt;th style="text-align: center"&gt;設定値&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;App Name&lt;/td&gt;
+&lt;td style="text-align: center"&gt;任意の名前&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Image&lt;/td&gt;
+&lt;td style="text-align: center"&gt;naumanni/naumanni-standalone:latest&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Endpoint&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Arukas.io上で一意になるような名前&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Port&lt;/td&gt;
+&lt;td style="text-align: center"&gt;80&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;残りの項目「Instances」「Memory」は適当に、「ENV」「CMD」は未設定で大丈夫です。&lt;br&gt;&lt;br&gt;
+この設定でアプリケーションを作成すると、ビルドが終了次第、下記のようになります。&lt;br&gt;
+&lt;a href="https://qiita-image-store.s3.amazonaws.com/0/135022/682c10e5-003a-9e02-ab68-71669d8cf86a.png" target="_blank" rel="nofollow noopener"&gt;&lt;img src="https://qiita-image-store.s3.amazonaws.com/0/135022/682c10e5-003a-9e02-ab68-71669d8cf86a.png" alt="SnapCrab_naumanni properties - Arukas Control Panel_2017-6-8_20-38-28_No-00.png"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;これでコンテナの作成は終了です。&lt;br&gt;
+Endpointに指定されているURLに飛ぶとNaumanniの画面が開きます。  &lt;/p&gt;
+
+&lt;h4&gt;
+&lt;span id="ハマったとこ" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E3%81%A8%E3%81%93"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;ハマったとこ&lt;/h4&gt;
+
+&lt;p&gt;dockerはタグを指定しないと自動的にlatestからイメージを引っ張ってくると思ってたのですが、&lt;br&gt;
+Arukas.ioの場合には「naumanni/naumanni-standalone」と指定してもビルドが失敗していました。&lt;br&gt;&lt;br&gt;
+上記のようにきちんとタグ「:latest」を指定してあげましょう。&lt;/p&gt;
+
+&lt;h4&gt;
+&lt;span id="最後に" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E6%9C%80%E5%BE%8C%E3%81%AB"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;最後に&lt;/h4&gt;
+
+&lt;p&gt;今回はサイトと設定の紹介だけとなってしまいましたが、お手軽ですので試してみてはいかがでしょうか。&lt;br&gt;
+また、今回は&lt;a href="https://hub.docker.com/r/naumanni/naumanni-standalone/" rel="nofollow noopener" target="_blank"&gt;dockerhub上のNaumanniイメージ&lt;/a&gt;を用いていますが、&lt;br&gt;
+今後の改修によっては上記の設定で動作しなくなる可能性もありますのでご注意ください。&lt;/p&gt;
+
+&lt;p&gt;まだArukas.ioの登録が済んでいない方などは、是非今回建てたNaumanni鯖もつかってみてください。&lt;br&gt;
+&lt;strong&gt;&lt;a href="https://naumanni.arukascloud.io" class="autolink" rel="nofollow noopener" target="_blank"&gt;https://naumanni.arukascloud.io&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
+(特に今後触る予定はないですが、イメージが更新されていれば検証の後、更新をかける可能性はあります。)&lt;/p&gt;
+</content>
+    <author>
+      <name>gc373</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:qiita.com,2005:PublicArticle/499715</id>
+    <published>2017-06-08T19:54:51+09:00</published>
+    <updated>2017-06-08T20:18:06+09:00</updated>
+    <link rel="alternate" type="text/html" href="http://qiita.com/masarakki/items/5f326e92e8fb2264fd65"/>
+    <url>http://qiita.com/masarakki/items/5f326e92e8fb2264fd65</url>
+    <title>mastodon v1.4.1 あるいは webpacker で assets:precompile を速くする</title>
+    <content type="html">&lt;p&gt;速くはなりません&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="diff"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gh"&gt;diff --git a/Capfile b/Capfile&lt;/span&gt;
+&lt;span class="gh"&gt;index 23a40e9..4bb57d7 100644&lt;/span&gt;
+&lt;span class="gd"&gt;--- a/Capfile&lt;/span&gt;
+&lt;span class="gi"&gt;+++ b/Capfile&lt;/span&gt;
+&lt;span class="gu"&gt;@@ -7,8 +7,8 @@ install_plugin Capistrano::SCM::Git&lt;/span&gt;
+
+ require 'capistrano/rbenv'
+ require 'capistrano/bundler'
+&lt;span class="gd"&gt;-require 'capistrano/yarn'&lt;/span&gt;
+ require 'capistrano/rails/assets'
+&lt;span class="gi"&gt;+require 'capistrano/faster_assets'&lt;/span&gt;
+ require 'capistrano/rails/migrations'
+ require 'capistrano/aws'
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code&gt;capistrano-faster-assets&lt;/code&gt; を復活させます&lt;br&gt;
+&lt;code&gt;rake assets:precompile&lt;/code&gt; が &lt;code&gt;yarn install&lt;/code&gt; も行うのでこれは &lt;strong&gt;いったん&lt;/strong&gt; 不要です&lt;br&gt;
+(&lt;a href="https://github.com/rails/webpacker/issues/405" rel="nofollow noopener" target="_blank"&gt;Rails の方&lt;/a&gt;に &lt;code&gt;assets:precompile&lt;/code&gt; で &lt;code&gt;yarn install&lt;/code&gt; しないようにする提案が出てます)&lt;/p&gt;
+
+&lt;p&gt;faster-assets は依存ファイルの設定ができるので webpacker 用に設定します&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="diff"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gh"&gt;diff --git a/config/deploy.rb b/config/deploy.rb&lt;/span&gt;
+&lt;span class="gh"&gt;index dbd2365..d51c698 100644&lt;/span&gt;
+&lt;span class="gd"&gt;--- a/config/deploy.rb&lt;/span&gt;
+&lt;span class="gi"&gt;+++ b/config/deploy.rb&lt;/span&gt;
+&lt;span class="gu"&gt;@@ -15,6 +15,10 @@ set :deploy_to, "/home/#{fetch(:user)}/#{fetch(:application)}"&lt;/span&gt;
+ append :linked_files, '.env.production'
+ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle',  'publ
+ic/system'
+
+&lt;span class="gi"&gt;+set :assets_prefix, 'packs'&lt;/span&gt;
+&lt;span class="gi"&gt;+set :assets_dependencies, %w(app/javascripts package.json yarn.lock config/environments/production.rb config/webpack)&lt;/span&gt;
+
+set :puma_env, 'production'
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;おそらく &lt;code&gt;app/javascripts&lt;/code&gt;, &lt;code&gt;package.json&lt;/code&gt;, &lt;code&gt;yarn.lock&lt;/code&gt;, &lt;code&gt;config/environments/production.rb&lt;/code&gt;, &lt;code&gt;config/webpack&lt;/code&gt; だけを見ればいいんじゃないかと思います(要検証)&lt;/p&gt;
+
+&lt;p&gt;ここで一つ問題点&lt;br&gt;
+依存ファイルは diff を見て変更を判定しているので &lt;code&gt;shared/.env.production&lt;/code&gt; なんかをシンボリックリンクにしていると diff が反応しません&lt;br&gt;
+これに対応したパッチを作ったので必要であれば&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="ruby"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Gemfile&lt;/span&gt;
+
+&lt;span class="n"&gt;gem&lt;/span&gt; &lt;span class="s1"&gt;'capistrano-faster-assets'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;hub&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'masarakki/capistrano-faster-assets'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;branch&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'compare-timestamp-for-shared-files'&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class="code-frame" data-lang="ruby"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# config/deploy.rb&lt;/span&gt;
+
+&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="ss"&gt;:assets_shared_dependencies&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="sx"&gt;%w(.env.production)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;な感じに指定すると幸せになります&lt;/p&gt;
+</content>
+    <author>
+      <name>masarakki</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:qiita.com,2005:PublicArticle/498822</id>
+    <published>2017-06-05T21:29:07+09:00</published>
+    <updated>2017-06-07T13:38:01+09:00</updated>
+    <link rel="alternate" type="text/html" href="http://qiita.com/syumari/items/0cab84053b199da925a8"/>
+    <url>http://qiita.com/syumari/items/0cab84053b199da925a8</url>
+    <title>Mastodonでよく打つコマンド</title>
+    <content type="html">
+&lt;h4&gt;
+&lt;span id="dailyコマンド" class="fragment"&gt;&lt;/span&gt;&lt;a href="#daily%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;dailyコマンド&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;(bundle exec) rake mastodon:daily&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4&gt;
+&lt;span id="dailyコマンドを分解" class="fragment"&gt;&lt;/span&gt;&lt;a href="#daily%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%82%92%E5%88%86%E8%A7%A3"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;dailyコマンドを分解&lt;/h4&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;RAILS_ENV=production bundle exec rake mastodon:feeds:clear
+RAILS_ENV=production bundle exec rake mastodon:media:clear
+RAILS_ENV=production bundle exec rake mastodon:users:clear
+RAILS_ENV=production bundle exec rake mastodon:push:refresh
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4&gt;
+&lt;span id="現在のローカルリポジトリの状態の確認" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E7%8F%BE%E5%9C%A8%E3%81%AE%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E7%8A%B6%E6%85%8B%E3%81%AE%E7%A2%BA%E8%AA%8D"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;現在のローカルリポジトリの状態の確認&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;git status&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4&gt;
+&lt;span id="変更されてcommitされていないファイルを一時的に退避" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E5%A4%89%E6%9B%B4%E3%81%95%E3%82%8C%E3%81%A6commit%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%81%AA%E3%81%84%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E4%B8%80%E6%99%82%E7%9A%84%E3%81%AB%E9%80%80%E9%81%BF"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;変更されてcommitされていないファイルを一時的に退避&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;git stash&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4&gt;
+&lt;span id="リモートリポジトリの情報を更新" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E6%83%85%E5%A0%B1%E3%82%92%E6%9B%B4%E6%96%B0"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;リモートリポジトリの情報を更新&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;git fetch&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4&gt;
+&lt;span id="dailyコマンドでエラーが出た場合" class="fragment"&gt;&lt;/span&gt;&lt;a href="#daily%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%A7%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%8C%E5%87%BA%E3%81%9F%E5%A0%B4%E5%90%88"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;dailyコマンドでエラーが出た場合&lt;/h4&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ bundle install --deployment --with development
+$ RAILS_ENV=development bundle exec rails db:setup
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4&gt;
+&lt;span id="mastodonのアップデート" class="fragment"&gt;&lt;/span&gt;&lt;a href="#mastodon%E3%81%AE%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;Mastodonのアップデート&lt;/h4&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;su - mastodon
+
+git clone https://github.com/tootsuite/mastodon.git live
+
+cd live
+
+git checkout $(git tag | tail -n 1)
+
+gem install bundler
+
+bundle install --deployment --without development test
+
+yarn install --pure-lockfile
+
+RAILS_ENV=production bundle exec rails db:migrate
+
+RAILS_ENV=production bundle exec rails assets:precompile
+
+sudo systemctl restart mastodon-*.service
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4&gt;
+&lt;span id="mastodonのアップデートさくらのクラウドの例" class="fragment"&gt;&lt;/span&gt;&lt;a href="#mastodon%E3%81%AE%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E3%81%95%E3%81%8F%E3%82%89%E3%81%AE%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%81%AE%E4%BE%8B"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;Mastodonのアップデート(さくらのクラウドの例)&lt;/h4&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# yum install {libxml2,libxslt,protobuf,ffmpeg}-devel protobuf-compiler rubygem-redis postgresql-contrib
+
+su - mastodon
+
+cd /home/mastodon/live
+git checkout master
+git pull
+git checkout v1.4.1
+gem install bundler 
+bundle install --deployment --without development test
+yarn install
+RAILS_ENV=production bundle exec rails db:migrate 
+RAILS_ENV=production bundle exec rails assets:precompile 
+exit
+
+systemctl restart mastodon*
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</content>
+    <author>
+      <name>syumari</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:qiita.com,2005:PublicArticle/498818</id>
+    <published>2017-06-05T21:11:00+09:00</published>
+    <updated>2017-06-05T21:11:00+09:00</updated>
+    <link rel="alternate" type="text/html" href="http://qiita.com/noraworld/items/5d289be91a3132de212e"/>
+    <url>http://qiita.com/noraworld/items/5d289be91a3132de212e</url>
+    <title>ナウマンを Docker で立ち上げてデプロイするまで</title>
+    <content type="html">
+&lt;h1&gt;
+&lt;span id="はじめに" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;はじめに&lt;/h1&gt;
+
+&lt;p&gt;Web 版マストドンクライアントとして登場した&lt;a href="https://naumanni.com" rel="nofollow noopener" target="_blank"&gt;ナウマン&lt;/a&gt;は誰でも簡単にサーバにデプロイすることができます。実際に立ててみたところ非常に簡単に構築できましたが、ところどころつまづくポイントがあったのでメモとしてデプロイまでの作業をまとめたいと思います。&lt;/p&gt;
+
+&lt;p&gt;Docker で立ち上げた理由ですが、はじめは Docker なしでビルドして Nginx で配信してみましたが、不具合なのか、僕の設定に不備があったのかわかりませんが、はじめのウェルカム画面（&lt;code&gt;/welcome&lt;/code&gt;）が表示されない（ルーティング的にエラーになってしまう）現象が発生したので、Docker で立ち上げることにしました。ウェルカム画面が表示されなくても支障はなさそうですがなんとなく嫌だなというのと、結局 Docker で立ち上げるのが一番お手軽なので Docker で紹介します。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="デモ" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%83%87%E3%83%A2"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;デモ&lt;/h1&gt;
+
+&lt;p&gt;デプロイするとこんな感じのサイトが立ち上がります。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://naumanni.mastodon.noraworld.jp" rel="nofollow noopener" target="_blank"&gt;naumanni.mastodon.noraworld.jp&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;自分のサーバにデプロイする前にどんな感じになるのか確認したい方は参考にしてください。&lt;/p&gt;
+
+&lt;p&gt;ちなみにナウマンは、マストドンの API を叩いてタイムライン等を取得するので、&lt;strong&gt;そのサーバで起動しているマストドンとは別のインスタンスのアカウントも利用できます&lt;/strong&gt;。そのサーバでマストドンを運営してなくても他のインスタンスにアカウントがあれば使えます。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="インストール" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;インストール&lt;/h1&gt;
+
+&lt;p&gt;ソースコードを GitHub からクローンして Docker コンテナを立ち上げます。&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="bash"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone https://github.com/naumanni/naumanni
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; naumanni
+$ docker pull naumanni/naumanni-standalone
+$ docker run -dit -p &lt;span class="m"&gt;127&lt;/span&gt;.0.0.1:8080:80 naumanni/naumanni-standalone
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;公式の README を見ると Docker コンテナを立ち上げるときに &lt;code&gt;-d&lt;/code&gt; オプションをつけていない（2017/06/05 現在）ので標準入力を Docker に持って行かれてしまうのと、&lt;code&gt;8080&lt;/code&gt; ポートで外からアクセスされる可能性があるので、README の例とは少し違います。&lt;/p&gt;
+
+&lt;p&gt;これですでにナウマンが起動しています。ナウマンを起動したのと同じサーバで &lt;code&gt;curl 127.0.0.1:8080&lt;/code&gt; を実行してナウマンのフロントの HTML が返ってくれば OK です。&lt;/p&gt;
+
+&lt;p&gt;ちなみにすでに &lt;code&gt;8080&lt;/code&gt; ポートを別のアプリケーションで使用していた場合は &lt;code&gt;docker run&lt;/code&gt; するときの Docker 側のポート番号（&lt;code&gt;8080&lt;/code&gt;）を変更してください。&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=":warning:" class="emoji" height="20" src="https://cdn.qiita.com/emoji/twemoji/unicode/26a0-fe0f.png" title=":warning:" width="20"&gt; 2017/06/05 現在リリースされているタグは &lt;code&gt;0.1.1&lt;/code&gt; と &lt;code&gt;alpha-0.1.2&lt;/code&gt; の 2 つですが、どちらも &lt;code&gt;openpgp.worker.js&lt;/code&gt; が生成されないバグが修正される前のリリースなので、デプロイするとしたら、バグが修正された直後の状態か、&lt;code&gt;master&lt;/code&gt; の最新版を使用してください。上記の例では &lt;code&gt;master&lt;/code&gt; の最新版を使用しています。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/naumanni/naumanni/issues/19" rel="nofollow noopener" target="_blank"&gt;openpgp.worker.js が生成されてない。&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="デプロイ" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;デプロイ&lt;/h1&gt;
+
+&lt;p&gt;Nginx を使ってデプロイします。以下の設定を Nginx の設定ファイルに追加します。&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="nginx"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;server&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kn"&gt;listen&lt;/span&gt;       &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kn"&gt;server_name&lt;/span&gt;  &lt;span class="s"&gt;ナウマンで使用するドメイン&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="kn"&gt;charset&lt;/span&gt;    &lt;span class="s"&gt;utf-8&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kn"&gt;try_files&lt;/span&gt;  &lt;span class="nv"&gt;$uri/index.html&lt;/span&gt; &lt;span class="nv"&gt;$uri&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="kn"&gt;location&lt;/span&gt; &lt;span class="s"&gt;/&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="kn"&gt;proxy_set_header&lt;/span&gt;  &lt;span class="s"&gt;Host&lt;/span&gt; &lt;span class="nv"&gt;$http_host&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="kn"&gt;proxy_set_header&lt;/span&gt;  &lt;span class="s"&gt;X-Real-IP&lt;/span&gt; &lt;span class="nv"&gt;$remote_addr&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="kn"&gt;proxy_set_header&lt;/span&gt;  &lt;span class="s"&gt;X-Forwarded-Proto&lt;/span&gt; &lt;span class="nv"&gt;$scheme&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="kn"&gt;proxy_pass&lt;/span&gt;        &lt;span class="s"&gt;http://127.0.0.1:8080&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="kn"&gt;client_max_body_size&lt;/span&gt;  &lt;span class="mi"&gt;100m&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="kn"&gt;error_page&lt;/span&gt;  &lt;span class="mi"&gt;404&lt;/span&gt;          &lt;span class="s"&gt;/static/error/notfound.html&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kn"&gt;error_page&lt;/span&gt;  &lt;span class="mi"&gt;503&lt;/span&gt;          &lt;span class="s"&gt;/static/error/maintenance.html&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kn"&gt;error_page&lt;/span&gt;  &lt;span class="mi"&gt;504&lt;/span&gt;          &lt;span class="s"&gt;/static/error/delay.html&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kn"&gt;error_page&lt;/span&gt;  &lt;span class="mi"&gt;403&lt;/span&gt;          &lt;span class="s"&gt;/static/error/forbidden.html&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kn"&gt;error_page&lt;/span&gt;  &lt;span class="mi"&gt;500&lt;/span&gt; &lt;span class="mi"&gt;501&lt;/span&gt; &lt;span class="mi"&gt;502&lt;/span&gt;  &lt;span class="s"&gt;/static/error/error.html&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;必要最小限の部分だけを載せています。ログや SSL の設定等は、各々必要であれば追加してください。Docker を起動する際にポート番号を変更した場合は、&lt;code&gt;proxy_pass&lt;/code&gt; のポート番号も変更するのを忘れずに。&lt;/p&gt;
+
+&lt;p&gt;設定ファイルにミスがないかチェックします。&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="bash"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo nginx -t
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;エラーがなければ Nginx を再起動します。&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="bash"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo nginx -s reload
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code&gt;ナウマンで使用するドメイン&lt;/code&gt; にアクセスしてナウマンのウェルカムページが表示されれば完了です。お疲れさまでした。&lt;/p&gt;
+</content>
+    <author>
+      <name>noraworld</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:qiita.com,2005:PublicArticle/498443</id>
+    <published>2017-06-04T14:29:16+09:00</published>
+    <updated>2017-06-04T14:29:16+09:00</updated>
+    <link rel="alternate" type="text/html" href="http://qiita.com/fkgw/items/04bc6b7a0d27ff798dc8"/>
+    <url>http://qiita.com/fkgw/items/04bc6b7a0d27ff798dc8</url>
+    <title>Google Compute Engineに作ったMastodonアップデートメモ(Ver.1.3.3 &gt; 1.4.1)</title>
+    <content type="html">&lt;p&gt;マストドン&lt;a href="https://east.mstdn.tokyo" rel="nofollow noopener" target="_blank"&gt;東東京インスタンス：https://east.mstdn.tokyo&lt;/a&gt;を、Ver.1.3.3から1.4.1へアップデートしました。&lt;br&gt;
+※Docker未使用&lt;/p&gt;
+
+&lt;p&gt;Ikumiさん:&lt;a href="http://qiita.com/Ikumi/items/fe435d6e62d5da0d6067" id="reference-6267012cc1229b265677"&gt;さくらクラウドのMastodnを更新(1.3.2 -&amp;gt; 1.4.1)&lt;/a&gt;&lt;br&gt;
+fk_2000さん：&lt;a href="http://qiita.com/fk_2000/items/1cece04d4075cee99519" id="reference-adb4e1c94a0f4cdcd204"&gt;文具丼のMastodnを更新(1.3.3 -&amp;gt; 1.4.1)&lt;/a&gt;&lt;br&gt;
+の手順をほぼそのまま参考にさせていただきました。ありがとうございます。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="環境gcegoogle-compute-engine" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E7%92%B0%E5%A2%83gcegoogle-compute-engine"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;環境：GCE(Google Compute Engine)&lt;/h1&gt;
+
+&lt;h4&gt;
+&lt;span id="google-compute-engine" class="fragment"&gt;&lt;/span&gt;&lt;a href="#google-compute-engine"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;Google Compute Engine&lt;/h4&gt;
+
+&lt;p&gt;マシンタイプ：g1-small（vCPU x 1、メモリ 1.7 GB）&lt;br&gt;
+OS:Ubuntu&lt;br&gt;
+VERSION:16.04.2&lt;/p&gt;
+
+&lt;h4&gt;
+&lt;span id="google-cloud-platform-sql" class="fragment"&gt;&lt;/span&gt;&lt;a href="#google-cloud-platform-sql"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;Google Cloud Platform SQL&lt;/h4&gt;
+
+&lt;p&gt;PostgreSQL 9.6&lt;/p&gt;
+
+&lt;h4&gt;
+&lt;span id="google-cloud-storage" class="fragment"&gt;&lt;/span&gt;&lt;a href="#google-cloud-storage"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;Google Cloud Storage&lt;/h4&gt;
+
+&lt;h1&gt;
+&lt;span id="マストドンのupgrade-notesを確認" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%83%9E%E3%82%B9%E3%83%88%E3%83%89%E3%83%B3%E3%81%AEupgrade-notes%E3%82%92%E7%A2%BA%E8%AA%8D"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;マストドンのUpgrade notesを確認:&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/tootsuite/mastodon/releases/tag/v1.4.1" rel="nofollow noopener" target="_blank"&gt;release notes:https://github.com/tootsuite/mastodon/releases/tag/v1.4.1&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;
+&lt;span id="non-docker-only" class="fragment"&gt;&lt;/span&gt;&lt;a href="#non-docker-only"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;Non-Docker only:&lt;/h4&gt;
+
+&lt;p&gt;This release switches the minimum supported Node.js version from 4 to 6&lt;br&gt;
+Three additional system packages are required: pkg-config libprotobuf-dev protobuf-compiler&lt;br&gt;
+Dependency updates: bundle install and yarn install&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;必要なNode.jsバージョンが4から6に変更になっています&lt;/li&gt;
+&lt;li&gt;３つのシステムパッケージが追加で必要になりました&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+&lt;li&gt;pkg-config&lt;/li&gt;
+&lt;li&gt;libprotobuf-dev&lt;/li&gt;
+&lt;li&gt;protobuf-compiler&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+&lt;li&gt;bundle install と yarn installを行い依存関係を更新&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;
+&lt;span id="docker-only" class="fragment"&gt;&lt;/span&gt;&lt;a href="#docker-only"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;Docker-only:&lt;/h4&gt;
+
+&lt;p&gt;-略-&lt;/p&gt;
+
+&lt;h4&gt;
+&lt;span id="both-docker-and-non-docker" class="fragment"&gt;&lt;/span&gt;&lt;a href="#both-docker-and-non-docker"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;Both Docker and non-Docker:&lt;/h4&gt;
+
+&lt;p&gt;If you have CDN_HOST set, make sure it contains the protocol part (http:// or https://), if it does not, adjust it before doing the next step&lt;br&gt;
+If you set a non-default STREAMING_API_BASE_URL, change the protocol part to ws:// or wss:// respectively&lt;br&gt;
+This release includes changes to assets, that means you need to run RAILS_ENV=production bundle exec rails assets:precompile (in Docker: docker-compose run --rm web rails assets:precompile)&lt;br&gt;
+Generated assets now live under public/packs instead of public/assets. This is mostly irrelevant but might affect some custom proxying configurations.&lt;br&gt;
+This release includes database migrations, that means you need to run RAILS_ENV=production bundle exec rails db:migrate (in Docker: docker-compose run --rm web rails db:migrate)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CDN_HOSTを設定している場合、プロトコル部分(http:// または https://)を含んだ形で設定しているかを確認&lt;/li&gt;
+&lt;li&gt;STREAMING_API_BASE_URLをデフォルト以外で設定している場合、プロトコル部分を[ws://] または [wss://]に変更&lt;/li&gt;
+&lt;li&gt;RAILS_ENV=production bundle exec rails assets:precompile
+を実行&lt;/li&gt;
+&lt;li&gt;RAILS_ENV=production bundle exec rails db:migrate
+を実行&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1&gt;
+&lt;span id="手順" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E6%89%8B%E9%A0%86"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;手順&lt;/h1&gt;
+
+&lt;h4&gt;
+&lt;span id="nodejsのバージョンを確認" class="fragment"&gt;&lt;/span&gt;&lt;a href="#nodejs%E3%81%AE%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%82%92%E7%A2%BA%E8%AA%8D"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;node.jsのバージョンを確認　&lt;/h4&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ node -v
+v4.8.3
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4&gt;
+&lt;span id="npmでnをインストール" class="fragment"&gt;&lt;/span&gt;&lt;a href="#npm%E3%81%A7n%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;npmでnをインストール&lt;/h4&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo npm cache clean
+$ sudo npm install -g n
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4&gt;
+&lt;span id="nでnodeを最新のstableに変更" class="fragment"&gt;&lt;/span&gt;&lt;a href="#n%E3%81%A7node%E3%82%92%E6%9C%80%E6%96%B0%E3%81%AEstable%E3%81%AB%E5%A4%89%E6%9B%B4"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;nでnodeを最新のstableに変更&lt;/h4&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ n stable
+$ node -v
+v8.0.0
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;nodeのバージョンが8.0.0に上がったことを確認&lt;/p&gt;
+
+&lt;h4&gt;
+&lt;span id="３つのシステムパッケージを追加" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%EF%BC%93%E3%81%A4%E3%81%AE%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%82%92%E8%BF%BD%E5%8A%A0"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;３つのシステムパッケージを追加&lt;/h4&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo apt-get install pkg-config
+$ sudo apt-get install libprotobuf-dev
+$ sudo apt-get install protobuf-compiler
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4&gt;
+&lt;span id="cdn_hostとstreaming_api_base_urlを確認" class="fragment"&gt;&lt;/span&gt;&lt;a href="#cdn_host%E3%81%A8streaming_api_base_url%E3%82%92%E7%A2%BA%E8%AA%8D"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;CDN_HOSTとSTREAMING_API_BASE_URLを確認&lt;/h4&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ su - mastodon
+$ cd live
+$ cat .env.production
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;
+&lt;div class="code-lang"&gt;&lt;span class="bold"&gt;env.production&lt;/span&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; ~
+# CDN_HOST=assets.example.com
+ ~
+# Streaming API integration
+# STREAMING_API_BASE_URL=
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;特に設定はしていないので変更なし&lt;/p&gt;
+
+&lt;h4&gt;
+&lt;span id="mastodon-ver141を取得" class="fragment"&gt;&lt;/span&gt;&lt;a href="#mastodon-ver141%E3%82%92%E5%8F%96%E5%BE%97"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;mastodon Ver.1.4.1を取得&lt;/h4&gt;
+
+&lt;h6&gt;
+&lt;span id="現在のバージョンを確認" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E7%8F%BE%E5%9C%A8%E3%81%AE%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%82%92%E7%A2%BA%E8%AA%8D"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;現在のバージョンを確認&lt;/h6&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git branch
+* (HEAD detached at v1.3.3)
+  master
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;v1.3.3であることを確認&lt;/p&gt;
+
+&lt;h6&gt;
+&lt;span id="v141を取得し変更" class="fragment"&gt;&lt;/span&gt;&lt;a href="#v141%E3%82%92%E5%8F%96%E5%BE%97%E3%81%97%E5%A4%89%E6%9B%B4"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;v1.4.1を取得し、変更&lt;/h6&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git fetch
+$ git checkout v1.4.1
+Previous HEAD position was a0f7453... Bump version to 1.3.3
+HEAD is now at 8963f8c... Bump version to 1.4.1
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h6&gt;
+&lt;span id="依存関係の更新" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E4%BE%9D%E5%AD%98%E9%96%A2%E4%BF%82%E3%81%AE%E6%9B%B4%E6%96%B0"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;依存関係の更新&lt;/h6&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ bundle install
+$ yarn install 
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h6&gt;
+&lt;span id="dbマイグレーション" class="fragment"&gt;&lt;/span&gt;&lt;a href="#db%E3%83%9E%E3%82%A4%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;DBマイグレーション&lt;/h6&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ RAILS_ENV=production bundle exec rails db:migrate
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h6&gt;
+&lt;span id="assetsの中をクリアしてmastodon更新" class="fragment"&gt;&lt;/span&gt;&lt;a href="#assets%E3%81%AE%E4%B8%AD%E3%82%92%E3%82%AF%E3%83%AA%E3%82%A2%E3%81%97%E3%81%A6mastodon%E6%9B%B4%E6%96%B0"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;assetsの中をクリアしてmastodon更新&lt;/h6&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ RAILS_ENV=production bundle exec rails assets:clobber
+$ yarn install --pure-lockfile
+$ RAILS_ENV=production bundle exec rails assets:precompile
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h6&gt;
+&lt;span id="mastodon再起動" class="fragment"&gt;&lt;/span&gt;&lt;a href="#mastodon%E5%86%8D%E8%B5%B7%E5%8B%95"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;mastodon再起動&lt;/h6&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo systemctl restart mastodon-*.service
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1&gt;
+&lt;span id="備考" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E5%82%99%E8%80%83"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;備考&lt;/h1&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ RAILS_ENV=production bundle exec rails assets:clobber
+~略
+$ yarn install --pure-lockfile
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;の実行に１時間以上かかりました。&lt;br&gt;
+その間、ディスクreadが高騰(400iops)し、CPU使用率が100%に張り付いていました。&lt;br&gt;
+Webからのアクセスにも問題があったようです。&lt;br&gt;
+iPhoneのアプリ（Mustor)からはアクセスできていたので、リバースプロキシ(nginx)がうまく動いていなかったのかもしれません・・・？&lt;/p&gt;
+
+&lt;p&gt;DBやストレージを外部においていましたが、とくにそのことによる問題はないようでした。&lt;/p&gt;
+</content>
+    <author>
+      <name>fkgw</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:qiita.com,2005:PublicArticle/498221</id>
+    <published>2017-06-03T07:20:26+09:00</published>
+    <updated>2017-06-03T07:28:03+09:00</updated>
+    <link rel="alternate" type="text/html" href="http://qiita.com/takemaro/items/9f99a081d0ba5886c865"/>
+    <url>http://qiita.com/takemaro/items/9f99a081d0ba5886c865</url>
+    <title>Mastodon 1.4.1 へのアップデートでコンフリクト</title>
+    <content type="html">&lt;p&gt;Mastodon 1.4.1が&lt;a href="https://github.com/tootsuite/mastodon/releases/tag/v1.4.1" rel="nofollow noopener" target="_blank"&gt;リリース&lt;/a&gt;されたのでアップデートするべく&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git merge v1.4.1
+...(中略)...
+Automatic merge failed; fix conflicts and then commit the results.
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;ｱｲｴｴｴｴ!!!!ｺﾝﾌﾘｸﾄ!?ｺﾝﾌﾘｸﾄﾅﾝﾃﾞ!?&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="状況" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E7%8A%B6%E6%B3%81"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;状況&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/tootsuite/mastodon" rel="nofollow noopener" target="_blank"&gt;本家リポジトリ&lt;/a&gt;をfork/cloneして自分用のブランチを切ってHEADにしていたが、いまのところ特に変更はしていないのでHEAD = &lt;code&gt;v1.3.3&lt;/code&gt;だった。&lt;br&gt;
+何も考えずにfast-forwardを期待してmergeを実行したらコンフリクトして頭を抱えた。&lt;/p&gt;
+
+&lt;p&gt;(ブランチを切らずに&lt;code&gt;git checkout v1.4.1&lt;/code&gt;でアップデートする運用の場合にはこの問題は発生しないはず)&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="解決編" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E8%A7%A3%E6%B1%BA%E7%B7%A8"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;解決編&lt;/h1&gt;
+
+&lt;p&gt;とりあえず&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git merge --abort
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;で元に戻る。&lt;/p&gt;
+
+&lt;p&gt;で、&lt;code&gt;v1.4.1&lt;/code&gt;をマージする代わりに&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git merge 5439a81
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;とすれば多分良い(試していないので本当にちゃんと動くかはわからない)。これは&lt;code&gt;v1.3.3&lt;/code&gt;の属するブランチ(&lt;code&gt;skylight&lt;/code&gt;)に&lt;code&gt;v1.4.1&lt;/code&gt;時点の&lt;code&gt;master&lt;/code&gt;をマージしたコミットで、丁度さっきやろうとしたマージのコンフリクトを解決させたコミットということになる。(なおdiff取ってみると&lt;code&gt;v1.4.1&lt;/code&gt;と微妙に違いがあるようだ)&lt;br&gt;
+これは執筆(2017年6月3日)時点では&lt;code&gt;skylight&lt;/code&gt;ブランチの最新コミットなので、&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git merge &amp;lt;remote&amp;gt;/skylight
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;でもよい。(&lt;code&gt;&amp;lt;remote&amp;gt;&lt;/code&gt;は各自の設定により&lt;code&gt;origin&lt;/code&gt;なり&lt;code&gt;upstream&lt;/code&gt;なり)&lt;/p&gt;
+
+&lt;p&gt;ただ、これ&lt;code&gt;master&lt;/code&gt;から離れたままなので、今後の本家リリースがどうなるかはよくわからないけれど、場合によってはリリースの度に同じ問題が発生する可能性がある。&lt;br&gt;
+自分のブランチを&lt;code&gt;v1.4.1&lt;/code&gt;に持って行きたい場合は、&lt;/p&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git reset --hard $(git merge-base v1.3.3 v1.4.1)
+$ git merge v1.4.1
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;でいけるが、これをリモートリポジトリにpushしようとすると落ちるし(&lt;code&gt;-f&lt;/code&gt;が必要)、他のリポジトリからpullしようとするとそこでコンフリクトするので、あまり安易に実行できるわけでもない。&lt;br&gt;
+ちなみに&lt;a href="https://git-scm.com/docs/git-merge-base" rel="nofollow noopener" target="_blank"&gt;&lt;code&gt;git merge-base&lt;/code&gt;&lt;/a&gt;は2つのコミットの共通の祖先を返す。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="その他" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E3%81%9D%E3%81%AE%E4%BB%96"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;その他&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;code&gt;--ff-only&lt;/code&gt;オプションを使うとコンフリクトが発生することがないので慌てなくて済む。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="code-frame" data-lang="text"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git merge --ff-only v1.4.1
+fatal: Not possible to fast-forward, aborting.
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href="https://github.com/tootsuite/mastodon/releases/tag/v1.3.3" rel="nofollow noopener" target="_blank"&gt;1.3.3のリリースノート&lt;/a&gt;に&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;This is a patch release that backports a few important improvements from the upcoming v1.4 release which is still a work in progress.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;とあり、要するに1.3.3が本流から離れた保守リリースだった故に発生したのかなあと見ている(本家を詳しく追っているわけではないのでよくわかっていない顔)。&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;span id="参考文献" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;参考文献&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://qiita.com/taka7/items/7972e334cc33813d6942" id="reference-986bbe006c2b0162e17c"&gt;git で共通の祖先をみつける - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://git-scm.com/docs" rel="nofollow noopener" target="_blank"&gt;Git - Reference&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://git-scm.com/book/ja/v2/" rel="nofollow noopener" target="_blank"&gt;Git - Book&lt;/a&gt; (ブランチとかマージとかfast-forwardとかってなんやねんみたいな場合はこれを一通り読むと良い)&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    <author>
+      <name>takemaro</name>
+    </author>
+  </entry>
+</feed>

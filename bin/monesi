@@ -1,0 +1,56 @@
+#!/usr/bin/env ruby
+
+require 'thor'
+
+require './lib/monesi/mastodon_client'
+require './lib/monesi/feed_manager'
+require './lib/monesi/command_parser'
+
+class CLI < Thor
+  include Monesi
+
+  desc 'setup', 'setup .env for connecting mastodon server'
+
+  def setup
+    MastodonClient.setup
+  end
+
+  desc 'post_message MESSAGE', 'post a message for testing'
+
+  def post_message(msg)
+    mastodon_client.post_message(msg)
+  end
+
+  desc 'interactive', 'interactive session on terminal'
+
+  def interactive
+    mastodon_client.interactive(feed_manager)
+  end
+
+  desc 'bot', 'start bot for mastodon'
+
+  def bot
+    mastodon_client.bot(feed_manager)
+  end
+
+  desc 'echo_server', 'echo server for debugging mastodon interface'
+
+  def echo_server
+    mastodon_client.echo_server
+  end
+
+  private
+  def mastodon_client
+    @mastodon_client ||= MastodonClient.new
+  end
+
+  def feed_manager
+    unless @feed_manager
+      @feed_manager = FeedManager.new(path: 'status.yaml')
+      @feed_manager.load rescue Errno::ENOENT
+    end
+    @feed_manager
+  end
+end
+
+CLI.start(ARGV)
