@@ -8,19 +8,19 @@ module Monesi
 
     def parse(text, &block)
       case text
-      when /unsubscribe (\S+)/
+      when /unsubscribe\s+(\S+)/
         url = $1
         feed_manager.unsubscribe(url)
         ans = "unsubscribed #{url}"
         block.call(ans)
-      when /subscribe (\S+)/
+      when /subscribe\s+(\S+)/
         url = $1
         feed_manager.subscribe(url)
         ans = "subscribed #{url}"
         block.call(ans)
       when /list/
         ans = feed_manager.feeds.map do |f| 
-          "#{f.title} #{f.feed_url}"
+          "#{f.title} #{f.feed_url}".force_encoding("UTF-8")
         end.join("\n")
         block.call(ans)
       when /fetch/

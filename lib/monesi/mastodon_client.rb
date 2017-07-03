@@ -11,6 +11,8 @@ require 'dotenv'
 require 'pp'
 require 'websocket-client-simple'
 require 'json'
+require 'uri'
+require 'pry'
 
 # some codes are copied from following articles
 # http://qiita.com/takahashim/items/a8c0eb3a75d366cfe87b
@@ -85,9 +87,10 @@ module Monesi
         stream.user do |toot|
           next unless toot.kind_of?(Mastodon::Notification)
           username = toot.account.username
+          host = URI.parse(toot.account.url).host
           content = toot.status.content
           puts "#{username}: #{content}"
-          block.call(toot, username)
+          block.call(toot, "#{username}@#{host}")
         end
       rescue EOFError
         puts "EOF\nretry..."
@@ -137,12 +140,12 @@ module Monesi
 
       Thread.start do
         watch_stream do |toot, username| 
-          if toot.status.content
+          if toot.type == 'mention' and toot.status.content
             text = extract_text(toot.status.content)
             proc_ = proc do
               puts "received: #{text}"
               parser.parse(text) do |msg| 
-                answer = "@#{username} #{msg}"
+                answer = "@#{username}\n#{msg}"
                 puts "answer: #{answer}"
                 post_message(answer, in_reply_to_id: toot.status.id)
               end

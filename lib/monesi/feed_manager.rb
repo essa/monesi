@@ -15,8 +15,8 @@ module Monesi
       @title = r.title
       @entries = r.entries.map do |e| 
         {
-          title: e.title,
-          url: e.url,
+          title: e.title.force_encoding("UTF-8"),
+          url: e.url.force_encoding("UTF-8"),
           last_updated: e.last_updated
         }
       end
@@ -86,6 +86,7 @@ module Monesi
 
     def fetch
       feeds.each(&:fetch)
+      @last_fetched = Time.now
     end
 
     def entries_since(from, &block)
