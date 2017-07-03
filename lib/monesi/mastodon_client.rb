@@ -75,7 +75,7 @@ module Monesi
     end
 
     def post_message(message, options={})
-      client.create_status(message, options)
+      client.create_status(message[0..499], options)
     end
 
     def watch_stream(&block)
@@ -111,7 +111,6 @@ module Monesi
         parser.parse(cmd) do |msg| 
           puts msg 
         end
-        feed_manager.save
       end
     end
 
@@ -165,7 +164,6 @@ module Monesi
             puts "fetching..."
             feed_manager.fetch
             puts "fetched"
-            feed_manager.save
             feed_manager.entries_since(last_fetched) do |msg| 
               puts msg
               post_message(msg)

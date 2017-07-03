@@ -33,6 +33,7 @@ module Monesi
       File::open(path, 'w') do |f| 
         f.write manager.to_yaml
       end
+      puts "feeeds saved to #{path}"
     end
 
     def load(manager)
@@ -40,6 +41,7 @@ module Monesi
         yaml = YAML::load(f.read)
         manager.restore_from_yaml(yaml)
       end
+      puts "feeeds loaded from #{path}"
     end
   end
 
@@ -66,6 +68,7 @@ module Monesi
       feed = Feed.new(feed_url)
       feed.fetch
       add(feed)
+      save
     end
 
     def unsubscribe(url)
@@ -78,6 +81,7 @@ module Monesi
       raise "Feed #{url} is not subscribed" unless i
 
       feeds.delete_at(i)
+      save
     end
 
     def restore_from_yaml(m)
@@ -87,6 +91,7 @@ module Monesi
     def fetch
       feeds.each(&:fetch)
       @last_fetched = Time.now
+      save
     end
 
     def entries_since(from, &block)
