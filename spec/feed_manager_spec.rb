@@ -63,7 +63,8 @@ describe Monesi::FeedManager do
       expect(qiita_atom).to have_been_requested if qiita_atom
       feed = subject.feeds.first
       expect(feed.title).to eq("mastodonタグが付けられた新着投稿 - Qiita")
-      expect(feed.entries.map { |e| e[:url] }).to include('http://qiita.com/magicpot73@github/items/c3069520050df9d27226')
+      expect(feed.entries.map { |e| e[:url] }).to include('http://qiita.com/magicpot73@github/items/9ae01dd1bce47863235c')
+
     end
 
     it "should subscribe two feeds" do
@@ -106,6 +107,30 @@ describe Monesi::FeedManager do
       end.to raise_error(RuntimeError)
       expect(subject.feeds.size).to eq(1)
     end
+  end
+
+  describe("#fetch") do
+    before do
+      subject.subscribe("http://qiita.com/tags/mastodon")
+    end
+
+    let(:feed) { subject.feeds.first}
+
+    it "should return empty new_entries" do
+      subject.fetch
+      expect(feed.new_entries).to be_empty
+    end
+    
+    it "should return updated new_entries" do
+      atom = File::open('spec/fixtures/qiita.com/mastodon_atom2.xml')
+      stub_request(:get, "http://qiita.com/tags/mastodon/feed")
+        .to_return(body: atom, headers: { 'Content-Type' => 'application/xml; charset=utf-8'})
+      subject.fetch
+      expect(feed.new_entries.size).to eq(1)
+      article = feed.new_entries.first
+      expect(article[:url]).to eq('http://qiita.com/magicpot73@github/items/c3069520050df9d27226')
+    end
+
   end
 
   describe("#unsubscribe") do

@@ -164,7 +164,7 @@ module Monesi
             puts "fetching..."
             feed_manager.fetch
             puts "fetched"
-            feed_manager.entries_since(last_fetched) do |msg| 
+            feed_manager.new_entries do |msg| 
               puts msg
               post_message(msg)
               sleep 10

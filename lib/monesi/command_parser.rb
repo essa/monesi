@@ -31,11 +31,10 @@ module Monesi
           block.call(msg)
         end
       else
-        block.call("Sorry, I can't understand\n" + help_text)
+        block.call("Sorry, I can't understand '#{text}'\n" + help_text)
       end
     rescue
-      block.call($!.to_s)
-      raise
+      block.call("something wrong with '#{text}' #{$!}")
     end 
 
     def help_text

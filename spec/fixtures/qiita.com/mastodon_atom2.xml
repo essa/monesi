@@ -8,6 +8,112 @@
   <updated>2017-06-25T16:32:08+09:00</updated>
   <link>http://qiita.com/tags/mastodon</link>
   <entry>
+    <id>tag:qiita.com,2005:PublicArticle/503913</id>
+    <published>2017-06-25T16:32:08+09:00</published>
+    <updated>2017-06-25T16:33:35+09:00</updated>
+    <link rel="alternate" type="text/html" href="http://qiita.com/magicpot73@github/items/c3069520050df9d27226"/>
+    <url>http://qiita.com/magicpot73@github/items/c3069520050df9d27226</url>
+    <title>(備忘録)マストドンで使えるタスク</title>
+    <content type="html">
+&lt;h1&gt;
+&lt;span id="備忘録マストドンで使えるタスク" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E5%82%99%E5%BF%98%E9%8C%B2%E3%83%9E%E3%82%B9%E3%83%88%E3%83%89%E3%83%B3%E3%81%A7%E4%BD%BF%E3%81%88%E3%82%8B%E3%82%BF%E3%82%B9%E3%82%AF"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;(備忘録)マストドンで使えるタスク&lt;/h1&gt;
+
+&lt;h2&gt;
+&lt;span id="docker-compose-run---rm-web--以下のタスク" class="fragment"&gt;&lt;/span&gt;&lt;a href="#docker-compose-run---rm-web--%E4%BB%A5%E4%B8%8B%E3%81%AE%E3%82%BF%E3%82%B9%E3%82%AF"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;docker-compose run --rm web + 以下のタスク&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;&lt;br&gt;
+rails about                                          # List versions of all Rails frameworks and the environment&lt;br&gt;
+rails app:template                                   # Applies the template supplied by LOCATION=(/path/to/template) or URL&lt;br&gt;
+rails app:update                                     # Update configs and some other initially generated files (or use just update:configs or update:bin)&lt;br&gt;
+rails assets:clean[keep]                             # Remove old compiled assets&lt;br&gt;
+rails assets:clobber                                 # Remove compiled assets&lt;br&gt;
+rails assets:environment                             # Load asset compile environment&lt;br&gt;
+rails assets:precompile                              # Compile all the assets named in config.assets.precompile&lt;br&gt;
+rails cache_digests:dependencies                     # Lookup first-level dependencies for TEMPLATE (like messages/show or comments/_comment.html)&lt;br&gt;
+rails cache_digests:nested_dependencies              # Lookup nested dependencies for TEMPLATE (like messages/show or comments/_comment.html)&lt;br&gt;
+rails db:create                                      # Creates the database from DATABASE_URL or config/database.yml for the current RAILS_ENV (use db:create:all to create all databas...&lt;br&gt;
+rails db:drop                                        # Drops the database from DATABASE_URL or config/database.yml for the current RAILS_ENV (use db:drop:all to drop all databases in ...&lt;br&gt;
+rails db:environment:set                             # Set the environment value for the database&lt;br&gt;
+rails db:fixtures:load                               # Loads fixtures into the current environment's database&lt;br&gt;
+rails db:migrate                                     # Migrate the database (options: VERSION=x, VERBOSE=false, SCOPE=blog)&lt;br&gt;
+rails db:migrate:setup                               # Setup the db or migrate depending on state of db&lt;br&gt;
+rails db:migrate:status                              # Display status of migrations&lt;br&gt;
+rails db:rollback                                    # Rolls the schema back to the previous version (specify steps w/ STEP=n)&lt;br&gt;
+rails db:schema:cache:clear                          # Clears a db/schema_cache.yml file&lt;br&gt;
+rails db:schema:cache:dump                           # Creates a db/schema_cache.yml file&lt;br&gt;
+rails db:schema:dump                                 # Creates a db/schema.rb file that is portable against any DB supported by Active Record&lt;br&gt;
+rails db:schema:load                                 # Loads a schema.rb file into the database&lt;br&gt;
+rails db:seed                                        # Loads the seed data from db/seeds.rb&lt;br&gt;
+rails db:setup                                       # Creates the database, loads the schema, and initializes with the seed data (use db:reset to also drop the database first)&lt;br&gt;
+rails db:structure:dump                              # Dumps the database structure to db/structure.sql&lt;br&gt;
+rails db:structure:load                              # Recreates the databases from the structure.sql file&lt;br&gt;
+rails db:version                                     # Retrieves the current schema version number&lt;br&gt;
+rails dev:cache                                      # Toggle development mode caching on/off&lt;br&gt;
+rails hamlit:erb2haml                                # Convert erb to haml in app/views&lt;br&gt;
+rails initializers                                   # Print out all defined initializers in the order they are invoked by Rails&lt;br&gt;
+rails log:clear                                      # Truncates all/specified *.log files in log/ to zero bytes (specify which logs with LOGS=test,development)&lt;br&gt;
+rails mastodon:confirm_email                         # Manually confirms a user with associated user email address stored in USER_EMAIL environment variable&lt;br&gt;
+rails mastodon:daily                                 # Execute daily tasks&lt;br&gt;
+rails mastodon:emails:digest                         # Send out digest e-mails&lt;br&gt;
+rails mastodon:feeds:clear                           # Clear timelines of inactive users&lt;br&gt;
+rails mastodon:feeds:clear_all                       # Clears all timelines&lt;br&gt;
+rails mastodon:maintenance:add_static_avatars        # Generate static versions of GIF avatars/headers&lt;br&gt;
+rails mastodon:maintenance:prepare_for_foreign_keys  # Ensure referencial integrity&lt;br&gt;
+rails mastodon:maintenance:update_counter_caches     # Update counter caches&lt;br&gt;
+rails mastodon:make_admin                            # Turn a user into an admin, identified by the USERNAME environment variable&lt;br&gt;
+rails mastodon:media:clear                           # Removes media attachments that have not been assigned to any status for longer than a day&lt;br&gt;
+rails mastodon:media:remove_remote                   # Remove cached remote media attachments that are older than a week&lt;br&gt;
+rails mastodon:media:remove_silenced                 # Remove media attachments attributed to silenced accounts&lt;br&gt;
+rails mastodon:media:set_unknown                     # Set unknown attachment type for remote-only attachments&lt;br&gt;
+rails mastodon:push:clear                            # Unsubscribes from PuSH updates of feeds nobody follows locally&lt;br&gt;
+rails mastodon:push:refresh                          # Re-subscribes to soon expiring PuSH subscriptions&lt;br&gt;
+rails mastodon:settings:close_registrations          # Close registrations on this instance&lt;br&gt;
+rails mastodon:settings:open_registrations           # Open registrations on this instance&lt;br&gt;
+rails mastodon:stats                                 # Report code statistics (KLOCs, etc)&lt;br&gt;
+rails mastodon:users:admins                          # List all admin users&lt;br&gt;
+rails mastodon:users:clear                           # Clear out unconfirmed users&lt;br&gt;
+rails middleware                                     # Prints out your Rack middleware stack&lt;br&gt;
+rails notes                                          # Enumerate all annotations (use notes:optimize, :fixme, :todo for focus)&lt;br&gt;
+rails notes:custom                                   # Enumerate a custom annotation, specify with ANNOTATION=CUSTOM&lt;br&gt;
+rails paperclip:clean                                # Cleans out invalid attachments&lt;br&gt;
+rails paperclip:find_broken_attachments              # find missing attachments&lt;br&gt;
+rails paperclip:refresh                              # Refreshes both metadata and thumbnails&lt;br&gt;
+rails paperclip:refresh:metadata                     # Regenerates content_type/size metadata for a given CLASS (and optional ATTACHMENT)&lt;br&gt;
+rails paperclip:refresh:missing_styles               # Regenerates missing thumbnail styles for all classes using Paperclip&lt;br&gt;
+rails paperclip:refresh:thumbnails                   # Regenerates thumbnails for a given CLASS (and optional ATTACHMENT and STYLES splitted by comma)&lt;br&gt;
+rails pghero:analyze                                 # analyze tables&lt;br&gt;
+rails pghero:autoindex                               # autoindex&lt;br&gt;
+rails pghero:capture_query_stats                     # capture query stats&lt;br&gt;
+rails pghero:capture_space_stats                     # capture space stats&lt;br&gt;
+rails restart                                        # Restart app by touching tmp/restart.txt&lt;br&gt;
+rails routes                                         # Print out all defined routes in match order, with names&lt;br&gt;
+rails secret                                         # Generate a cryptographically secure secret key (this is typically used to generate a secret for cookie sessions)&lt;br&gt;
+rails stats                                          # Report code statistics (KLOCs, etc) from the application or engine&lt;br&gt;
+rails test                                           # Runs all tests in test folder except system ones&lt;br&gt;
+rails test:db                                        # Run tests quickly, but also reset db&lt;br&gt;
+rails time:zones[country_or_offset]                  # List all time zones, list by two-letter country code (&lt;/code&gt;rails time:zones[US]&lt;code&gt;), or list by UTC offset (&lt;/code&gt;rails time:zones[-8]&lt;code&gt;)&lt;br&gt;
+rails tmp:clear                                      # Clear cache and socket files from tmp/ (narrow w/ tmp:cache:clear, tmp:sockets:clear)&lt;br&gt;
+rails tmp:create                                     # Creates tmp directories for cache, sockets, and pids&lt;br&gt;
+rails webpacker                                      # Lists all available tasks in webpacker&lt;br&gt;
+rails webpacker:check_node                           # Verifies if Node.js is installed&lt;br&gt;
+rails webpacker:check_yarn                           # Verifies if yarn is installed&lt;br&gt;
+rails webpacker:clobber                              # Remove the webpack compiled output directory&lt;br&gt;
+rails webpacker:compile                              # Compile javascript packs using webpack for production with digests&lt;br&gt;
+rails webpacker:compile_before_test                  # Compile javascript packs using webpack for test with digests&lt;br&gt;
+rails webpacker:install                              # Install webpacker in this application&lt;br&gt;
+rails webpacker:install:angular                      # Install everything needed for Angular&lt;br&gt;
+rails webpacker:install:react                        # Install everything needed for React&lt;br&gt;
+rails webpacker:install:vue                          # Install everything needed for Vue&lt;br&gt;
+rails webpacker:verify_install                       # Verifies if webpacker is installed&lt;br&gt;
+rails webpacker:yarn_install                         # Support for older Rails versions.Install all JavaScript dependencies as specified via Yarn&lt;br&gt;
+rails yarn:install                                   # Install all JavaScript dependencies as specified via Yarn&lt;br&gt;
+&lt;/code&gt;&lt;/p&gt;
+</content>
+    <author>
+      <name>magicpot73@github</name>
+    </author>
+  </entry>
+  <entry>
     <id>tag:qiita.com,2005:PublicArticle/503895</id>
     <published>2017-06-25T14:49:37+09:00</published>
     <updated>2017-06-25T14:53:18+09:00</updated>
@@ -1430,7 +1536,7 @@ cld3がbundle installでコケた時&lt;br&gt;
   <entry>
     <id>tag:qiita.com,2005:PublicArticle/500848</id>
     <published>2017-06-13T11:35:26+09:00</published>
-    <updated>2017-06-13T11:36:55+09:00</updated>
+    <updated>2017-07-04T12:44:03+09:00</updated>
     <link rel="alternate" type="text/html" href="http://qiita.com/ABK28/items/2128f15840223349b024"/>
     <url>http://qiita.com/ABK28/items/2128f15840223349b024</url>
     <title>さくらクラウドのスクリプトで作ったmastodonのバックアップとDocker環境へのリストア</title>
@@ -1445,7 +1551,9 @@ $cd /home/mastodon/live&lt;br&gt;
 $pg_dump &amp;gt; backup_postgres-db.sql&lt;br&gt;
 画像などのバックアップ&lt;br&gt;
 $cd /home/mastodon/live/public&lt;br&gt;
-$tar zcf backup_public-system.tar.gz system&lt;/p&gt;
+$tar zcf backup_public-system.tar.gz system&lt;br&gt;
+Redisデータベースファイルのバックアップ&lt;br&gt;
+#cp /var/lib/redis/dump.rdb backup_redis_dump.rdb&lt;/p&gt;
 
 &lt;h1&gt;
 &lt;span id="２移行先での作業" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%EF%BC%92%E7%A7%BB%E8%A1%8C%E5%85%88%E3%81%A7%E3%81%AE%E4%BD%9C%E6%A5%AD"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;２．移行先での作業&lt;/h1&gt;
@@ -1543,11 +1651,14 @@ postgres=# \d&lt;/p&gt;
 &lt;p&gt;bash-4.3# exit&lt;/p&gt;
 
 &lt;h3&gt;
-&lt;span id="画像などをリストア" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E7%94%BB%E5%83%8F%E3%81%AA%E3%81%A9%E3%82%92%E3%83%AA%E3%82%B9%E3%83%88%E3%82%A2"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;画像などをリストア&lt;/h3&gt;
+&lt;span id="画像など及びredisdbをリストア" class="fragment"&gt;&lt;/span&gt;&lt;a href="#%E7%94%BB%E5%83%8F%E3%81%AA%E3%81%A9%E5%8F%8A%E3%81%B3redisdb%E3%82%92%E3%83%AA%E3%82%B9%E3%83%88%E3%82%A2"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;画像など及びRedisDBをリストア&lt;/h3&gt;
 
-&lt;p&gt;バックアップしたbackup_public-system.tar.gzはVMにコピっておく。&lt;br&gt;
+&lt;p&gt;バックアップしたbackup_public-system.tar.gzやbackup_redis_dump.rdbはVMにコピっておく。&lt;br&gt;
 #cd public&lt;br&gt;
-#tar xvzf backup_public-system.tar.gz &lt;/p&gt;
+#tar xvzf backup_public-system.tar.gz &lt;br&gt;
+#cd ../redis&lt;br&gt;
+#cp backup_redis_dump.rdb dump.rdb&lt;br&gt;
+#chown systemd-timesync:systemd-journal dump.rdb&lt;/p&gt;
 
 &lt;h3&gt;
 &lt;span id="nginx起動" class="fragment"&gt;&lt;/span&gt;&lt;a href="#nginx%E8%B5%B7%E5%8B%95"&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt;&lt;/a&gt;nginx起動&lt;/h3&gt;

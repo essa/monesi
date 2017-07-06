@@ -5,20 +5,31 @@ require "feed-normalizer"
 
 module Monesi
   class Feed
-    attr_reader :feed_url, :title, :entries
+    attr_reader :feed_url, :title, :entries, :new_entries
     def initialize(feed_url)
       @feed_url = feed_url
+      @new_entries = []
     end
 
     def fetch
       r = FeedNormalizer::FeedNormalizer.parse open(feed_url)
       @title = r.title
+      old_entries = @entries
       @entries = r.entries.map do |e| 
         {
           title: e.title.force_encoding("UTF-8"),
           url: e.url.force_encoding("UTF-8"),
           last_updated: e.last_updated
         }
+      end
+
+      if old_entries
+        urls = old_entries.inject({}) do |h, e| 
+          h.merge(e[:url] => true)
+        end
+        @new_entries = @entries.reject { |e| urls[e[:url]] }
+      else
+        @new_entries = []
       end
     end
   end
@@ -92,6 +103,18 @@ module Monesi
       feeds.each(&:fetch)
       @last_fetched = Time.now
       save
+    end
+
+    def new_entries(&block)
+      feeds.each do |f| 
+        f.new_entries.each do |a| 
+          message = <<~EOS
+          #{a[:title]}
+          #{a[:url]}
+          EOS
+          block.call(message)
+        end
+      end
     end
 
     def entries_since(from, &block)
