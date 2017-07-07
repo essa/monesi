@@ -133,6 +133,8 @@ module Monesi
     def bot(feed_manager)
       Thread.abort_on_exception = true
  
+      feed_manager.load
+
       setup
       parser = CommandParser.new(feed_manager: feed_manager)
       queue = Queue.new

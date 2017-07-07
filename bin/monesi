@@ -48,7 +48,6 @@ class CLI < Thor
   def feed_manager
     unless @feed_manager
       @feed_manager = FeedManager.new(options.merge(s3_bucket_name: ENV['S3_BUCKET'], path: 'status.yaml'))
-      @feed_manager.load rescue Errno::ENOENT
     end
     @feed_manager
   end

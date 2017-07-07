@@ -73,7 +73,7 @@ module Monesi
     end
 
     def load(manager)
-      body = s3_client.get_object(bucket: @bucket_name, path: @path).body.read
+      body = s3_client.get_object(bucket: @bucket_name, key: @path).body.read
       yaml = YAML::load(body)
       manager.restore_from_yaml(yaml)
       puts "feeds loaded from #{@bucket_name} #{@path}"
