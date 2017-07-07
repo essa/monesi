@@ -12,7 +12,7 @@ require 'pp'
 require 'websocket-client-simple'
 require 'json'
 require 'uri'
-require 'pry'
+require 'highline/import'
 
 # some codes are copied from following articles
 # http://qiita.com/takahashim/items/a8c0eb3a75d366cfe87b
@@ -55,7 +55,7 @@ module Monesi
         client = OAuth2::Client.new(ENV["MASTODON_CLIENT_ID"],
                                     ENV["MASTODON_CLIENT_SECRET"],
                                     site: ENV["MASTODON_URL"])
-        login_id = ask("Your Account: ")
+        login_id = ask("Your Email Address: ")
         password = ask("Your Password: "){|q| q.echo = "*"}
         token = client.password.get_token(login_id, password, scope: scopes)
         ENV["MASTODON_ACCESS_TOKEN"] = token.token
@@ -88,8 +88,8 @@ module Monesi
           next unless toot.kind_of?(Mastodon::Notification)
           username = toot.account.username
           host = URI.parse(toot.account.url).host
-          content = toot.status.content
-          puts "#{username}: #{content}"
+          text = extract_text(toot.status.content)
+          puts "#{username}@#{host}: #{text}"
           block.call(toot, "#{username}@#{host}")
         end
       rescue EOFError
@@ -115,11 +115,11 @@ module Monesi
     end
 
     def echo_server
-      require 'pry'
       setup
       watch_stream do |toot, username| 
         if toot.status.content
           text = extract_text(toot.status.content)
+          text.gsub!(/^@\S+/, '')
           client.create_status(text, in_reply_to_id: toot.status.id)
           puts text
         end
@@ -180,6 +180,7 @@ module Monesi
       loop do
         begin
           puts "popping a proc from queue"
+          STDOUT.flush
           proc_ = queue.pop
           puts "popped a proc from queue"
           proc_.call

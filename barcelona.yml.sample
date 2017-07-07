@@ -1,0 +1,25 @@
+
+
+worker_base: &worker_base
+  cpu: 64
+  memory: 256
+
+environments:
+  production:
+    name: monesi
+    image_name: (your acount id).dkr.ecr.ap-northeast-1.amazonaws.com/(your repository name)
+    services:
+      - <<: *worker_base
+        name: worker
+        command: bundle exec bin/monesi bot
+
+# require environment variables for barcelona
+# AWS_SECRET_ACCESS_KEY: <secret>
+# MASTODON_ACCESS_TOKEN: <secret>
+# MASTODON_CLIENT_ID: <secret>
+# MASTODON_CLIENT_SECRET: <secret>
+# AWS_REGION: ap-northeast-1
+# MASTODON_URL: https://bcn-users.degica.com
+# S3_BUCKET: mstdn-bcn-users-db-mediabucket-wfykdx5icdex
+# AWS_ACCESS_KEY_ID: <secret>
+

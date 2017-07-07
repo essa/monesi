@@ -9,6 +9,8 @@ gem "dotenv"
 gem "websocket-client-simple"
 gem "feedbag"
 gem "feed-normalizer"
+gem "highline"
+gem "aws-sdk"
 
 group :development, :test do
   gem 'pry'

@@ -29,6 +29,7 @@ class CLI < Thor
 
   desc 'bot', 'start bot for mastodon'
 
+  option :s3_bucket_name
   def bot
     mastodon_client.bot(feed_manager)
   end
@@ -46,7 +47,7 @@ class CLI < Thor
 
   def feed_manager
     unless @feed_manager
-      @feed_manager = FeedManager.new(path: 'status.yaml')
+      @feed_manager = FeedManager.new(options.merge(s3_bucket_name: ENV['S3_BUCKET'], path: 'status.yaml'))
       @feed_manager.load rescue Errno::ENOENT
     end
     @feed_manager

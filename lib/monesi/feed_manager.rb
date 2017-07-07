@@ -2,6 +2,7 @@
 
 require "feedbag"
 require "feed-normalizer"
+require 'aws-sdk'
 
 module Monesi
   class Feed
@@ -56,11 +57,45 @@ module Monesi
     end
   end
 
+  class S3Storage
+    def initialize(bucket_name, options)
+      @bucket_name = bucket_name
+      @path = options[:path]
+    end
+
+    def save(manager)
+      s3_client.put_object(
+        bucket: @bucket_name,
+        key: @path,
+        body: manager.to_yaml
+      )
+      puts "feeds saved to #{@bucket_name} #{@path}"
+    end
+
+    def load(manager)
+      body = s3_client.get_object(bucket: @bucket_name, path: @path).body.read
+      yaml = YAML::load(body)
+      manager.restore_from_yaml(yaml)
+      puts "feeds loaded from #{@bucket_name} #{@path}"
+    end
+
+    private
+
+    def s3_client
+      @s3_client ||= Aws::S3::Client.new
+    end
+  end
+
   class FeedManager
     attr_reader :feeds, :storage, :last_fetched
     def initialize(options={})
       @feeds = []
-      @storage = FileStorage.new(options[:path])
+      @s3_bucket_name = options[:s3_bucket_name]
+      if @s3_bucket_name
+        @storage = S3Storage.new(@s3_bucket_name, options)
+      else
+        @storage = FileStorage.new(options[:path])
+      end
       @last_fetched = Time.now
     end
 
@@ -93,10 +128,6 @@ module Monesi
 
       feeds.delete_at(i)
       save
-    end
-
-    def restore_from_yaml(m)
-      @feeds = m.feeds
     end
 
     def fetch
@@ -132,6 +163,16 @@ module Monesi
         end
       end
 
+    end
+
+    def to_yaml
+      {
+        feeds: feeds
+      }.to_yaml
+    end
+
+    def restore_from_yaml(m)
+      @feeds = m[:feeds] || []
     end
 
     private

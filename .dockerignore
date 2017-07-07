@@ -1,0 +1,8 @@
+.env
+.env.*
+vendor/bundle
+.DS_Store
+*.swp
+*~
+status.yaml
+
