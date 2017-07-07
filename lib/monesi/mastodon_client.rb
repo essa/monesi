@@ -167,11 +167,11 @@ module Monesi
             feed_manager.new_entries do |msg| 
               puts msg
               post_message(msg)
-              sleep 10
+              sleep 120
             end
           end
           queue.push proc_
-          sleep 1800
+          sleep 600
         end
       end
 
