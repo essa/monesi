@@ -73,4 +73,9 @@ $ bcn deploy -e production
 * [ ] Globalize
 * [ ] Put a tag on feed update messages
 
+## Why it is named "Monesi"
+
+It is named after another extinct animal like Mastodon.
+
+* [Josephoartigasia monesi \- Wikipedia](https://en.wikipedia.org/wiki/Josephoartigasia_monesi)
 
