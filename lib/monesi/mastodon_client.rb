@@ -104,6 +104,7 @@ module Monesi
     end
 
     def interactive(feed_manager)
+      feed_manager.load
       parser = CommandParser.new(feed_manager: feed_manager)
       puts parser.help_text
       loop do

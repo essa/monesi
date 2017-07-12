@@ -32,6 +32,9 @@ module Monesi
       else
         @new_entries = []
       end
+    rescue
+      puts "error in fetching #{feed_url}"
+      raise
     end
   end
 
@@ -54,6 +57,8 @@ module Monesi
         manager.restore_from_yaml(yaml)
       end
       puts "feeeds loaded from #{path}"
+    rescue Errno::ENOENT
+      puts "#{path} not found"
     end
   end
 
