@@ -79,3 +79,4 @@ It is named after another extinct animal like Mastodon.
 
 * [Josephoartigasia monesi \- Wikipedia](https://en.wikipedia.org/wiki/Josephoartigasia_monesi)
 
+<a title="By Nobu Tamura (Own work) [GFDL (http://www.gnu.org/copyleft/fdl.html) or CC BY 3.0 (http://creativecommons.org/licenses/by/3.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3AJosephoartigasia_BW.jpg"><img width="512" alt="Josephoartigasia BW" src="https://upload.wikimedia.org/wikipedia/commons/7/72/Josephoartigasia_BW.jpg"/></a>
