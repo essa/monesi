@@ -163,7 +163,6 @@ module Monesi
         loop do
           puts "pushing fetch event"
           proc_ = proc do
-            last_fetched = feed_manager.last_fetched || Time.now
             puts "fetching..."
             feed_manager.fetch
             puts "fetched"

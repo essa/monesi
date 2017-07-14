@@ -36,6 +36,12 @@ describe Monesi::FeedManager do
       stub_request(:get, "http://qiita.com/tags/mastodon/feed")
         .to_return(body: atom, headers: { 'Content-Type' => 'application/xml; charset=utf-8'})
     end
+
+    let!(:itmedia_atom) do
+      atom = File::open('spec/fixtures/rss.rssad.jp/news_bursts.xml')
+      stub_request(:get, "http://rss.rssad.jp/rss/itmnews/2.0/news_bursts.xml")
+        .to_return(body: atom, headers: { 'Content-Type' => 'application/xml; charset=utf-8'})
+    end
   else
     let!(:hatena_index) { nil }
     let!(:hatena_rss) { nil }
@@ -107,6 +113,14 @@ describe Monesi::FeedManager do
       end.to raise_error(RuntimeError)
       expect(subject.feeds.size).to eq(1)
     end
+
+    it "should process tag option" do
+      subject.subscribe("http://d.hatena.ne.jp/essa/", tag: 'uncate')
+      expect(subject.feeds.size).to eq(1)
+      feed = subject.feeds.first
+      feed_option = subject.feed_option_for(feed)
+      expect(feed_option[:tag]).to eq('uncate')
+    end
   end
 
   describe("#fetch") do
@@ -131,6 +145,30 @@ describe Monesi::FeedManager do
       expect(article[:url]).to eq('http://qiita.com/magicpot73@github/items/c3069520050df9d27226')
     end
 
+  end
+
+  describe("#filter") do
+    before do
+      subject.subscribe("http://rss.rssad.jp/rss/itmnews/2.0/news_bursts.xml",
+                        meta_filter: {'itmid:series'=> 'マストドンつまみ食い日記'} )
+    end
+    it "should pass all entry without options" do
+      article_url ='http://rss.rssad.jp/rss/artclk/XXtgw_wVjwMW/9f85c188d441f0dfaeb38b13067cc9ed?ul=dFXxPH_nlvvejbi.pBVaGQ.GWRexPETyBzUkKBlyRM5f36fvCkTox6TchXHdzU6el7Ykc1bl39Q4j7zFDanCYhZLw0OQiphOeVtcIlf8ehXkhzyEJFuFpBx7U1DemKxW.e6uNQs'
+
+      # matched article
+      article = File::open('spec/fixtures/itmedia.co.jp/news051.html')
+      stub_request(:get, article_url)
+        .to_return(body: article, headers: { 'Content-Type' => 'application/xml; charset=utf-8'})
+      r = subject.filter?(article_url, subject.feeds.first)
+      expect(r).to be_falsy
+
+      # unmatched article
+      article = File::open('spec/fixtures/itmedia.co.jp/news052.html')
+      stub_request(:get, article_url)
+        .to_return(body: article, headers: { 'Content-Type' => 'application/xml; charset=utf-8'})
+      r = subject.filter?(article_url, subject.feeds.first)
+      expect(r).to be_truthy
+    end
   end
 
   describe("#unsubscribe") do

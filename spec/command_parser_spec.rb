@@ -1,3 +1,4 @@
+# coding: utf-8
 
 require 'spec_helper'
 describe Monesi::CommandParser do
@@ -13,7 +14,7 @@ describe Monesi::CommandParser do
 
   describe "#subscribe" do
     it "should subsribe a feed for request" do
-      expect(feed_manager).to receive(:subscribe).with("http://d.hatena.ne.jp/essa/")
+      expect(feed_manager).to receive(:subscribe).with("http://d.hatena.ne.jp/essa/", {})
       subject.parse("subscribe http://d.hatena.ne.jp/essa/") do |ans| 
         expect(ans).to include("subscribed")
       end
@@ -21,11 +22,29 @@ describe Monesi::CommandParser do
 
     it "should process exception" do
       expect(feed_manager).to receive(:subscribe)
-                               .with("http://d.hatena.ne.jp/essa/")
+                               .with("http://d.hatena.ne.jp/essa/", {})
                                .and_raise(RuntimeError, "error message xyz")
 
       subject.parse("subscribe http://d.hatena.ne.jp/essa/") do |ans| 
         expect(ans).to include("error message xyz")
+      end
+    end
+
+    it "should process meta_filter option" do
+      expect(feed_manager).to receive(:subscribe)
+                               .with("http://d.hatena.ne.jp/essa/", meta_filter: {'itmid:series'=> 'マストドンつまみ食い日記'} )
+
+      subject.parse("subscribe http://d.hatena.ne.jp/essa/ with meta_filter(itmid:series=マストドンつまみ食い日記)") do |ans| 
+        p ans
+      end
+    end
+
+    it "should process tag option" do
+      expect(feed_manager).to receive(:subscribe)
+                               .with("http://d.hatena.ne.jp/essa/", tag: "uncate")
+
+      subject.parse("subscribe http://d.hatena.ne.jp/essa/ with tag(uncate)") do |ans| 
+        p ans
       end
     end
   end
