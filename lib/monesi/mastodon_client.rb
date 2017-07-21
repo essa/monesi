@@ -115,6 +115,7 @@ module Monesi
           puts msg 
         end
       end
+    rescue EOFError
     end
 
     def echo_server
@@ -180,7 +181,7 @@ module Monesi
       end
 
 
-      client.create_status("monesi shared feed reader started")
+      #client.create_status("monesi shared feed reader started")
       loop do
         begin
           puts "popping a proc from queue"

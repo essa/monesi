@@ -48,9 +48,15 @@ module Monesi
         feed_manager.show_meta($1, &block)
       when /help/
         block.call help_text
+      when /version/
+        block.call "Monesi: feed reader for Mastodon #{Monesi::Version}"
+      when /end|quit/
+        raise EOFError
       else
         # just ignore
       end
+    rescue EOFError
+      raise
     rescue
       block.call("something wrong with '#{text}' #{$!}")
       block.call($@) if @debug

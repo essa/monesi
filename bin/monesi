@@ -5,6 +5,7 @@ require 'thor'
 require './lib/monesi/mastodon_client'
 require './lib/monesi/feed_manager'
 require './lib/monesi/command_parser'
+require './lib/monesi/version'
 
 class CLI < Thor
   include Monesi

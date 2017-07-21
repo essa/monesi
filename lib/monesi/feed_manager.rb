@@ -5,7 +5,19 @@ require "feed-normalizer"
 require 'aws-sdk'
 
 module Monesi
+  module FakeUAForHatena
+    # http://q.hatena.ne.jp/1451205850
+    def open(url, opt={})
+      opt['User-Agent'] = 'Opera/9.80 (Windows NT 5.1; U; ja) Presto/2.7.62 Version/11.01 '
+      super(url, opt)
+    end
+  end
+  class ::Feedbag
+    include FakeUAForHatena
+  end
+
   class Feed
+    include FakeUAForHatena
     attr_reader :feed_url, :title, :entries, :new_entries
     def initialize(feed_url)
       @feed_url = feed_url
@@ -92,6 +104,7 @@ module Monesi
   end
 
   class FeedManager
+    include FakeUAForHatena
     attr_reader :feeds, :storage, :last_fetched
     def initialize(options={})
       @feeds = {}
