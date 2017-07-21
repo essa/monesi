@@ -5,7 +5,7 @@ describe Monesi::CommandParser do
   let(:feed_manager) { double("feed_manager") }
 
   subject do
-    Monesi::CommandParser.new(feed_manager: feed_manager)
+    Monesi::CommandParser.new(feed_manager: feed_manager, debug: false)
   end
 
   it "should be initialized" do

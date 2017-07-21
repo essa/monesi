@@ -104,10 +104,12 @@ module Monesi
     end
 
     def interactive(feed_manager)
+      prompt = '> '
       feed_manager.load
-      parser = CommandParser.new(feed_manager: feed_manager)
+      parser = CommandParser.new(feed_manager: feed_manager, debug: true)
       puts parser.help_text
       loop do
+        print prompt
         cmd = STDIN.gets
         parser.parse(cmd) do |msg| 
           puts msg 

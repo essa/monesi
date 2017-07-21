@@ -4,6 +4,8 @@ module Monesi
     attr_reader :feed_manager
     def initialize(options)
       @feed_manager = options[:feed_manager]
+      @debug = options[:debug]
+      require 'pry' if @debug
     end
 
     def parse(text, &block)
@@ -23,9 +25,9 @@ module Monesi
         block.call(ans)
       when /list/
         ans = "\n"
-        feed_manager.feeds.map do |f| 
-          options = feed_manager.feed_option_for(f)
-          l = "#{f.title} #{f.feed_url} #{options}\n".force_encoding("UTF-8")
+        feed_manager.feeds.map do |feed_id, f| 
+          options = feed_manager.feed_option_for(feed_id)
+          l = "#{feed_id} #{f.title} #{f.feed_url} #{options}\n".force_encoding("UTF-8")
           if (ans + l).size > 400
             block.call(ans)
             ans = "\n" + l
@@ -40,21 +42,34 @@ module Monesi
           block.call(msg)
         end
         block.call('fetched')
+      when /show_articles\s+(\S+)/
+        feed_manager.show_articles($1.intern, &block)
+      when /show_meta\s+(\S+)/
+        feed_manager.show_meta($1, &block)
+      when /help/
+        block.call help_text
       else
         # just ignore
       end
     rescue
       block.call("something wrong with '#{text}' #{$!}")
+      block.call($@) if @debug
     end 
 
 
     def help_text
       <<~EOS
       commands for monesi
-        subscribe <feed url>
-        unsubscribe <feed url>
+        subscribe <feed id> <feed url> [options]
+        unsubscribe <feed id>
         fetch
         list
+        help
+        show_articles feed_id
+      subscribe options
+        meta_filter(<name>=<value>)
+        meta_filter(<name>=~/<value>/)
+        tag(<tag name>)
       EOS
     end
 

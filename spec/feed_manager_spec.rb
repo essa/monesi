@@ -144,45 +144,63 @@ describe Monesi::FeedManager do
   end
 
   describe("#filter") do
-    before do
-      subject.subscribe(:mastodon, "http://rss.rssad.jp/rss/itmnews/2.0/news_bursts.xml",
-                        meta_filter: {'itmid:series'=> 'マストドンつまみ食い日記'} )
-    end
-    it "should pass all entry without options" do
-      article_url ='http://rss.rssad.jp/rss/artclk/XXtgw_wVjwMW/9f85c188d441f0dfaeb38b13067cc9ed?ul=dFXxPH_nlvvejbi.pBVaGQ.GWRexPETyBzUkKBlyRM5f36fvCkTox6TchXHdzU6el7Ykc1bl39Q4j7zFDanCYhZLw0OQiphOeVtcIlf8ehXkhzyEJFuFpBx7U1DemKxW.e6uNQs'
 
-      # matched article
-      article = File::open('spec/fixtures/itmedia.co.jp/news051.html')
-      stub_request(:get, article_url)
-        .to_return(body: article, headers: { 'Content-Type' => 'application/xml; charset=utf-8'})
-      r = subject.filter?(article_url, :mastodon)
-      expect(r).to be_falsy
-
-      # unmatched article
-      article = File::open('spec/fixtures/itmedia.co.jp/news052.html')
-      stub_request(:get, article_url)
-        .to_return(body: article, headers: { 'Content-Type' => 'application/xml; charset=utf-8'})
-      r = subject.filter?(article_url, :mastodon)
-      expect(r).to be_truthy
+    describe("with no filter") do
+      it "should not filter at all" do
+        article_url = 'http://rss.rssad.jp/rss/artclk/XX'
+        stub_request(:get, article_url)
+          .to_return(body: "dummy text", headers: { 'Content-Type' => 'application/xml; charset=utf-8'})
+        r = subject.filter?(article_url, :xyz)
+        expect(r).to be_falsy
+      end
     end
 
-    it "should match with regexp" do
-      subject.subscribe(:watch, "http://d.hatena.ne.jp/essa/", meta_filter: { "og:url" => /yajiuma/ })
-      article_url = "http://xxxx.com/12345"
+    describe("with meta_filter") do
+      before do
+        subject.subscribe(:mastodon, "http://rss.rssad.jp/rss/itmnews/2.0/news_bursts.xml",
+                          meta_filter: {'itmid:series'=> 'マストドンつまみ食い日記'} )
+      end
+      it "should pass all entry without options" do
+        article_url = 'http://rss.rssad.jp/rss/artclk/XXtgw_wVjwMW/9f85c188d441f0dfaeb38b13067cc9ed?ul=dFXxPH_nlvvejbi.pBVaGQ.GWRexPETyBzUkKBlyRM5f36fvCkTox6TchXHdzU6el7Ykc1bl39Q4j7zFDanCYhZLw0OQiphOeVtcIlf8ehXkhzyEJFuFpBx7U1DemKxW.e6uNQs'
 
-      html = '<head><meta property="og:url" content="http://internet.watch.impress.co.jp/docs/yaji/1049067.html"><meta property="og:title" content="【やじうまWatch】現在開発中、ディープラーニングによる2ちゃんライクなアスキーアートの生成技術が評判"></head>'
-      stub_request(:get, article_url)
-        .to_return(body: html, headers: { 'Content-Type' => 'application/xml; charset=utf-8'})
+        # matched article
+        article = File::open('spec/fixtures/itmedia.co.jp/news051.html')
+        stub_request(:get, article_url)
+          .to_return(body: article, headers: { 'Content-Type' => 'application/xml; charset=utf-8'})
+        r = subject.filter?(article_url, :mastodon)
+        expect(r).to be_falsy
 
-      r = subject.filter?(article_url, :watch)
-      expect(r).to be_truthy
+        # unmatched article
+        article = File::open('spec/fixtures/itmedia.co.jp/news052.html')
+        stub_request(:get, article_url)
+          .to_return(body: article, headers: { 'Content-Type' => 'application/xml; charset=utf-8'})
+        r = subject.filter?(article_url, :mastodon)
+        expect(r).to be_truthy
+      end
+    end
 
-      html = '<head><meta property="og:url" content="http://internet.watch.impress.co.jp/docs/yajiuma/1049067.html"><meta property="og:title" content="【やじうまWatch】現在開発中、ディープラーニングによる2ちゃんライクなアスキーアートの生成技術が評判"></head>'
-      stub_request(:get, article_url)
-        .to_return(body: html, headers: { 'Content-Type' => 'application/xml; charset=utf-8'})
+    describe ("with meta_filter with regexp") do
+      before do
+        subject.subscribe(:watch, "http://d.hatena.ne.jp/essa/", meta_filter: { "og:url" => /yajiuma/ })
+      end
 
-      r = subject.filter?(article_url, :watch)
-      expect(r).to be_falsy
+      it "should match with regexp" do
+        article_url = "http://xxxx.com/12345"
+
+        html = '<head><meta property="og:url" content="http://internet.watch.impress.co.jp/docs/yaji/1049067.html"><meta property="og:title" content="【やじうまWatch】現在開発中、ディープラーニングによる2ちゃんライクなアスキーアートの生成技術が評判"></head>'
+        stub_request(:get, article_url)
+          .to_return(body: html, headers: { 'Content-Type' => 'application/xml; charset=utf-8'})
+
+        r = subject.filter?(article_url, :watch)
+        expect(r).to be_truthy
+
+        html = '<head><meta property="og:url" content="http://internet.watch.impress.co.jp/docs/yajiuma/1049067.html"><meta property="og:title" content="【やじうまWatch】現在開発中、ディープラーニングによる2ちゃんライクなアスキーアートの生成技術が評判"></head>'
+        stub_request(:get, article_url)
+          .to_return(body: html, headers: { 'Content-Type' => 'application/xml; charset=utf-8'})
+
+        r = subject.filter?(article_url, :watch)
+        expect(r).to be_falsy
+      end
     end
   end
 

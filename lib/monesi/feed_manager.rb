@@ -139,17 +139,38 @@ module Monesi
     def new_entries(&block)
       feeds.each do |feed_id, f| 
         f.new_entries.each do |a| 
-          next if filter?(a[:url], f)
-          tag = feed_option_for(f)[:tag]
-          message = <<~EOS
-          #{a[:title]}
-          #{a[:url]}
-          ##{feed_id}
-          EOS
-          message += "##{tag}" if tag
-
-          block.call(message)
+          next if filter?(a[:url], feed_id)
+          block.call(toot_for_article(feed_id, a))
         end
+      end
+    end
+
+    def show_articles(feed_id, &block)
+      feed = feeds[feed_id]
+      raise "feed #{feed_id} not found" unless feed
+      feed.entries.each do |a| 
+        next if filter?(a[:url], feed_id)
+        block.call(toot_for_article(feed_id, a))
+      end
+    end
+
+    def toot_for_article(feed_id, article)
+      tag = feed_option_for(feed_id)[:tag]
+      toot = <<~EOS
+      #{article[:title]}
+      #{article[:url]}
+      ##{feed_id}
+      EOS
+      toot += "\n##{tag}" if tag
+      toot
+    end
+
+    def show_meta(url, &block)
+      dom = Nokogiri::HTML.parse(open(url))
+      dom.xpath('//meta').each do |e|
+        name = (e['name'] || e['property'])
+        value = e['content']
+        block.call("#{name} #{value}")
       end
     end
 
@@ -159,7 +180,7 @@ module Monesi
       if meta_filter
         ! meta_match?(url, meta_filter)
       else
-        true
+        false
       end
     end
 
