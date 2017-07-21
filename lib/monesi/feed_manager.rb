@@ -94,7 +94,7 @@ module Monesi
   class FeedManager
     attr_reader :feeds, :storage, :last_fetched
     def initialize(options={})
-      @feeds = []
+      @feeds = {}
       @feed_options = {}
       @s3_bucket_name = options[:s3_bucket_name]
       if @s3_bucket_name
@@ -113,38 +113,38 @@ module Monesi
       storage.load(self)
     end
 
-    def subscribe(url, options={})
+    def subscribe(id, url, options={})
+      id = id.intern
       feed_url = feed_for(url)
       raise "Feed for #{url} was not found" unless feed_url
-      raise "Feed for #{url} is already subscribed" if feeds.any? { |f| f.feed_url == feed_url}
+      raise "Feed for #{id} is already subscribed" if feeds[id]
       feed = Feed.new(feed_url)
       feed.fetch
-      add(feed, options)
+      add(id, feed, options)
       save
     end
 
-    def unsubscribe(url)
-      feed_url = feed_for(url)
-      raise "Feed for #{url} was not found" unless feed_url
-      remove(url, feed_url)
+    def unsubscribe(feed_id)
+      remove(feed_id)
 
       save
     end
 
     def fetch
-      feeds.each(&:fetch)
+      feeds.values.each(&:fetch)
       @last_fetched = Time.now
       save
     end
 
     def new_entries(&block)
-      feeds.each do |f| 
+      feeds.each do |feed_id, f| 
         f.new_entries.each do |a| 
           next if filter?(a[:url], f)
           tag = feed_option_for(f)[:tag]
           message = <<~EOS
           #{a[:title]}
           #{a[:url]}
+          ##{feed_id}
           EOS
           message += "##{tag}" if tag
 
@@ -153,8 +153,8 @@ module Monesi
       end
     end
 
-    def filter?(url, feed)
-      options = feed_option_for(feed)
+    def filter?(url, feed_id)
+      options = feed_option_for(feed_id)
       meta_filter = options[:meta_filter]
       if meta_filter
         ! meta_match?(url, meta_filter)
@@ -167,11 +167,11 @@ module Monesi
       k = meta_filter.keys.first
       v = meta_filter[k]
       dom = Nokogiri::HTML.parse(open(url))
-      dom.xpath('//meta').any? { |e| e['name'] == k && e['content'] == v }
+      dom.xpath('//meta').any? { |e| (e['name'] || e['property']) == k && v === e['content']  }
     end
 
-    def feed_option_for(feed)
-      @feed_options[feed.feed_url] || {}
+    def feed_option_for(feed_id)
+      @feed_options[feed_id] || {}
     end
 
     def to_yaml
@@ -192,19 +192,14 @@ module Monesi
       feeds.first
     end
 
-    def add(feed, options)
-      feeds.unshift(feed)
-      @feed_options[feed.feed_url] = options
+    def add(id, feed, options)
+      feeds[id] = feed
+      @feed_options[id] = options
     end
 
-    def remove(url, feed_url)
-      i = feeds.find_index do |f| 
-        f.feed_url == feed_url
-      end
-      raise "Feed #{url} is not subscribed" unless i
-
-      @feed_options.delete(feeds[i].feed_url)
-      feeds.delete_at(i)
+    def remove(feed_id)
+      feeds.delete(feed_id)
+      @feed_options.delete(feed_id)
     end
   end
 end

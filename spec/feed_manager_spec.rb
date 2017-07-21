@@ -52,22 +52,22 @@ describe Monesi::FeedManager do
   describe "#subscribe" do
     it "should subscribe a feed from hatena diary url" do
 
-      subject.subscribe("http://d.hatena.ne.jp/essa/")
+      subject.subscribe('uncate', "http://d.hatena.ne.jp/essa/")
 
       expect(hatena_index).to have_been_requested if hatena_index
       expect(hatena_rss).to have_been_requested if hatena_rss
-      feed = subject.feeds.first
+      feed = subject.feeds[:uncate]
       expect(feed.title).to eq("アンカテ")
       expect(feed.entries.map { |e| e[:url] }).to include('http://d.hatena.ne.jp/essa/20170619/p1')
     end
 
     it "should subscribe a feed from qiita" do
 
-      subject.subscribe("http://qiita.com/tags/mastodon")
+      subject.subscribe(:qiita, "http://qiita.com/tags/mastodon")
 
       expect(qiita_index).to have_been_requested if qiita_index
       expect(qiita_atom).to have_been_requested if qiita_atom
-      feed = subject.feeds.first
+      feed = subject.feeds[:qiita]
       expect(feed.title).to eq("mastodonタグが付けられた新着投稿 - Qiita")
       expect(feed.entries.map { |e| e[:url] }).to include('http://qiita.com/magicpot73@github/items/9ae01dd1bce47863235c')
 
@@ -75,8 +75,8 @@ describe Monesi::FeedManager do
 
     it "should subscribe two feeds" do
 
-      subject.subscribe("http://d.hatena.ne.jp/essa/")
-      subject.subscribe("http://qiita.com/tags/mastodon")
+      subject.subscribe(:uncate, "http://d.hatena.ne.jp/essa/")
+      subject.subscribe(:qiita, "http://qiita.com/tags/mastodon")
 
       expect(hatena_index).to have_been_requested if hatena_index
       expect(hatena_rss).to have_been_requested if hatena_rss
@@ -84,9 +84,9 @@ describe Monesi::FeedManager do
       expect(qiita_atom).to have_been_requested if qiita_atom
 
       expect(subject.feeds.size).to eq(2)
-      expect(subject.feeds.map(&:title)).to eq [
+      expect(subject.feeds.map{ |_, f| f.title }).to eq [
+                                              "アンカテ",
                                               "mastodonタグが付けられた新着投稿 - Qiita",
-                                              "アンカテ"
                                             ]
     end
 
@@ -97,7 +97,7 @@ describe Monesi::FeedManager do
       end
 
       expect do
-        subject.subscribe("http://non-existing.host.com")
+        subject.subscribe(:error, "http://non-existing.host.com")
       end.to raise_error(RuntimeError)
 
       expect(subject.feeds.size).to eq(0)
@@ -105,30 +105,26 @@ describe Monesi::FeedManager do
 
     it "should reject subscribed feed" do
 
-      subject.subscribe("http://d.hatena.ne.jp/essa/")
+      subject.subscribe(:uncate, "http://d.hatena.ne.jp/essa/")
       expect(subject.feeds.size).to eq(1)
 
       expect do
-        subject.subscribe("http://d.hatena.ne.jp/essa/")
+        subject.subscribe(:uncate, "http://d.hatena.ne.jp/essa_xxxx/")
       end.to raise_error(RuntimeError)
       expect(subject.feeds.size).to eq(1)
-    end
 
-    it "should process tag option" do
-      subject.subscribe("http://d.hatena.ne.jp/essa/", tag: 'uncate')
-      expect(subject.feeds.size).to eq(1)
-      feed = subject.feeds.first
-      feed_option = subject.feed_option_for(feed)
-      expect(feed_option[:tag]).to eq('uncate')
+      # should accept same feed with different id
+      subject.subscribe(:uncate2, "http://d.hatena.ne.jp/essa/")
+      expect(subject.feeds.size).to eq(2)
     end
   end
 
   describe("#fetch") do
     before do
-      subject.subscribe("http://qiita.com/tags/mastodon")
+      subject.subscribe(:qiita, "http://qiita.com/tags/mastodon")
     end
 
-    let(:feed) { subject.feeds.first}
+    let(:feed) { subject.feeds[:qiita] }
 
     it "should return empty new_entries" do
       subject.fetch
@@ -149,7 +145,7 @@ describe Monesi::FeedManager do
 
   describe("#filter") do
     before do
-      subject.subscribe("http://rss.rssad.jp/rss/itmnews/2.0/news_bursts.xml",
+      subject.subscribe(:mastodon, "http://rss.rssad.jp/rss/itmnews/2.0/news_bursts.xml",
                         meta_filter: {'itmid:series'=> 'マストドンつまみ食い日記'} )
     end
     it "should pass all entry without options" do
@@ -159,44 +155,63 @@ describe Monesi::FeedManager do
       article = File::open('spec/fixtures/itmedia.co.jp/news051.html')
       stub_request(:get, article_url)
         .to_return(body: article, headers: { 'Content-Type' => 'application/xml; charset=utf-8'})
-      r = subject.filter?(article_url, subject.feeds.first)
+      r = subject.filter?(article_url, :mastodon)
       expect(r).to be_falsy
 
       # unmatched article
       article = File::open('spec/fixtures/itmedia.co.jp/news052.html')
       stub_request(:get, article_url)
         .to_return(body: article, headers: { 'Content-Type' => 'application/xml; charset=utf-8'})
-      r = subject.filter?(article_url, subject.feeds.first)
+      r = subject.filter?(article_url, :mastodon)
       expect(r).to be_truthy
+    end
+
+    it "should match with regexp" do
+      subject.subscribe(:watch, "http://d.hatena.ne.jp/essa/", meta_filter: { "og:url" => /yajiuma/ })
+      article_url = "http://xxxx.com/12345"
+
+      html = '<head><meta property="og:url" content="http://internet.watch.impress.co.jp/docs/yaji/1049067.html"><meta property="og:title" content="【やじうまWatch】現在開発中、ディープラーニングによる2ちゃんライクなアスキーアートの生成技術が評判"></head>'
+      stub_request(:get, article_url)
+        .to_return(body: html, headers: { 'Content-Type' => 'application/xml; charset=utf-8'})
+
+      r = subject.filter?(article_url, :watch)
+      expect(r).to be_truthy
+
+      html = '<head><meta property="og:url" content="http://internet.watch.impress.co.jp/docs/yajiuma/1049067.html"><meta property="og:title" content="【やじうまWatch】現在開発中、ディープラーニングによる2ちゃんライクなアスキーアートの生成技術が評判"></head>'
+      stub_request(:get, article_url)
+        .to_return(body: html, headers: { 'Content-Type' => 'application/xml; charset=utf-8'})
+
+      r = subject.filter?(article_url, :watch)
+      expect(r).to be_falsy
     end
   end
 
   describe("#unsubscribe") do
     it "should unsubscribe feed" do
 
-      subject.subscribe("http://d.hatena.ne.jp/essa/")
+      subject.subscribe(:uncate, "http://d.hatena.ne.jp/essa/")
       expect(subject.feeds.size).to eq(1)
 
-      subject.unsubscribe("http://d.hatena.ne.jp/essa/")
+      subject.unsubscribe(:uncate)
       expect(subject.feeds.size).to eq(0)
     end
 
     it "should rotate feeds" do
 
-      subject.subscribe("http://d.hatena.ne.jp/essa/")
-      subject.subscribe("http://qiita.com/tags/mastodon")
+      subject.subscribe(:uncate, "http://d.hatena.ne.jp/essa/")
+      subject.subscribe(:qiita, "http://qiita.com/tags/mastodon")
       expect(subject.feeds.size).to eq(2)
 
-      subject.unsubscribe("http://d.hatena.ne.jp/essa/")
+      subject.unsubscribe(:uncate)
       expect(subject.feeds.size).to eq(1)
-      expect(subject.feeds.first.feed_url).to eq("http://qiita.com/tags/mastodon/feed")
+      expect(subject.feeds.first[1].feed_url).to eq("http://qiita.com/tags/mastodon/feed")
     end
   end
 
   describe("#save/load") do
     it "should save/load feeds" do
-      subject.subscribe("http://d.hatena.ne.jp/essa/")
-      subject.subscribe("http://qiita.com/tags/mastodon")
+      subject.subscribe(:uncate, "http://d.hatena.ne.jp/essa/")
+      subject.subscribe(:qiita, "http://qiita.com/tags/mastodon")
       expect(subject.feeds.size).to eq(2)
 
       subject.save
@@ -204,9 +219,9 @@ describe Monesi::FeedManager do
       manager.load
 
       expect(manager.feeds.size).to eq(2)
-      expect(manager.feeds.map(&:title)).to eq [
+      expect(manager.feeds.map{ |_, f| f.title }).to eq [
+                                              "アンカテ",
                                               "mastodonタグが付けられた新着投稿 - Qiita",
-                                              "アンカテ"
                                             ]
 
     end

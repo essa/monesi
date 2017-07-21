@@ -9,16 +9,17 @@ module Monesi
     def parse(text, &block)
       case text
       when /unsubscribe\s+(\S+)/
-        url = $1
-        feed_manager.unsubscribe(url)
-        ans = "unsubscribed #{url}"
+        feed_id = $1.to_s.intern
+        feed_manager.unsubscribe(feed_id)
+        ans = "unsubscribed #{feed_id}"
         block.call(ans)
-      when /subscribe\s+(\S+)(?:\s+with\s+(.*))?/
+      when /subscribe\s+(\S+)\s+as\s+(\S+)(?:\s+with\s+(.*))?/
         url = $1
-        options_text = $2
+        feed_id = $2.to_s.intern
+        options_text = $3
         options = parse_options(options_text)
-        feed_manager.subscribe(url, options)
-        ans = "subscribed #{url}"
+        feed_manager.subscribe(feed_id, url, options)
+        ans = "subscribed #{url} as #{feed_id}"
         block.call(ans)
       when /list/
         ans = "\n"
@@ -40,7 +41,7 @@ module Monesi
         end
         block.call('fetched')
       else
-        block.call("Sorry, I can't understand '#{text}'\n" + help_text)
+        # just ignore
       end
     rescue
       block.call("something wrong with '#{text}' #{$!}")
@@ -61,7 +62,9 @@ module Monesi
 
     def parse_options(text)
       options = {}
-      if text =~ /meta_filter\(([\w\:]+)=([^)]*)\)/
+      if text =~ /meta_filter\(([\w\:]+)=~\/([^)]*)\/\)/
+        options.merge! meta_filter: { $1 => Regexp.new($2) }
+      elsif text =~ /meta_filter\(([\w\:]+)=([^)]*)\)/
         options.merge! meta_filter: { $1 => $2 }
       end
       if text =~ /tag\((.*)\)/
