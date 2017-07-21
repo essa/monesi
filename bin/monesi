@@ -10,9 +10,12 @@ require './lib/monesi/version'
 class CLI < Thor
   include Monesi
 
+  class_option :directory
+
   desc 'setup', 'setup .env for connecting mastodon server'
 
   def setup
+    Dir::chdir(options[:directory]) if options[:directory]
     MastodonClient.setup
   end
 
@@ -25,6 +28,7 @@ class CLI < Thor
   desc 'interactive', 'interactive session on terminal'
 
   def interactive
+    Dir::chdir(options[:directory]) if options[:directory]
     mastodon_client.interactive(feed_manager)
   end
 
@@ -32,6 +36,7 @@ class CLI < Thor
 
   option :s3_bucket_name
   def bot
+    Dir::chdir(options[:directory]) if options[:directory]
     mastodon_client.bot(feed_manager)
   end
 
