@@ -27,7 +27,7 @@ module Monesi
         ans = "\n"
         feed_manager.feeds.map do |feed_id, f| 
           options = feed_manager.feed_option_for(feed_id)
-          l = "#{feed_id} #{f.title} #{f.feed_url} #{options}\n".force_encoding("UTF-8")
+          l = "#{feed_id} #{f.title.to_s.force_encoding('UTF-8')} #{f.feed_url} #{options}\n".force_encoding("UTF-8")
           if (ans + l).size > 400
             block.call(ans)
             ans = "\n" + l
