@@ -103,7 +103,7 @@ module Monesi
       raise
     end
 
-    def interactive(feed_manager)
+    def console(feed_manager)
       prompt = '> '
       feed_manager.load
       parser = CommandParser.new(feed_manager: feed_manager, debug: true)

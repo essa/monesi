@@ -94,6 +94,8 @@ module Monesi
       yaml = YAML::load(body)
       manager.restore_from_yaml(yaml)
       puts "feeds loaded from #{@bucket_name} #{@path}"
+    rescue Aws::S3::Errors::NoSuchKey
+      puts "#{@bucket_name}/#{@path} not found"
     end
 
     private

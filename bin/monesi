@@ -11,6 +11,7 @@ class CLI < Thor
   include Monesi
 
   class_option :directory
+  class_option :status_file_path, default: 'status.yaml'
 
   desc 'setup', 'setup .env for connecting mastodon server'
 
@@ -25,11 +26,11 @@ class CLI < Thor
     mastodon_client.post_message(msg)
   end
 
-  desc 'interactive', 'interactive session on terminal'
+  desc 'console', 'interactive session on terminal'
 
-  def interactive
+  def console
     Dir::chdir(options[:directory]) if options[:directory]
-    mastodon_client.interactive(feed_manager)
+    mastodon_client.console(feed_manager)
   end
 
   desc 'bot', 'start bot for mastodon'
@@ -53,7 +54,7 @@ class CLI < Thor
 
   def feed_manager
     unless @feed_manager
-      @feed_manager = FeedManager.new(options.merge(s3_bucket_name: ENV['S3_BUCKET'], path: 'status.yaml'))
+      @feed_manager = FeedManager.new(options.merge(s3_bucket_name: ENV['S3_BUCKET'], path: options[:status_file_path]))
     end
     @feed_manager
   end

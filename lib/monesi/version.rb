@@ -13,7 +13,7 @@ module Monesi
     end
 
     def patch
-      1
+      2
     end
 
     def to_a
