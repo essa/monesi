@@ -15,3 +15,6 @@ RUN bundle install --deployment --without test development
 
 COPY . /monesi
 
+VOLUME /envs
+
+

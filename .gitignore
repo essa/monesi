@@ -4,5 +4,6 @@
 vendor
 status.yaml
 barcelona.yml
+docker-compose.yml
 
 

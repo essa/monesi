@@ -1,0 +1,14 @@
+
+version: '3.1'
+services:
+  monesi: &app_base
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bundle exec bin/monesi bot --directory=/envs/main
+    volumes:
+      - ${PWD}/envs:/envs
+  # second bot
+  #news:
+  #  <<: *app_base
+  #  command: bundle exec bin/monesi bot --directory=/envs/news

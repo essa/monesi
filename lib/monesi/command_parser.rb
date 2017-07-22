@@ -5,7 +5,7 @@ module Monesi
     def initialize(options)
       @feed_manager = options[:feed_manager]
       @debug = options[:debug]
-      require 'pry' if @debug
+      #require 'pry' rescue LoadError if @debug
     end
 
     def parse(text, &block)
