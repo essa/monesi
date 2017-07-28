@@ -42,6 +42,12 @@ describe Monesi::FeedManager do
       stub_request(:get, "http://rss.rssad.jp/rss/itmnews/2.0/news_bursts.xml")
         .to_return(body: atom, headers: { 'Content-Type' => 'application/xml; charset=utf-8'})
     end
+
+    let!(:jbpress_rss) do
+      rss = File::open('spec/fixtures/jbpress.ismedia.jp/rss.xml')
+      stub_request(:get, "http://jbpress.ismedia.jp/list/feed/rss")
+        .to_return(body: rss, headers: { 'Content-Type' => 'application/xml; charset=utf-8'})
+    end
   else
     let!(:hatena_index) { nil }
     let!(:hatena_rss) { nil }
@@ -152,6 +158,20 @@ describe Monesi::FeedManager do
           .to_return(body: "dummy text", headers: { 'Content-Type' => 'application/xml; charset=utf-8'})
         r = subject.filter?(article_url, :xyz)
         expect(r).to be_falsy
+      end
+    end
+
+    describe("with feed_author_filter") do
+      before do
+        subject.subscribe(:kan_ito, "http://jbpress.ismedia.jp/list/feed/rss", feed_author_filter: '伊東 乾')
+      end
+
+      let(:feed) { subject.feeds[:kan_ito] }
+
+      it "should pass all entry without options" do
+        feed.instance_eval { @entries = [] }
+        subject.fetch
+        expect(feed.new_entries.size).to eq(1)
       end
     end
 

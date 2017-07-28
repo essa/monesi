@@ -39,11 +39,20 @@ describe Monesi::CommandParser do
       end
     end
 
-    it "should process meta_filter option" do
+    it "should process meta_filter option with regexp" do
       expect(feed_manager).to receive(:subscribe)
                                .with(:uncate, "http://d.hatena.ne.jp/essa/", meta_filter: {'og:url'=> /yajiuma/} )
 
       subject.parse("subscribe http://d.hatena.ne.jp/essa/ as uncate with meta_filter(og:url=~/yajiuma/)") do |ans| 
+        p ans
+      end
+    end
+
+    it "should process feed_author_filter" do
+      expect(feed_manager).to receive(:subscribe)
+                               .with(:kan_ito, "http://jbpress.ismedia.jp/list/feed/rss/", feed_author_filter: '伊東 乾')
+
+      subject.parse('subscribe http://jbpress.ismedia.jp/list/feed/rss/ as kan_ito with feed_author_filter(伊東 乾)') do |ans|
         p ans
       end
     end

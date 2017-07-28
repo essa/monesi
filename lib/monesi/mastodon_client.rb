@@ -19,6 +19,49 @@ require 'highline/import'
 # http://qiita.com/rerofumi/items/894cde1f57357d2c8479
 
 module Monesi
+  class TootDistributer
+    attr_reader :client, :queue
+    def initialize(client, interval=120)
+      @client = client
+      @interval = interval
+      @queue = Queue.new
+      @cache = LruRedux::TTL::Cache.new(1000, 2 * 24 * 60 * 60) # 2 days ttl cache
+    end
+
+    def start
+      @thread = Thread.start do
+        loop do
+          begin
+            STDOUT.flush
+            toot = queue.pop
+            if @cache[toot]
+              puts "duplicate toot\n#{toot}"
+            else
+              puts toot
+              client.create_status(toot[0..499], {})
+              @cache[toot] = true
+              case queue.size
+              when 0
+                sleep @interval
+              when 1...10
+                sleep @interval/queue.size
+              else
+                # no sleep
+              end
+            end
+          rescue 
+            puts $!
+            puts $@
+          end
+        end
+      end
+    end
+
+    def post(toot)
+      queue.push toot
+    end
+  end
+
   class MastodonClient
     DEFAULT_APP_NAME = "monesi"
     DEFAULT_MASTODON_URL = 'https://mstdn.jp'
@@ -142,6 +185,8 @@ module Monesi
       setup
       parser = CommandParser.new(feed_manager: feed_manager)
       queue = Queue.new
+      toot_distributer = TootDistributer.new(client, 120)
+      toot_distributer.start
 
       Thread.start do
         watch_stream do |toot, username| 
@@ -170,9 +215,7 @@ module Monesi
             feed_manager.fetch
             puts "fetched"
             feed_manager.new_entries do |msg| 
-              puts msg
-              post_message(msg)
-              sleep 120
+              toot_distributer.post(msg)
             end
           end
           queue.push proc_

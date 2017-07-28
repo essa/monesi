@@ -83,10 +83,13 @@ module Monesi
 
     def parse_options(text)
       options = {}
-      if text =~ /meta_filter\(([\w\:]+)=~\/([^)]*)\/\)/
+      if text =~ /meta_filter\(([\w\:]+)=~\/([^)]*?)\/\)/
         options.merge! meta_filter: { $1 => Regexp.new($2) }
-      elsif text =~ /meta_filter\(([\w\:]+)=([^)]*)\)/
+      elsif text =~ /meta_filter\(([\w\:]+)=([^)]*?)\)/
         options.merge! meta_filter: { $1 => $2 }
+      end
+      if text =~ /feed_author_filter\(([^)]*?)\)/
+        options.merge! feed_author_filter: $1
       end
       if text =~ /tag\((.*)\)/
         options.merge! tag: $1

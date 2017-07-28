@@ -24,7 +24,7 @@ module Monesi
       @new_entries = []
     end
 
-    def fetch
+    def fetch(options={})
       r = FeedNormalizer::FeedNormalizer.parse open(feed_url)
       @title = r.title
       old_entries = @entries
@@ -32,8 +32,19 @@ module Monesi
         {
           title: e.title.force_encoding("UTF-8"),
           url: e.url.force_encoding("UTF-8"),
-          last_updated: e.last_updated
+          last_updated: e.last_updated,
+          authors: e.authors
         }
+      end
+
+      author = options[:feed_author_filter]
+      if author
+        @entries = @entries.select do |e| 
+          next unless e[:authors]
+          e[:authors].include?(author)
+        end
+        p @entries.size
+        p @entries.first
       end
 
       if old_entries
@@ -146,7 +157,10 @@ module Monesi
     end
 
     def fetch
-      feeds.values.each(&:fetch)
+      feeds.each do |feed_id, feed| 
+        option = feed_option_for(feed_id)
+        feed.fetch(option)
+      end
       @last_fetched = Time.now
       save
     end
