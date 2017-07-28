@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/tootsuite/mastodon-api
-  revision: 948610867da933c0b3a681562cca01b483b8e876
+  revision: 04385988faed858cfabfad2f1aca80be2c456e54
   branch: master
   specs:
     mastodon-api (1.1.0)
@@ -13,14 +13,14 @@ GEM
   specs:
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
-    aws-sdk (2.10.9)
-      aws-sdk-resources (= 2.10.9)
-    aws-sdk-core (2.10.9)
+    aws-sdk (2.10.19)
+      aws-sdk-resources (= 2.10.19)
+    aws-sdk-core (2.10.19)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.10.9)
-      aws-sdk-core (= 2.10.9)
-    aws-sigv4 (1.0.0)
+    aws-sdk-resources (2.10.19)
+      aws-sdk-core (= 2.10.19)
+    aws-sigv4 (1.0.1)
     buftok (0.2.0)
     coderay (1.1.1)
     crack (0.4.3)
@@ -29,8 +29,8 @@ GEM
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.2.1)
-    event_emitter (0.2.5)
-    faraday (0.12.1)
+    event_emitter (0.2.6)
+    faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
     feed-normalizer (1.5.2)
       hpricot (>= 0.6)
@@ -54,12 +54,12 @@ GEM
     jwt (1.5.6)
     lru_redux (1.1.0)
     method_source (0.8.2)
-    mini_portile2 (2.1.0)
+    mini_portile2 (2.2.0)
     multi_json (1.12.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
-    nokogiri (1.7.1)
-      mini_portile2 (~> 2.1.0)
+    nokogiri (1.8.0)
+      mini_portile2 (~> 2.2.0)
     oauth2 (1.4.0)
       faraday (>= 0.8, < 0.13)
       jwt (~> 1.0)
@@ -121,4 +121,4 @@ DEPENDENCIES
   websocket-client-simple
 
 BUNDLED WITH
-   1.14.6
+   1.15.1
