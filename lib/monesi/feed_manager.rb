@@ -43,8 +43,6 @@ module Monesi
           next unless e[:authors]
           e[:authors].include?(author)
         end
-        p @entries.size
-        p @entries.first
       end
 
       if old_entries
