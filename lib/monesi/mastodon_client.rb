@@ -118,6 +118,7 @@ module Monesi
     end
 
     def post_message(message, options={})
+      options[:visibility] ||= 'unlisted'
       client.create_status(message[0..499], options)
     end
 
@@ -167,7 +168,7 @@ module Monesi
         if toot.status.content
           text = extract_text(toot.status.content)
           text.gsub!(/^@\S+/, '')
-          client.create_status(text, in_reply_to_id: toot.status.id)
+          client.create_status(text, in_reply_to_id: toot.status.id, visibility: 'unlisted')
           puts text
         end
       end
