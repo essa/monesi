@@ -38,7 +38,7 @@ module Monesi
               puts "duplicate toot\n#{toot}"
             else
               puts toot
-              client.create_status(toot[0..499], {})
+              client.create_status(toot[0..499], visibility: 'unlisted')
               @cache[toot] = true
               case queue.size
               when 0
