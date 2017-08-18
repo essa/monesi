@@ -2,6 +2,7 @@
 
 require 'thor'
 
+require './lib/monesi/config'
 require './lib/monesi/mastodon_client'
 require './lib/monesi/feed_manager'
 require './lib/monesi/command_parser'
@@ -30,6 +31,7 @@ class CLI < Thor
 
   def console
     Dir::chdir(options[:directory]) if options[:directory]
+    Config::load
     mastodon_client.console(feed_manager)
   end
 

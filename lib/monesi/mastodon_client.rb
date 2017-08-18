@@ -21,7 +21,7 @@ require 'highline/import'
 module Monesi
   class TootDistributer
     attr_reader :client, :queue
-    def initialize(client, interval=120)
+    def initialize(client, interval)
       @client = client
       @interval = interval
       @queue = Queue.new
@@ -38,7 +38,7 @@ module Monesi
               puts "duplicate toot\n#{toot}"
             else
               puts toot
-              client.create_status(toot[0..499], visibility: 'unlisted')
+              client.create_status(toot[0..499], visibility: Config[:visibility])
               @cache[toot] = true
               case queue.size
               when 0
@@ -106,6 +106,7 @@ module Monesi
           f.write "MASTODON_ACCESS_TOKEN = '#{ENV["MASTODON_ACCESS_TOKEN"]}'\n"
         end
       end
+      Config::setup
     end
 
     def client
@@ -186,7 +187,7 @@ module Monesi
       setup
       parser = CommandParser.new(feed_manager: feed_manager)
       queue = Queue.new
-      toot_distributer = TootDistributer.new(client, 120)
+      toot_distributer = TootDistributer.new(client, Config[:interval])
       toot_distributer.start
 
       Thread.start do
