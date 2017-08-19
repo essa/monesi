@@ -39,14 +39,28 @@ describe Monesi::CommandParser do
     end
 
     it "should parse subscribe command with meta_filter" do
-      r subject.parse_command("subscribe http://d.hatena.ne.jp/essa/ as uncate with meta_filter(itmid:series=マストドンつまみ食い日記)") 
+      #r = subject.parse_command("subscribe http://d.hatena.ne.jp/essa/ as uncate with meta_filter(itmid:series=マストドンつまみ食い日記) ") 
+      r = subject.parse_command("subscribe http://d.hatena.ne.jp/essa/ as uncate with meta_filter(itmid:series=マストドンつまみ食い日記) meta_filter(aaa=~bbb)") 
       expect(r).to eq [
                      :subscribe,
                      'http://d.hatena.ne.jp/essa/',
                      'uncate',
-                     {
-                       meta_filter: {'itmid:series'=> 'マストドンつまみ食い日記'} 
-                     }
+                    [
+                      {
+                        meta_filter: {
+                          :key => 'itmid:series',
+                          :op => '=',
+                          :val => 'マストドンつまみ食い日記'
+                        },
+                      },
+                      {
+                        meta_filter: {
+                          :key => 'aaa',
+                          :op => '=~',
+                          :val => 'bbb'
+                        } 
+                      }
+                    ]
                    ]
     end
 

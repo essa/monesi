@@ -38,8 +38,26 @@ module Monesi
           identifier.as(:feed_id)
       }
 
+      rule(:operator) {
+        str("=~")  | str("=")  
+      }
+
+      rule(:subscribe_option) {
+        (
+        str("meta_filter") >> str("(") >> 
+        match['^='].repeat.as(:key) >>
+        operator.as(:op) >>
+        match['^~)'].repeat.as(:val) >>
+        str(")")
+        ).as(:meta_filter)
+      }
+
+      rule(:subscribe_options) {
+        (subscribe_option >> space?).repeat
+      }
+
       rule(:with) {
-        str('with')
+        str('with') >> space >> subscribe_options
       }
 
       rule(:subscribe) {
@@ -47,7 +65,7 @@ module Monesi
           url.as(:url) >> space >>
           str("as") >> space >>
           identifier.as(:feed_id) >> space? >>
-          with.maybe
+          with.maybe.as(:with)
       }
 
       rule(:command) {
@@ -63,6 +81,16 @@ module Monesi
       rule(:command => simple(:command)) { [command.to_s.intern] }
       rule(:command => simple(:command), :feed_id => simple(:feed_id)) { [ command.to_s.intern, feed_id]}
       rule(:subscribe => simple(:subscribe), :feed_id => simple(:feed_id), :url => simple(:url)) { [:subscribe, url, feed_id]}
+      rule(:subscribe => simple(:subscribe), :feed_id => simple(:feed_id), :url => simple(:url), :with => subtree(:with)) { [:subscribe, url.to_s, feed_id.to_s, with]}
+      rule(:meta_filter=>subtree(:options)) do
+        {
+          meta_filter: {
+            key: options[:key].to_s,
+            op: options[:op].to_s,
+            val: options[:val].to_s
+          }
+        }
+      end
     end
 
     attr_reader :feed_manager
@@ -74,7 +102,9 @@ module Monesi
     def parse_command(text)
       parser = Parser.new
       transform = Transform.new
-      transform.apply(parser.parse(text))
+      t = parser.parse(text)
+      p t
+      transform.apply(t)
     end
 
     def parse(text, &block)
