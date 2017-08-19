@@ -199,7 +199,7 @@ module Monesi
               parser.parse(text) do |msg| 
                 answer = "@#{username}\n#{msg}"
                 puts "answer: #{answer}"
-                post_message(answer, in_reply_to_id: toot.status.id)
+                post_message(answer, in_reply_to_id: toot.status.id, visibility: 'direct')
               end
             end
             puts "pushing message event"

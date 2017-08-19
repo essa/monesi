@@ -178,7 +178,7 @@ describe Monesi::FeedManager do
     describe("with meta_filter") do
       before do
         subject.subscribe(:mastodon, "http://rss.rssad.jp/rss/itmnews/2.0/news_bursts.xml",
-                          meta_filter: {'itmid:series'=> 'マストドンつまみ食い日記'} )
+                          meta_filter: {:key=>"itmid:series", :op=>"=", :val=>"マストドンつまみ食い日記"})
       end
       it "should pass all entry without options" do
         article_url = 'http://rss.rssad.jp/rss/artclk/XXtgw_wVjwMW/9f85c188d441f0dfaeb38b13067cc9ed?ul=dFXxPH_nlvvejbi.pBVaGQ.GWRexPETyBzUkKBlyRM5f36fvCkTox6TchXHdzU6el7Ykc1bl39Q4j7zFDanCYhZLw0OQiphOeVtcIlf8ehXkhzyEJFuFpBx7U1DemKxW.e6uNQs'
@@ -201,7 +201,8 @@ describe Monesi::FeedManager do
 
     describe ("with meta_filter with regexp") do
       before do
-        subject.subscribe(:watch, "http://d.hatena.ne.jp/essa/", meta_filter: { "og:url" => /yajiuma/ })
+        subject.subscribe(:watch, "http://d.hatena.ne.jp/essa/", 
+                          meta_filter: { :key => 'og:url', :op => '=~', :val => '/yajiuma/' })
       end
 
       it "should match with regexp" do

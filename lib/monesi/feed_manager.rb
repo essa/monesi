@@ -183,12 +183,19 @@ module Monesi
 
     def toot_for_article(feed_id, article)
       tag = feed_option_for(feed_id)[:tag]
+      tag = [tag] if tag.kind_of?(String)
+      tags = ''
+      if tag
+        tags = tag.map do |t| 
+          "##{t}"
+        end.join(' ')
+      end
       toot = <<~EOS
       #{article[:title]}
       #{article[:url]}
       ##{feed_id}
       EOS
-      toot += "\n##{tag}" if tag
+      toot += "#{tags}" if tag
       toot
     end
 
@@ -212,10 +219,18 @@ module Monesi
     end
 
     def meta_match?(url, meta_filter)
-      k = meta_filter.keys.first
-      v = meta_filter[k]
+      k = meta_filter[:key]
+      v = meta_filter[:val]
       dom = Nokogiri::HTML.parse(open(url))
-      dom.xpath('//meta').any? { |e| (e['name'] || e['property']) == k && v === e['content']  }
+      case meta_filter[:op]
+      when '='
+        dom.xpath('//meta').any? { |e| (e['name'] || e['property']) == k && v == e['content']  }
+      when '=~'
+        r = Regexp.new(v)
+        dom.xpath('//meta').any? { |e| (e['name'] || e['property']) == k && r =~ e['content'] }
+      else
+        raise "not implemented"
+      end
     end
 
     def feed_option_for(feed_id)

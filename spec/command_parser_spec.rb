@@ -35,32 +35,32 @@ describe Monesi::CommandParser do
 
     it "should parse subscribe command" do
       r = subject.parse_command(" @monesi subscribe http://d.hatena.ne.jp/essa/ as uncate")
-      expect(r).to eq [:subscribe, 'http://d.hatena.ne.jp/essa/', 'uncate']
+      expect(r).to eq [:subscribe, 'http://d.hatena.ne.jp/essa/', 'uncate', {}]
     end
 
     it "should parse subscribe command with meta_filter" do
-      #r = subject.parse_command("subscribe http://d.hatena.ne.jp/essa/ as uncate with meta_filter(itmid:series=マストドンつまみ食い日記) ") 
-      r = subject.parse_command("subscribe http://d.hatena.ne.jp/essa/ as uncate with meta_filter(itmid:series=マストドンつまみ食い日記) meta_filter(aaa=~bbb)") 
+      r = subject.parse_command("subscribe http://d.hatena.ne.jp/essa/ as uncate with meta_filter(itmid:series=マストドンつまみ食い日記) ") 
       expect(r).to eq [
                      :subscribe,
                      'http://d.hatena.ne.jp/essa/',
                      'uncate',
-                    [
-                      {
-                        meta_filter: {
-                          :key => 'itmid:series',
-                          :op => '=',
-                          :val => 'マストドンつまみ食い日記'
-                        },
-                      },
-                      {
-                        meta_filter: {
-                          :key => 'aaa',
-                          :op => '=~',
-                          :val => 'bbb'
-                        } 
-                      }
-                    ]
+                     {
+                       meta_filter: {
+                         :key => 'itmid:series',
+                         :op => '=',
+                         :val => 'マストドンつまみ食い日記'
+                       },
+                     },
+                   ]
+    end
+
+    it "should parse subscribe command with feed_author_filter" do
+      r = subject.parse_command("subscribe http://d.hatena.ne.jp/essa/ as uncate with feed_author_filter(Taku Nakajima)") 
+      expect(r).to eq [
+                     :subscribe,
+                     'http://d.hatena.ne.jp/essa/',
+                     'uncate',
+                     { feed_author_filter: 'Taku Nakajima' }
                    ]
     end
 
@@ -95,7 +95,8 @@ describe Monesi::CommandParser do
 
     it "should process meta_filter option" do
       expect(feed_manager).to receive(:subscribe)
-                               .with(:uncate, "http://d.hatena.ne.jp/essa/", meta_filter: {'itmid:series'=> 'マストドンつまみ食い日記'} )
+                               .with(:uncate, "http://d.hatena.ne.jp/essa/",
+                                     meta_filter: {:key=>"itmid:series", :op=>"=", :val=>"マストドンつまみ食い日記"})
 
       subject.parse("subscribe http://d.hatena.ne.jp/essa/ as uncate with meta_filter(itmid:series=マストドンつまみ食い日記)") do |ans| 
         p ans
@@ -104,7 +105,8 @@ describe Monesi::CommandParser do
 
     it "should process meta_filter option with regexp" do
       expect(feed_manager).to receive(:subscribe)
-                               .with(:uncate, "http://d.hatena.ne.jp/essa/", meta_filter: {'og:url'=> /yajiuma/} )
+                               .with(:uncate, "http://d.hatena.ne.jp/essa/",
+                                     meta_filter: { :key => 'og:url', :op => '=~', :val => '/yajiuma/' })
 
       subject.parse("subscribe http://d.hatena.ne.jp/essa/ as uncate with meta_filter(og:url=~/yajiuma/)") do |ans| 
         p ans
@@ -122,9 +124,9 @@ describe Monesi::CommandParser do
 
     it "should process tag option" do
       expect(feed_manager).to receive(:subscribe)
-                               .with(:uncate, "http://d.hatena.ne.jp/essa/", tag: "blog")
+                               .with(:uncate, "http://d.hatena.ne.jp/essa/", tag: %w(blog tech))
 
-      subject.parse("subscribe http://d.hatena.ne.jp/essa/ as uncate with tag(blog)") do |ans| 
+      subject.parse("subscribe http://d.hatena.ne.jp/essa/ as uncate with tag(blog, tech)") do |ans| 
         p ans
       end
     end
