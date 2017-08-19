@@ -12,6 +12,55 @@ describe Monesi::CommandParser do
     should_not be_nil
   end
 
+  describe "#parse_command" do
+    it "should parse help command" do
+      r = subject.parse_command("help")
+      expect(r).to eq [:help]
+    end
+
+    it "should parse fetch command" do
+      r = subject.parse_command("fetch")
+      expect(r).to eq [:fetch]
+    end
+
+    it "should parse list command" do
+      r = subject.parse_command("@monesi list   ")
+      expect(r).to eq [:list]
+    end
+
+    it "should parse unsubscribe command" do
+      r = subject.parse_command("unsubscribe uncate")
+      expect(r).to eq [:unsubscribe, 'uncate']
+    end
+
+    it "should parse subscribe command" do
+      r = subject.parse_command(" @monesi subscribe http://d.hatena.ne.jp/essa/ as uncate")
+      expect(r).to eq [:subscribe, 'http://d.hatena.ne.jp/essa/', 'uncate']
+    end
+
+    it "should parse subscribe command with meta_filter" do
+      r subject.parse_command("subscribe http://d.hatena.ne.jp/essa/ as uncate with meta_filter(itmid:series=マストドンつまみ食い日記)") 
+      expect(r).to eq [
+                     :subscribe,
+                     'http://d.hatena.ne.jp/essa/',
+                     'uncate',
+                     {
+                       meta_filter: {'itmid:series'=> 'マストドンつまみ食い日記'} 
+                     }
+                   ]
+    end
+
+    it "should parse show_articles command" do
+      r = subject.parse_command(" @monesi show_articles uncate")
+      expect(r).to eq [:show_articles, 'uncate']
+    end
+
+    it "should parse show_meta command" do
+      r = subject.parse_command(" @monesi show_meta uncate")
+      expect(r).to eq [:show_meta, 'uncate']
+    end
+  end
+
   describe "#subscribe" do
     it "should subsribe a feed for request" do
       expect(feed_manager).to receive(:subscribe).with(:uncate, "http://d.hatena.ne.jp/essa/", {})

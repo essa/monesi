@@ -14,6 +14,7 @@ ADD Gemfile.lock $APP_HOME/Gemfile.lock
 RUN bundle install --deployment --without test development
 
 COPY . /monesi
+ADD config.yaml config.yaml
 
 VOLUME /envs
 

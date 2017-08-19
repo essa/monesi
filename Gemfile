@@ -11,6 +11,7 @@ gem 'feedbag'
 gem 'feed-normalizer'
 gem 'aws-sdk'
 gem 'lru_redux'
+gem 'parslet'
 
 group :development, :test do
   gem 'pry'

@@ -67,6 +67,7 @@ GEM
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
     open_uri_redirections (0.2.1)
+    parslet (1.8.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -114,6 +115,7 @@ DEPENDENCIES
   lru_redux
   mastodon-api!
   oauth2
+  parslet
   pry
   rspec
   thor
