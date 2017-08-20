@@ -14,7 +14,7 @@ module Monesi
 
       # Things
       rule(:integer)    { match('[0-9]').repeat(1).as(:int) >> space? }
-      rule(:identifier) { match['a-z_'].repeat(1) }
+      rule(:identifier) { match['^\s:()=,'].repeat(1) } # to allow Japanese characters
       rule(:url) { match['\S'].repeat(1) }
       rule(:mention)    { str('@') >> identifier}
 
@@ -32,7 +32,6 @@ module Monesi
       rule(:feed_command) {
         (
           str('show_articles') | 
-          str('show_meta') | 
           str('unsubscribe')
         ).as(:command) >> space >>
           identifier.as(:feed_id)
@@ -62,7 +61,8 @@ module Monesi
         (subscribe_option >> space?).repeat
       }
 
-      rule(:with) {
+      rule(:with) {{
+                   }
         str('with') >> space >> subscribe_options
       }
 
@@ -74,9 +74,14 @@ module Monesi
           with.maybe.as(:with)
       }
 
+      rule(:show_meta) {
+        str('show_meta').as(:show_meta) >> space >>
+          url.as(:url) 
+      }
+
       rule(:command) {
         space? >> mention.maybe >> space? >>
-          ( subscribe | feed_command | simple_command ) >>
+          ( subscribe | show_meta | feed_command | simple_command ) >>
           space?
       }
 
@@ -107,6 +112,10 @@ module Monesi
         tags.map do |t| 
           t[:tag].to_s
         end
+      end
+
+      rule(:show_meta => simple(:command), :url => simple(:url)) do
+        [:show_meta, url.to_s]
       end
     end
 

@@ -36,6 +36,8 @@ describe Monesi::CommandParser do
     it "should parse subscribe command" do
       r = subject.parse_command(" @monesi subscribe http://d.hatena.ne.jp/essa/ as uncate")
       expect(r).to eq [:subscribe, 'http://d.hatena.ne.jp/essa/', 'uncate', {}]
+      r = subject.parse_command(" @monesi subscribe http://d.hatena.ne.jp/essa/ as アンカテ123")
+      expect(r).to eq [:subscribe, 'http://d.hatena.ne.jp/essa/', 'アンカテ123', {}]
     end
 
     it "should parse subscribe command with meta_filter" do
@@ -64,14 +66,24 @@ describe Monesi::CommandParser do
                    ]
     end
 
+    it "should parse subscribe command with tag" do
+      r = subject.parse_command("subscribe http://d.hatena.ne.jp/essa/ as uncate with tag(essa,blog) feed_author_filter(Taku Nakajima)") 
+      expect(r).to eq [
+                     :subscribe,
+                     'http://d.hatena.ne.jp/essa/',
+                     'uncate',
+                     { feed_author_filter: 'Taku Nakajima', tag: %w(essa blog) }
+                   ]
+    end
+
     it "should parse show_articles command" do
       r = subject.parse_command(" @monesi show_articles uncate")
       expect(r).to eq [:show_articles, 'uncate']
     end
 
     it "should parse show_meta command" do
-      r = subject.parse_command(" @monesi show_meta uncate")
-      expect(r).to eq [:show_meta, 'uncate']
+      r = subject.parse_command(" @monesi show_meta http://d.hatena.ne.jp/essa/123")
+      expect(r).to eq [:show_meta, 'http://d.hatena.ne.jp/essa/123']
     end
   end
 
