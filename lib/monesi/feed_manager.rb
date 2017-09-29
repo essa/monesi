@@ -3,7 +3,7 @@
 
 require "feedbag"
 require "feed-normalizer"
-require 'aws-sdk'
+require 'aws-sdk-s3'
 require 'curb'
 
 module Monesi
