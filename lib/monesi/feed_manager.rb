@@ -1,3 +1,4 @@
+# coding: utf-8
 
 
 require "feedbag"
@@ -206,6 +207,14 @@ module Monesi
       ##{feed_id}
       EOS
       toot += "#{tags}" if tag
+      if options[:hatebu_url]
+        u = URI::parse(article[:url])
+        toot += "\nhttp://b.hatena.ne.jp/entry/#{u.host}#{u.request_uri}"
+      end
+      if options[:twitter_url]
+        u = CGI::escape(article[:url])
+        toot += "\nhttps://twitter.com/search?ref_src=twsrc&q=#{u}"
+      end
       toot
     end
 
