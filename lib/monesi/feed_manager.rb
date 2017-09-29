@@ -3,6 +3,7 @@
 require "feedbag"
 require "feed-normalizer"
 require 'aws-sdk'
+require 'curb'
 
 module Monesi
   module FakeUAForHatena
@@ -182,7 +183,16 @@ module Monesi
     end
 
     def toot_for_article(feed_id, article)
-      tag = feed_option_for(feed_id)[:tag]
+      options = feed_option_for(feed_id)
+      if options[:redirect_url]
+        url = article[:url]
+        result = Curl::Easy.perform(url) do |curl|
+          curl.head = true
+          curl.follow_location = true
+        end
+        article[:url] = result.last_effective_url
+      end
+      tag = options[:tag]
       tag = [tag] if tag.kind_of?(String)
       tags = ''
       if tag

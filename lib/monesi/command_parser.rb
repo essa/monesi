@@ -54,7 +54,8 @@ module Monesi
       rule(:subscribe_option) {
         (str("meta_filter") >> str("(") >> condition >> str(")")).as(:meta_filter) |
           (str("feed_author_filter") >> str("(") >> val.as(:author) >> str(")")).as(:feed_author_filter) |
-          (str("tag") >> str("(") >> tags.as(:tags) >> str(")")).as(:tag)
+          (str("tag") >> str("(") >> tags.as(:tags) >> str(")")).as(:tag) |
+          str("redirect_url").as(:redirect_url)
       }
 
       rule(:subscribe_options) {
@@ -106,6 +107,9 @@ module Monesi
             val: options[:val].to_s
           }
         }
+      end
+      rule(:redirect_url=>subtree(:options)) do
+        { :redirect_url => true}
       end
       rule(:author=>simple(:author)) { author.to_s }
       rule(:tags=>subtree(:tags)) do

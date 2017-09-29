@@ -12,6 +12,7 @@ gem 'feed-normalizer'
 gem 'aws-sdk'
 gem 'lru_redux'
 gem 'parslet'
+gem 'curb'
 
 group :development, :test do
   gem 'pry'

@@ -13,6 +13,7 @@ require 'websocket-client-simple'
 require 'json'
 require 'uri'
 require 'highline/import'
+require 'readline'
 
 # some codes are copied from following articles
 # http://qiita.com/takahashim/items/a8c0eb3a75d366cfe87b
@@ -149,15 +150,18 @@ module Monesi
     end
 
     def console(feed_manager)
-      prompt = '> '
       feed_manager.load
       parser = CommandParser.new(feed_manager: feed_manager, debug: true)
       puts parser.help_text
-      loop do
-        print prompt
-        cmd = STDIN.gets
-        parser.parse(cmd) do |msg| 
-          puts msg 
+      while cmd = Readline.readline("> ", true)
+        case cmd
+        when 'pry'
+          require 'pry'
+          binding.pry
+        else
+          parser.parse(cmd) do |msg| 
+            puts msg 
+          end
         end
       end
     rescue EOFError
