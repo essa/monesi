@@ -150,11 +150,13 @@ module Monesi
     end
 
     def console(feed_manager)
+      prompt = '> '
       feed_manager.load
       parser = CommandParser.new(feed_manager: feed_manager, debug: true)
       puts parser.help_text
-      while cmd = Readline.readline("> ", true)
-        case cmd
+      print prompt
+      while cmd = STDIN.gets
+        case cmd.chomp
         when 'pry'
           require 'pry'
           binding.pry
@@ -163,6 +165,7 @@ module Monesi
             puts msg 
           end
         end
+        print prompt
       end
     rescue EOFError
     end
