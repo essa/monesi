@@ -209,7 +209,12 @@ module Monesi
       toot += "#{tags}" if tag
       if options[:hatebu_url]
         u = URI::parse(article[:url])
-        toot += "\nhttp://b.hatena.ne.jp/entry/#{u.host}#{u.request_uri}"
+        https_mark = if u.scheme == 'https'
+                       's/'
+                     else
+                       ''
+                     end
+        toot += "\nhttp://b.hatena.ne.jp/entry/#{https_mark}#{u.host}#{u.request_uri}"
       end
       if options[:twitter_url]
         u = CGI::escape(article[:url])
