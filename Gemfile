@@ -14,8 +14,9 @@ gem 'lru_redux'
 gem 'parslet'
 gem 'curb'
 
+gem 'pry'
+
 group :development, :test do
-  gem 'pry'
   gem 'rspec'
   gem 'webmock', require: false
 end

@@ -1,8 +1,11 @@
-FROM ruby:2.4.1-alpine
+FROM ruby:2.4.2-slim
 
-RUN echo "@edge https://nl.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories \
- && apk -U upgrade \
- && apk add git build-base libxml2-dev libxslt-dev curl-dev
+RUN apt-get clean && apt-get update \
+   && apt-get install -y --no-install-recommends \
+      build-essential \
+      git \
+      libxml2 libxslt1.1 libcurl3 libcurl4-openssl-dev\
+   && rm -rf /var/lib/apt/lists/*
 
 ENV APP_HOME /monesi
 RUN mkdir $APP_HOME
