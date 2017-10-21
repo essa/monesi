@@ -30,7 +30,7 @@ module Monesi
       r = FeedNormalizer::FeedNormalizer.parse open(feed_url)
       @title = r.title
       old_entries = @entries
-      @entries = r.entries.map do |e| 
+      @entries = r.entries.reverse.map do |e| 
         {
           title: e.title.force_encoding("UTF-8"),
           url: e.url.force_encoding("UTF-8"),
