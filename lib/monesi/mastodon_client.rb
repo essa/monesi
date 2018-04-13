@@ -26,7 +26,7 @@ module Monesi
       @client = client
       @interval = interval
       @queue = Queue.new
-      @cache = LruRedux::TTL::Cache.new(1000, 2 * 24 * 60 * 60) # 2 days ttl cache
+      @cache = LruRedux::TTL::Cache.new(1000, 7 * 24 * 60 * 60) # 2 days ttl cache
     end
 
     def start

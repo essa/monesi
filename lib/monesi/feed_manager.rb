@@ -57,7 +57,6 @@ module Monesi
       end
     rescue
       puts "error in fetching #{feed_url}"
-      raise
     end
   end
 
